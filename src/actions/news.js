@@ -75,13 +75,3 @@ export const fetchNews = () => {
 //     .catch(err => dispatch(fetchNewsError(err)))
 //   }
 // }
-
-export const fetchCommunity = () => {
-  return (dispatch, getState) => {
-    dispatch(fetchNewsRequest());
-    fetch(`${API_BASE_URL}/api/community`)
-    .then(res => res.json())
-    .then(data => dispatch(fetchCommunitySuccess(data.articles)))
-    .catch(err => dispatch(fetchNewsError(err)))
-  }
-}

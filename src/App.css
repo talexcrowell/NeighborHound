@@ -41,6 +41,7 @@
   margin: 0px;
   padding: 10px;
   width: 200px;
+  float:left;
   display: inline-block;
   vertical-align: middle;
 }
@@ -48,6 +49,7 @@
 .header-container{
   background-color: #282828;
   max-width: 960px;
+  width: 100%;
   min-width: 300px;
   display:inline-block;
 }
@@ -58,15 +60,18 @@
   background-color: #282828;
   display: inline-block;
   margin: auto;
+  float: right;
   min-width: 300px;
   max-width: 600px;
   padding:0px;
 }
 
 .header-menu-choice {
+  box-sizing: border-box;
   max-width: 150px;
   padding: 10px;
   font-size: 24px;
+  margin: 5px;
   background-color: #282828;
   float: left;
 }

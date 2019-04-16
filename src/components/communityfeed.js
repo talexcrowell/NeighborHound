@@ -5,12 +5,13 @@ export function ContentCommunityFeedItem (props) {
     return(
       <li className='post' key ={props.index}>
         <div className='img-container'>
-          <img className='article-img' src={props.post.img} alt={props.post.title} />
+          <img className='post-img' src={props.post.img} alt={props.post.title} />
         </div>
-        <section className='article-description'>
-          <h3 className='article-title'>{props.post.title}</h3>
-          <a target="_blank" rel="noopener noreferrer" href={props.post.url}>View</a>
-        </section>
+        <a target="_blank" rel="noopener noreferrer" href={props.post.url}>
+          <section className='post-description'>
+          <h3 className='post-title'>{props.post.title}</h3>
+          </section>
+        </a>
       </li>
     )
 }
