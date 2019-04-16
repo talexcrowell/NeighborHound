@@ -1,9 +1,7 @@
-import {FETCH_NEWS_REQUEST, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR, FETCH_ANIMENEWS_SUCCESS, FETCH_CYBERSECURITYNEWS_SUCCESS} from '../actions/news';
+import {FETCH_NEWS_REQUEST, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR} from '../actions/news';
 
 const initialState = {
   articles: [],
-  anime: [],
-  csn: [],
   loading: false,
   error: null
 };
@@ -18,21 +16,7 @@ export default function newsReducer(state=initialState, action){
   else if(action.type === FETCH_NEWS_SUCCESS){
     return{
       ...state,
-      articles: [...action.news.blogs],
-      loading: false
-    }
-  }
-  else if(action.type === FETCH_ANIMENEWS_SUCCESS){
-    return{
-      ...state,
-      anime: [...action.news.data],
-      loading: false
-    }
-  }
-  else if(action.type === FETCH_CYBERSECURITYNEWS_SUCCESS){
-    return{
-      ...state,
-      csn: [...action.news],
+      articles: [...action.news],
       loading: false
     }
   }
