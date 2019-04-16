@@ -17,11 +17,33 @@ export const fetchCommunityError = (error) => ({
   error
 });
 
+function normalize(htmlBlock){
+  let imgRegex = /<a href="https:\/\/i.redd.*(.jpg"|.png")>/g;
+  let img;
+  let found = imgRegex.exec(htmlBlock);
+  if(found !== null){
+    img = found[0];
+  } else {
+    console.log('Miss >>>' + htmlBlock);
+    img = 'https://i.imgur.com/5atv5tb.gif';
+  }
+  return img.replace('<a href="', '').replace('">', '')
+}
+
 export const fetchCommunity = () => {
   return (dispatch, getState) => {
     dispatch(fetchCommunityRequest());
-    fetch(`${API_BASE_URL}/api/community`)
+    fetch(`${API_BASE_URL}/api/community/convert`)
     .then(res => res.json())
+    .then(raw=> raw.items.map(post => {
+      let img = normalize(post.content_html);
+      return {
+        url: post.url,
+        title: post.title,
+        publishedAt: post.date_published,
+        img
+      }
+    }))
     .then(data => dispatch(fetchCommunitySuccess(data)))
     .catch(err => dispatch(fetchCommunityError(err)))
   }

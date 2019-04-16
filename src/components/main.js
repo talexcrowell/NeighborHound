@@ -21,12 +21,7 @@ export class Main extends React.Component {
       <ContentNewsFeedItem article={article} index={index} />
     ));
 
-    let combinedMedia = posts.concat(articles).sort((a,b) => {
-      a = new Date(b.publishedAt);
-      b = new Date(a.publishedAt);
-      return a-b;
-    });
-
+    let combinedMedia = posts.concat(articles);
 
     let newsFeed;
     if(this.props.loading === true){
