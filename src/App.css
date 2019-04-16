@@ -22,44 +22,56 @@
 }
 
 * {
-  background-color: #03002e;
+  background-color: #181818;
   font-family: 'Noto Sans SC', sans-serif;
   box-sizing: border-box;
   color: white;
 }
 
 .headerbar{
-  background-color: black;
+  background-color: #282828;
   width: 100%;
-  height: 60px;
   max-width: 1980px;
-  border-bottom-color: grey;
   position: fixed;
+  border-bottom: black 2px solid;
 }
 
 .header-title{
-  background: black;
-  margin: 0;
+  background-color: #282828;
+  margin: 0px;
   padding: 10px;
-  width: 30%;
+  width: 200px;
   display: inline-block;
-  float:left;
+  vertical-align: middle;
+}
+
+.header-container{
+  background-color: #282828;
+  max-width: 960px;
+  min-width: 300px;
+  display:inline-block;
 }
 
 .header-menu{
+  vertical-align: middle;
   list-style-type: none;
-  background: black;
+  background-color: #282828;
   display: inline-block;
-  padding: 10px;
-  float: right;
-  vertical-align: center;
-  margin: 0px;
+  margin: auto;
+  min-width: 300px;
+  max-width: 600px;
+  padding:0px;
 }
 
 .header-menu-choice {
   max-width: 150px;
   padding: 10px;
   font-size: 24px;
-  background: black;
+  background-color: #282828;
   float: left;
+}
+
+.header-menu-choice:hover{
+  font-style: underline;
+  font-weight: bold;
 }

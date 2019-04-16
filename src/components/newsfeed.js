@@ -9,7 +9,6 @@ export function ContentNewsFeedItem (props) {
         </div>
         <section className='article-description'>
           <h3 className='article-title'>{props.article.title}</h3>
-          <p className='article-summary'>{props.article.description ? props.article.description : 'No provided summary :('}</p>
           <a target="_blank" rel="noopener noreferrer" href={props.article.url}>View</a>
         </section>
       </li>
