@@ -9,6 +9,7 @@ export class HeaderBar extends React.Component {
    return(
      <div className='headerbar'>
       <div className='header-container'>
+        <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' />
         <Link to='/'><h2 className='header-title'>NeighborHound</h2></Link>
         <ul className='header-menu'>
           <Link to='/news' ><li className='header-menu-choice'>News</li></Link>

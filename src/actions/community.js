@@ -25,7 +25,7 @@ function normalize(htmlBlock){
     img = found[0];
   } else {
     console.log('Miss >>>' + htmlBlock);
-    img = 'https://i.imgur.com/5atv5tb.gif';
+    img = 'https://i.imgur.com/3xw03XE.png';
   }
   return img.replace('<a href="', '').replace('">', '')
 }

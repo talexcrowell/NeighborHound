@@ -28,6 +28,20 @@
   color: white;
 }
 
+.logo{
+  display: inline-block;
+  background: none;
+  width: 55px;
+  height: 55px;
+  padding: 2.5px;
+  margin: 0 auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  float: left;
+}
+
 .headerbar{
   background-color: #282828;
   width: 100%;
@@ -48,7 +62,7 @@
 
 .header-container{
   background-color: #282828;
-  max-width: 960px;
+  max-width: 1000px;
   width: 100%;
   min-width: 300px;
   display:inline-block;
@@ -64,6 +78,7 @@
   min-width: 300px;
   max-width: 600px;
   padding:0px;
+  box-sizing: border-box;
 }
 
 .header-menu-choice {
