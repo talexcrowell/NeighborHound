@@ -5,18 +5,6 @@ export const fetchNewsRequest = () => ({
   type: FETCH_NEWS_REQUEST
 });
 
-// export const FETCH_ANIMENEWS_SUCCESS = 'FETCH_ANIMENEWS_SUCCESS';
-// export const fetchAnimeNewsSuccess = (news) => ({
-//   type: FETCH_ANIMENEWS_SUCCESS,
-//   news
-// });
-
-// export const FETCH_CYBERSECURITYNEWS_SUCCESS = 'FETCH_CYBERSECURITYNEWS_SUCCESS';
-// export const fetchCyberSecurityNewsSuccess = (news) => ({
-//   type: FETCH_CYBERSECURITYNEWS_SUCCESS,
-//   news
-// });
-
 export const FETCH_COMMUNITY_SUCCESS = 'FETCH_COMMUNITY_SUCCESS';
 export const fetchCommunitySuccess = (posts) => ({
   type: FETCH_COMMUNITY_SUCCESS,
@@ -49,6 +37,18 @@ export const fetchNews = () => {
     .catch(err => dispatch(fetchNewsError(err)))
   }
 }
+
+// export const FETCH_ANIMENEWS_SUCCESS = 'FETCH_ANIMENEWS_SUCCESS';
+// export const fetchAnimeNewsSuccess = (news) => ({
+//   type: FETCH_ANIMENEWS_SUCCESS,
+//   news
+// });
+
+// export const FETCH_CYBERSECURITYNEWS_SUCCESS = 'FETCH_CYBERSECURITYNEWS_SUCCESS';
+// export const fetchCyberSecurityNewsSuccess = (news) => ({
+//   type: FETCH_CYBERSECURITYNEWS_SUCCESS,
+//   news
+// });
 
 // export const fetchAnimeNews = () => {
 //   return (dispatch, getState) => {

@@ -9,12 +9,14 @@ export class HeaderBar extends React.Component {
    return(
      <div className='headerbar'>
       <div className='header-container'>
-        <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' />
-        <Link to='/'><h2 className='header-title'>NeighborHound</h2></Link>
+        <Link to='/'>
+          <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' />
+          <h2 className='header-title'>NeighborHound</h2>
+        </Link>
         <ul className='header-menu'>
           <Link to='/news' ><li className='header-menu-choice'>News</li></Link>
           <Link to='/community' ><li className='header-menu-choice'>Community</li></Link>
-          <li className='header-menu-choice'>Rex</li>
+          <Link to='/rex' > <li className='header-menu-choice'>Rex</li></Link>
         </ul>
       </div>
      </div>

@@ -2,6 +2,7 @@ import {FETCH_NEWS_REQUEST, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR} from '../actio
 
 const initialState = {
   articles: [],
+  opened:[],
   loading: false,
   error: null
 };

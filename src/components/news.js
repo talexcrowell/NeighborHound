@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { fetchNews } from '../actions/news';
 import './main.css';
 import { ContentNewsFeedItem } from './newsfeed';
+import {Filter} from './filter';
 
 export class News extends React.Component {
   componentDidMount() {
@@ -15,9 +16,11 @@ export class News extends React.Component {
       <ContentNewsFeedItem article={article} index={index} />
     ));
 
+    let filter = (<Filter sources={articles} />);
+
     let newsFeed;
     if(this.props.loading === true){
-      newsFeed = (<div className='loading'>Loading Feed...</div>);
+      newsFeed = (<div className='loading'>Loading... </div>);
     } else{
       newsFeed = (<ul className='newsfeed'>{articles}</ul>);
     }
