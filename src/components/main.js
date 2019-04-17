@@ -12,7 +12,24 @@ export class Main extends React.Component {
     this.props.dispatch(fetchCommunity());
   }
 
+
   render() {
+
+    function mainStream(arr1, arr2){
+      let output=[];
+      let longer;
+      if(arr1.length > arr2.length){
+        longer= arr1.length;
+      } else{
+        longer = arr2.length;
+      }
+      for(let i=0; i<longer; i++){
+        output.push(arr1[i]);
+        output.push(arr2[i]);
+      }
+      return output;
+    }
+
     let posts = this.props.posts.map((post, index) => (
       <ContentCommunityFeedItem post={post} index={index} />
     ));
@@ -21,7 +38,7 @@ export class Main extends React.Component {
       <ContentNewsFeedItem article={article} index={index} />
     ));
 
-    let combinedMedia = posts.concat(articles);
+    let combinedMedia = mainStream(posts,articles); 
 
     let newsFeed;
     if(this.props.loading === true){
