@@ -1,5 +1,5 @@
 .main-page{
-  background-color: white;
+  background-color: #181818;
   border: 2px white;
   border-radius: 4px;
   display: inline-block;
@@ -47,7 +47,7 @@
   margin-top: 45px;
   margin-bottom: 0;
   list-style-type: none;
-  background-color: black;
+  background-color: 282828;
   padding: 20px;
   text-align: center;
 }
@@ -245,4 +245,13 @@
   font-size: 22px;
   background: #484848;
   margin: 0;
+}
+
+.loading-img{
+  margin-top:75px;
+  max-width: 500px;
+  max-height: 500px;
+  height: 100%;
+  display: inline-block;
+  border-radius: 4px;
 }
