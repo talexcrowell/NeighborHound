@@ -1,2 +1,2 @@
 # NeighbourHound
-Personal news, interest, and other aggregator
+Personal news, interest, and other aggregater
