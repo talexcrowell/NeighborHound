@@ -20,7 +20,7 @@ export class News extends React.Component {
 
     let newsFeed;
     if(this.props.loading === true){
-      newsFeed = (<div className='loading'>Loading... </div>);
+      newsFeed = (<img className='loading-img' src='https://i.imgur.com/4WYBRRN.png' alt='Gathering Data...' />);
     } else{
       newsFeed = (<ul className='newsfeed'>{articles}</ul>);
     }
