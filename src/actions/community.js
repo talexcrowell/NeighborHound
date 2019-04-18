@@ -33,17 +33,8 @@ function normalize(htmlBlock){
 export const fetchCommunity = () => {
   return (dispatch, getState) => {
     dispatch(fetchCommunityRequest());
-    fetch(`${API_BASE_URL}/api/community/convert`)
+    fetch(`${API_BASE_URL}/api/community/all`)
     .then(res => res.json())
-    .then(raw=> raw.items.map(post => {
-      let img = normalize(post.content_html);
-      return {
-        url: post.url,
-        title: post.title,
-        publishedAt: post.date_published,
-        img
-      }
-    }))
     .then(data => dispatch(fetchCommunitySuccess(data)))
     .catch(err => dispatch(fetchCommunityError(err)))
   }

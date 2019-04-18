@@ -5,7 +5,7 @@ export function ContentCommunityFeedItem (props) {
 
     return(
       <li className='post' key ={props.index}>
-        <div className='post-source'>reddit.com</div>
+        <div className='post-source'>imgur</div>
         <div className='post-interest'></div>
         <a target="_blank" rel="noopener noreferrer" href={props.post.url}>
           <div className='img-container'>
