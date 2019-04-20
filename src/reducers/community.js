@@ -1,4 +1,4 @@
-import {FETCH_COMMUNITY_REQUEST, FETCH_COMMUNITY_SUCCESS, FETCH_COMMUNITY_ERROR} from '../actions/community';
+import {FETCH_COMMUNITY_REQUEST, FETCH_COMMUNITY_SUCCESS, FETCH_COMMUNITY_ERROR, REMOVE_POST_FROM_FEED} from '../actions/community';
 
 const initialState = {
   posts: [],
@@ -25,6 +25,13 @@ export default function communityReducer(state=initialState, action){
       ...state,
       loading: false,
       error: action.error
+    }
+  }
+  else if(action.type === REMOVE_POST_FROM_FEED){
+    return{
+      ...state,
+      posts: state.posts.filter(post => post.id !== action.id),
+      error: null
     }
   }
   return state;

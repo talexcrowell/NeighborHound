@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { fetchNews } from '../actions/news';
-import './main.css';
-import { ContentNewsFeedItem } from './newsfeed';
+import  ContentNewsFeedItem  from './newsfeed';
 import {Filter} from './filter';
 
 export class News extends React.Component {

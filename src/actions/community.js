@@ -17,18 +17,12 @@ export const fetchCommunityError = (error) => ({
   error
 });
 
-function normalize(htmlBlock){
-  let imgRegex = /<a href="https:\/\/i.redd.*(.jpg"|.png")>/g;
-  let img;
-  let found = imgRegex.exec(htmlBlock);
-  if(found !== null){
-    img = found[0];
-  } else {
-    console.log('Miss >>>' + htmlBlock);
-    img = 'https://i.imgur.com/3xw03XE.png';
-  }
-  return img.replace('<a href="', '').replace('">', '')
-}
+export const REMOVE_POST_FROM_FEED= 'REMOVE_POST_FROM_FEED';
+export const removePostFromFeed = (id) => ({
+  type: REMOVE_POST_FROM_FEED,
+  id
+});
+
 
 export const fetchCommunity = () => {
   return (dispatch, getState) => {

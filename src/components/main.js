@@ -2,9 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchNews } from '../actions/news';
 import { fetchCommunity } from '../actions/community';
-import './main.css';
-import { ContentNewsFeedItem } from './newsfeed';
-import { ContentCommunityFeedItem } from './communityfeed';
+import ContentNewsFeedItem  from './newsfeed';
+import ContentCommunityFeedItem  from './communityfeed';
 
 export class Main extends React.Component {
   componentDidMount() {
