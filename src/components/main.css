@@ -231,9 +231,8 @@
 }
 
 .post-img{
-  max-width: 700px;
-  max-height: 700px;
-  height: 100%;
+  max-width: 100%;
+  min-height: 300px;
   display: inline-block;
   border-radius: 4px;
 }
@@ -268,6 +267,24 @@
   font-size: 22px;
   background: #484848;
   margin: 0;
+}
+
+.post-article-container{
+  width: 100%;
+  max-width: 250px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 4px;
+  border: black 5px solid;
+  background: none;
+}
+
+.post-article-img{
+  max-width: 100%;
+  min-height: 100%;
+  display: inline-block;
+  border-radius: 4px;
+  background: none;
 }
 
 .media{
@@ -357,4 +374,11 @@
   height: 100%;
   display: inline-block;
   border-radius: 4px;
+}
+
+
+.post-mp4{
+  max-width: 100%;
+  min-height: 300px;
+
 }
