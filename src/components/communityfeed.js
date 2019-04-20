@@ -48,11 +48,11 @@ export class ContentCommunityFeedItem extends React.Component {
           <div className='post-menu'>
             <CopyToClipboard text={this.props.post.img}>
               <button className='post-menu-choice-share'>
-                <img className='post-menu-image' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
+                <img className='post-menu-image-share' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
               </button>
             </CopyToClipboard>
             <button className='post-menu-choice-remove' onClick={() => removePost(this.props.post.id) } >
-              <img className='post-menu-image' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
+              <img className='post-menu-image-remove' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
             </button>
           </div>
         </section>
