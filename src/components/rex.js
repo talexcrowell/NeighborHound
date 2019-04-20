@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { fetchMovies } from '../actions/rex';
-import './main.css';
 import ContentRexFeedItem from './rexfeed';
 
 export class RexDashboard extends React.Component {

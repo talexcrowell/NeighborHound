@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchCommunity } from '../actions/community';
-import './main.css';
+import { fetchCommunity, removePostFromFeed } from '../actions/community';
 import { ContentCommunityFeedItem } from './communityfeed';
 
 export class Community extends React.Component {
@@ -9,7 +8,9 @@ export class Community extends React.Component {
     this.props.dispatch(fetchCommunity());
   }
 
+  
   render() {
+
     let posts = this.props.posts.map((post, index) => (
       <ContentCommunityFeedItem post={post} index={index} />
     ));
