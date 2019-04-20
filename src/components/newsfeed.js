@@ -1,50 +1,47 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {removeArticleFromFeed} from '../actions/news';
 
-export function ContentNewsFeedItem (props) {
-  function normalizeTitle(title){
-    let input = title;
-    let titleRegex = / - .*[^']/g;
-    let normalized = input.replace(titleRegex, '');
-    return normalized;
+export class ContentNewsFeedItem extends React.Component{
+  removePost(id){
+    this.props.dispatch(removeArticleFromFeed(id));
   }
 
-  function normalizeTime(date){
-    let output = date.replace('T', '').replace('Z', '');
-    return output.slice(10);
-  }
-  
-  function normalizeDate(date){
-    let output = date.replace('T', '').replace('Z', '');
-    return output.slice(0, 10);
-  }
-
-  function normalizeSummary(summary){
-    let summaryRegex =  /\[.*\]/g;
-    let normalized = summary.replace(summaryRegex, '');
-    return normalized;
-  }
-
+  render() {
     return(
-      <li className='article' key ={props.index}>
-        <div className='article-img-container'>
-          <img className='article-img' src={props.article.urlToImage} alt={props.article.title} />
-          <p className='article-source'>{props.article.source.name}</p>
-        </div>
-
-          <a className='click-area' target="_blank" rel="noopener noreferrer" href={props.article.url}>
+      <li className='article' key ={this.props.index}>
+        <section className='article-header'>
+          <div className='article-img-container'>
+            <img className='article-img' src={this.props.article.img} alt={this.props.article.title} />
+            <p className='article-source'>{this.props.article.source.name}</p>
+          </div>
             <section className='article-description'>
-              <p className='article-title'>{normalizeTitle(props.article.title)}</p>
-              <p className='article-time'>@: {normalizeTime(props.article.publishedAt)}</p>
-              <p className='article-date'>{normalizeDate(props.article.publishedAt)}</p>
+              <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.article.url}>
+                <p className='article-title'>{this.props.article.title}</p>
+              </a>
+              <section className='article-details'>
+              <p className='article-time'>@: {this.props.article.time}</p>
+              <p className='article-date'>{this.props.article.date}</p>
+              <div className='article-menu'>
+                <CopyToClipboard text={this.props.article.url}>
+                  <button className='article-menu-choice-share'>
+                    <img className='article-menu-image' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
+                  </button>
+                </CopyToClipboard>
+                <button className='article-menu-choice-remove' onClick={() => this.removePost(this.props.article.id) } >
+                  <img className='article-menu-image' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
+                </button>
+              </div>
+              </section>
             </section>
             <section className='article-content'>
-              <p className='article-summary'>{props.article.content ? normalizeSummary(props.article.content) : 'No summary available from '+ props.article.source.name}</p>
-              <p className='article-link'> [ Click for Full Article ]</p>
+              <p className='article-summary'>{this.props.article.summary ? this.props.article.summary : 'No summary available from '+ this.props.article.source.name}</p> 
             </section>
-          </a>
+        </section>
       </li>
-    )
+      )
+  }
 }
 
 function mapStateToProps(state){

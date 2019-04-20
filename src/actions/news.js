@@ -23,6 +23,12 @@ export const fetchNewsError = (error) => ({
   error
 });
 
+export const REMOVE_ARTICLE_FROM_FEED= 'REMOVE_ARTICLE_FROM_FEED';
+export const removeArticleFromFeed = (id) => ({
+  type: REMOVE_ARTICLE_FROM_FEED,
+  id
+});
+
 export const fetchNews = () => {
   return (dispatch, getState) => {
     dispatch(fetchNewsRequest());
