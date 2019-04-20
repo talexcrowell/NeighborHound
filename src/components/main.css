@@ -254,7 +254,8 @@
   font-size: 26px;
   padding: 10px;
   height: 100%;
-  background: black;
+  background: none;
+  border-bottom: 2px white solid;
 }
 
 .post-source{
@@ -262,11 +263,27 @@
   text-align: center;
   vertical-align: bottom;
   padding: 5px;
-  width: 100%;
+  width: 50%;
   height: 100%;
   font-size: 22px;
   background: #484848;
   margin: 0;
+  border-right: 1px black solid;
+  border-bottom-left-radius: 4px;
+}
+
+.post-category{
+  display: inline-block;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 5px;
+  width: 50%;
+  height: 100%;
+  font-size: 22px;
+  background: #484848;
+  margin: 0;
+  border-left: 1px solid black;
+  border-bottom-right-radius: 4px;
 }
 
 .post-article-container{

@@ -32,9 +32,11 @@ export function ContentCommunityFeedItem (props) {
 
     return(
       <li className='post' key ={props.index}>
+        <a target="_blank" rel="noopener noreferrer" href={props.post.url}>
         <section className='post-description'>
           <h3 className='post-title'>{props.post.title}</h3>
         </section>
+        </a>
         <div className='post-source'>{props.post.source}</div>
         <div className='post-category'>{props.post.category}</div>
         {media}
