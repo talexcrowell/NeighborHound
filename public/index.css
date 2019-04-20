@@ -367,7 +367,7 @@
   text-align: center;
   padding: 10px;
   width: 35%;
-  height: 50px;
+  height: 56px;
   font-size: 22px;
   background: #484848;
   margin: 0;
@@ -380,7 +380,7 @@
   text-align: center;
   padding: 10px;
   width: 35%;
-  height: 50px;
+  height: 56px;
   font-size: 22px;
   background: #484848;
   margin: 0;
@@ -407,10 +407,11 @@
   width:50%;
   background-color: #282828;
   border-right: 1px solid white;
+  border-radius: 4px;
 }
 
 .post-menu-choice-share:hover{
-  background: gainsboro;
+  background: radial-gradient(circle, gainsboro, #484848)
 }
 
 .post-menu-choice-share:visited{
@@ -422,10 +423,11 @@
   width:50%;
   background-color: #282828;
   border-left: 1px solid white;
+  border-radius: 4px;
 }
 
 .post-menu-choice-remove:hover{
-  background: red;
+  background-image: radial-gradient(circle, red, #484848)
 }
 
 .post-menu-image{

@@ -1,11 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { removePostFromFeed } from '../actions/community';
 
-export class ContentCommunityFeedItem extends React.Component {
-    
+export class ContentCommunityFeedItem extends React.Component { 
+
   render() {
+  const removePost = (id) => {
+      this.props.dispatch({type: 'REMOVE_POST_FROM_FEED', id });
+    }
   let media;
 
     if(this.props.post.type === 'video/mp4' || this.props.post.type === 'video/webm'){
@@ -45,24 +47,24 @@ export class ContentCommunityFeedItem extends React.Component {
           <div className='post-category'>{this.props.post.category}</div>
           <div className='post-menu'>
             <CopyToClipboard text={this.props.post.img}>
-              <div className='post-menu-choice-share'>
+              <button className='post-menu-choice-share'>
                 <img className='post-menu-image' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
-              </div>
+              </button>
             </CopyToClipboard>
-            <button className='post-menu-choice-remove' onClick={() => this.props.dispatch(removePostFromFeed(this.props.post.id)) }>
+            <button className='post-menu-choice-remove' onClick={() => removePost(this.props.post.id) } >
               <img className='post-menu-image' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
             </button>
           </div>
         </section>
         {media}
       </li>
-    )
+    );
   }
 }
 
-function mapDispatchToProps(dispatch){
+function mapStateToProps(state){
   return{
-    dispatch,
+    state,
   };
 }
-export default connect(mapDispatchToProps)(ContentCommunityFeedItem);
+export default connect(mapStateToProps)(ContentCommunityFeedItem);
