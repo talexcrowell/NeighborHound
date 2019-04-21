@@ -204,7 +204,7 @@
 
 .article-img-container{
   vertical-align: center;
-  max-width: 260px;
+  max-width: 240px;
   display: inline-block;
   vertical-align: middle;
   margin: 5px;
@@ -623,4 +623,30 @@
   height: 100%;
   display: inline-block;
   border-radius: 4px;
+  background: none;
+}
+
+/* temporary CSS for REX */
+.coming-soon{
+  background: #484848;
+  width: 960px;
+  display: inline-block;
+}
+
+.coming-soon-text{
+  padding: 20px;
+  display: inline-flexbox;
+  background:none;
+  font-size: 24px;
+}
+
+.csl{
+  background: none;
+  text-align: left;
+}
+
+/* filter */
+.filter{
+  display: inline-block;
+  background: gainsboro;
 }

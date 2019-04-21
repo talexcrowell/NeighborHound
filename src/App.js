@@ -5,7 +5,7 @@ import Main from './components/main';
 import HeaderBar from './components/headerbar';
 import News from './components/news';
 import Community from './components/community';
-import RexDashboard from './components/rex';
+import RexMain from './components/rex-main';
 
 class App extends Component {
   render() {
@@ -17,7 +17,7 @@ class App extends Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/news" component ={News} />
           <Route exact path="/community" component ={Community} />
-          <Route exact path="/rex" component ={RexDashboard} />
+          <Route exact path="/rex" component ={RexMain} />
         </Switch>
       </div>
     </Router>

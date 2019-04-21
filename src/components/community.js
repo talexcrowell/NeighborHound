@@ -15,6 +15,8 @@ export class Community extends React.Component {
       <ContentCommunityFeedItem  post={post} index={index} />
     ));
 
+    // let filter =(<Filter items={this.props.posts}/>)
+
     let newsFeed;
     if(this.props.loading === true){
       newsFeed = (<div className='loading'>Loading Feed...</div>);
