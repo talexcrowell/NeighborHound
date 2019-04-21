@@ -22,7 +22,7 @@ export class ContentNewsFeedItem extends React.Component{
                 <p className='article-title'>{this.props.article.title}</p>
               </a>
               <section className='article-details'>
-              <p className='article-time'>@: {this.props.article.time}</p>
+              <p className='article-time'>{this.props.article.time}</p>
               <p className='article-date'>{this.props.article.date}</p>
               <div className='article-menu'>
                 <CopyToClipboard text={this.props.article.url}>
@@ -36,9 +36,11 @@ export class ContentNewsFeedItem extends React.Component{
               </div>
               </section>
             </section>
+            <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.article.url}>
             <section className='article-content'>
               <p className='article-summary'>{this.props.article.summary ? this.props.article.summary : 'No summary available from '+ this.props.article.source.name}</p> 
             </section>
+            </a>
         </section>
       </li>
       )
