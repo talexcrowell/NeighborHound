@@ -19,7 +19,7 @@ export class Community extends React.Component {
 
     let newsFeed;
     if(this.props.loading === true){
-      newsFeed = (<div className='loading'>Loading Feed...</div>);
+      newsFeed = (<img className='loading-img' src='https://i.imgur.com/4WYBRRN.png' alt='Gathering Data...' />);
     } else{
       newsFeed = (<ul className='communityfeed'>{posts}</ul>);
     }

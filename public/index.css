@@ -186,8 +186,8 @@
   max-width: 980px;
   min-width: 300px;
   display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   width: 100%;
   height: 350px;
   background-color: #484848;
@@ -204,18 +204,22 @@
 
 .article-img-container{
   vertical-align: center;
-  max-width: 240px;
+  width: 29%;
+  height: 205px;
   display: inline-block;
   vertical-align: middle;
-  margin: 5px;
   background: none;
+  margin: right;
 }
 
 .article-img{
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: 85%;
+  max-height: 140px;
+  object-fit: contain;
   display: inline-block;
   border-radius: 4px;
+  border: 2px white solid;
 }
 
 .article-description{
@@ -235,7 +239,8 @@
 }
 
 .article-title{
-  text-align: left;
+  text-align: center;
+  vertical-align: middle;
   margin-top: 5px;
   margin-bottom: 0;
   margin-left: 0px;
@@ -255,7 +260,6 @@
   font-size: 26px;
   width: 100%;
   height:30%;
-  background: #484848;
   display: inline-block;
 }
 
@@ -267,9 +271,9 @@
   width: 35%;
   height: 100%;
   font-size: 22px;
-  background: none;
+  background: #484848;
   margin: 0;
-  border-right: 1px #484848 solid;
+  border-right: 1px #282828 solid;
 }
 
 .article-date{
@@ -280,22 +284,31 @@
   width: 35%;
   height: 100%;
   font-size: 22px;
-  background: none;
+  background: #484848;
   margin: 0;
+  border-left: 1px #484848 solid;
+
 }
 
 .article-source{
-  vertical-align: middle;
-  font-size: 22px;
+  vertical-align: bottom;
+  font-size: 26px;
   background:black;
   width: 100%;
-  height: 30%;
   padding:5px;
   margin: 0;
   display: inline-block;
   border-radius: 4px;
-  border-top: 2px #484848 solid;
 }
+
+.article-category{
+  font-size:18px;
+  vertical-align: bottom;
+  margin:0px;
+  width: 100%;
+  background: #484848;
+}
+
 .article-content{
   vertical-align: middle;
   display:inline-block;
@@ -305,7 +318,6 @@
   font-size: 22px;
   background: black;
   border-radius: 4px;
-  padding: 10px;
   margin: 0;
 }
 
@@ -381,8 +393,8 @@
   max-width: 980px;
   min-width: 300px;
   display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   width: 100%;
   height: 100%;
   background-color: black;
@@ -643,10 +655,4 @@
 .csl{
   background: none;
   text-align: left;
-}
-
-/* filter */
-.filter{
-  display: inline-block;
-  background: gainsboro;
 }

@@ -13,8 +13,9 @@ export class ContentNewsFeedItem extends React.Component{
       <li className='article' key ={this.props.index}>
         <section className='article-header'>
           <div className='article-img-container'>
-            <img className='article-img' src={this.props.article.img} alt={this.props.article.title} />
+            <img className='article-img' src={this.props.article.img ? this.props.article.img : 'https://i.imgur.com/ty6YjaL.png'} alt={this.props.article.title} />
             <p className='article-source'>{this.props.article.source.name}</p>
+            <p className= 'article-category'>{this.props.article.category}</p>
           </div>
             <section className='article-description'>
               <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.article.url}>
