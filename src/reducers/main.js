@@ -1,7 +1,7 @@
 import {FETCH_MAIN_FEED_REQUEST, FETCH_MAIN_FEED_SUCCESS, FETCH_MAIN_FEED_ERROR, REMOVE_ITEM_FROM_FEED} from '../actions/main';
 
 const initialState = {
-  posts: [],
+  feed: [],
   loading: false,
   error: null
 };
@@ -16,7 +16,7 @@ export default function mainReducer(state=initialState, action){
   else if(action.type === FETCH_MAIN_FEED_SUCCESS){
     return{
       ...state,
-      posts: [...action.posts],
+      feed: [...action.items],
       loading: false
     }
   }
@@ -30,7 +30,7 @@ export default function mainReducer(state=initialState, action){
   else if(action.type === REMOVE_ITEM_FROM_FEED){
     return{
       ...state,
-      posts: state.feed.filter(item => item.id !== action.id),
+      feed: state.feed.filter(item => item.id !== action.id),
       error: null
     }
   }
