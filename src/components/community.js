@@ -23,6 +23,11 @@ export class Community extends React.Component {
 
     return(
       <main role='main' className='community-page'>
+        <section className='main-menu'>
+          <h1 className='main-menu-title'>Community</h1>
+          <p className='main-menu-text'>Checkout hot and trending posts from communities like Reddit and Imgur!</p>
+          <p className='main-menu-text'>Remember to click on the NeighborHound logo to return to the top of the feed</p>
+        </section>
         {newsFeed}
       </main>  
     )

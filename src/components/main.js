@@ -10,8 +10,8 @@ export class Main extends React.Component {
 
 
   render() {
-    
-    let feed = this.props.feed.map((item, index) => (
+    let content = this.props.feed.filter((post) => post.title.includes(this.props.search));
+    let feed = content.map((item, index) => (
         <ContentFeedItem item={item} index={'main-'+index} page={'main'}/>
       ));
 
@@ -28,6 +28,7 @@ export class Main extends React.Component {
           <section className='main-menu'>
             <h1 className='main-menu-title'>Welcome to NeighborHound</h1>
             <p className='main-menu-text'>NeighborHound collects all upcoming news and fresh community content to keep you informed and entertained</p>
+            <p className='main-menu-text'>Remember to click on the NeighborHound logo to return to the top of the feed</p>
             <p className='main-menu-text'>Let's see what NeighborHound has fetched today</p>
           </section>
           {newsFeed}
