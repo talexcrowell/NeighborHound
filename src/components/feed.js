@@ -2,14 +2,30 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {removeItemFromFeed} from '../actions/main';
+import {removeArticleFromFeed} from '../actions/news';
+import {removePostFromFeed} from '../actions/community'
 
 export class ContentFeedItem extends React.Component { 
 
   removeItem(id){
-    this.props.dispatch(removeItemFromFeed(id));
+    if(this.props.page === 'main'){
+      this.props.dispatch(removeItemFromFeed(id));
+    }
+    else if (this.props.page === 'news'){
+      this.props.dispatch(removeArticleFromFeed(id));
+    }
+    else if (this.props.page === 'community'){
+      this.props.dispatch(removePostFromFeed(id));
+    }
   }
 
   render() {
+    let userButtons;
+    
+    userButtons= (
+      <div className='user-buttons'>                
+      </div>);
+
     if(this.props.item.section === 'community'){
   
       let media;
@@ -23,7 +39,7 @@ export class ContentFeedItem extends React.Component {
           </div>
         </a>);
       } 
-      else if(this.props.section === 'article'){
+      else if(this.props.item.type === 'article'){
         media = (<a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
             <div className='post-article-container'>
               <img className='post-article-img' src='https://i.imgur.com/ty6YjaL.png' alt={this.props.item.title} />
@@ -41,25 +57,26 @@ export class ContentFeedItem extends React.Component {
   
       return(
         <li className='post' key ={this.props.index}>
+          <section className='post-details'>
+            <div className='post-source'>{this.props.item.source}</div>
+            <div className='post-category'>{this.props.item.category}</div>
+            <div className='post-menu'>
+              {userButtons}
+              <CopyToClipboard text={this.props.item.img}>
+                <div className='post-menu-choice-share'>
+                  <img className='post-menu-image' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
+                </div>
+              </CopyToClipboard>
+              <div className='post-menu-choice-remove' onClick={() => this.removeItem(this.props.item.id) } >
+                <img className='post-menu-image' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
+              </div>
+            </div>
+          </section>
           <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
           <section className='post-description'>
             <h3 className='post-title'>{this.props.item.title}</h3>
           </section>
           </a>
-          <section className='post-details'>
-            <div className='post-source'>{this.props.item.source}</div>
-            <div className='post-category'>{this.props.item.category}</div>
-            <div className='post-menu'>
-              <CopyToClipboard text={this.props.item.img}>
-                <button className='post-menu-choice-share'>
-                  <img className='post-menu-image-share' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
-                </button>
-              </CopyToClipboard>
-              <button className='post-menu-choice-remove' onClick={() => this.removeItem(this.props.item.id) } >
-                <img className='post-menu-image-remove' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
-              </button>
-            </div>
-          </section>
           {media}
         </li>
       );
@@ -68,37 +85,34 @@ export class ContentFeedItem extends React.Component {
     else if(this.props.item.section === 'news'){
       return(
         <li className='article' key ={this.props.index}>
-          <section className='article-header'>
             <div className='article-img-container'>
               <img className='article-img' src={this.props.item.img ? this.props.item.img : 'https://i.imgur.com/ty6YjaL.png'} alt={this.props.item.title} />
               <p className='article-source'>{this.props.item.source.name}</p>
               <p className= 'article-category'>{this.props.item.category}</p>
             </div>
               <section className='article-description'>
+                <section className='article-details'>
+                  <p className='article-time'>{this.props.item.time}</p>
+                  <p className='article-date'>{this.props.item.date}</p>
+                  <div className='article-menu'>
+                    {userButtons}
+                    <CopyToClipboard text={this.props.item.url}>
+                      <div className='article-menu-choice-share'>
+                        <img className='article-menu-image' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
+                      </div>
+                    </CopyToClipboard>
+                    <div className='article-menu-choice-remove' onClick={() => this.removeItem(this.props.item.id) } >
+                      <img className='article-menu-image' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
+                    </div>
+                  </div>
+                </section>
                 <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
                   <p className='article-title'>{this.props.item.title}</p>
-                </a>
-                <section className='article-details'>
-                <p className='article-time'>{this.props.item.time}</p>
-                <p className='article-date'>{this.props.item.date}</p>
-                <div className='article-menu'>
-                  <CopyToClipboard text={this.props.item.url}>
-                    <button className='article-menu-choice-share'>
-                      <img className='article-menu-image' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
-                    </button>
-                  </CopyToClipboard>
-                  <button className='article-menu-choice-remove' onClick={() => this.removeItem(this.props.item.id) } >
-                    <img className='article-menu-image' src='https://i.imgur.com/r16tRQz.png' alt='Neighborhound' />
-                  </button>
-                </div>
+                  <section className='article-content'>
+                  <p className='article-summary'>{this.props.item.summary ? this.props.item.summary : 'No summary available'} </p> 
                 </section>
+                </a>
               </section>
-              <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
-              <section className='article-content'>
-                <p className='article-summary'>{this.props.item.summary ? this.props.item.summary : 'No summary available from '+ this.props.item.source.name}</p> 
-              </section>
-              </a>
-          </section>
         </li>
         )
     }

@@ -2,6 +2,7 @@ import {FETCH_MAIN_FEED_REQUEST, FETCH_MAIN_FEED_SUCCESS, FETCH_MAIN_FEED_ERROR,
 
 const initialState = {
   feed: [],
+  searchQuery: '',
   loading: false,
   error: null
 };

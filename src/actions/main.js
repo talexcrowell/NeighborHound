@@ -23,6 +23,11 @@ export const removeItemFromFeed = (id) => ({
   id
 });
 
+export const SEARCH_FEED = 'SEARCH_FEED';
+export const searchFeed = (search) => ({
+  type: SEARCH_FEED,
+  search
+})
 
 export const fetchMainFeed = () => {
   return (dispatch, getState) => {

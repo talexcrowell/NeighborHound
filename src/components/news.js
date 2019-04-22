@@ -7,12 +7,11 @@ import {Filter} from './filter';
 export class News extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchNews());
- 
   }
 
   render() {
     let articles = this.props.articles.map((item, index) => (
-      <ContentFeedItem item={item} index={index} />
+      <ContentFeedItem item={item} index={'news-'+index} page={'news'}/>
     ));
 
     let filter = (<Filter sources={articles} />);

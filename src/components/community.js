@@ -12,7 +12,7 @@ export class Community extends React.Component {
   render() {
 
     let posts = this.props.posts.map((item, index) => (
-      <ContentFeedItem  item={item} index={index} />
+      <ContentFeedItem  item={item} index={'community-'+index} page={'community'} />
     ));
 
     // let filter =(<Filter items={this.props.posts}/>)

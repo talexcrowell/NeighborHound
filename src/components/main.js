@@ -12,19 +12,26 @@ export class Main extends React.Component {
   render() {
     
     let feed = this.props.feed.map((item, index) => (
-        <ContentFeedItem item={item} index={index} />
+        <ContentFeedItem item={item} index={'main-'+index} page={'main'}/>
       ));
 
     let newsFeed;
     if(this.props.loading === true){
       newsFeed = (<img className='loading-img' src='https://i.imgur.com/4WYBRRN.png' alt='Gathering Data...' />);
     } else{
-      newsFeed = (<ul className='newsfeed'>{feed}</ul>);
+      newsFeed = (<ul className='mainfeed'>{feed}</ul>);
     }
 
     return(
       <main role='main' className='main-page'>
-        {newsFeed}
+        <div className='main-page-content'>
+          <section className='main-menu'>
+            <h1 className='main-menu-title'>Welcome to NeighborHound</h1>
+            <p className='main-menu-text'>NeighborHound collects all upcoming news and fresh community content to keep you informed and entertained</p>
+            <p className='main-menu-text'>Let's see what NeighborHound has fetched today</p>
+          </section>
+          {newsFeed}
+        </div>
       </main>  
     )
   }
