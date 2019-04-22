@@ -277,6 +277,12 @@
   color: black;
 }
 
+.filter{
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+}
+
 .filter-img{
   display: inline-block;
   float: left;
@@ -297,8 +303,10 @@
   background: none;
 }
 
-.filter-icon:hover{
+.filter-img:hover{
   filter: invert(0%);
+  background: gainsboro;
+  cursor: pointer;
 }
 
 .main-menu-text{

@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchNews } from '../actions/news';
 import  ContentFeedItem  from './feed';
-import {Filter} from './filter';
 
 export class News extends React.Component {
   componentDidMount() {
@@ -13,8 +12,6 @@ export class News extends React.Component {
     let articles = this.props.articles.map((item, index) => (
       <ContentFeedItem item={item} index={'news-'+index} page={'news'}/>
     ));
-
-    let filter = (<Filter sources={articles} />);
 
     let newsFeed;
     if(this.props.loading === true){

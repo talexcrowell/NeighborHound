@@ -29,6 +29,11 @@ export const searchFeed = (search) => ({
   search
 })
 
+export const TOGGLE_FILTER = 'TOGGLE_FILTER';
+export const toggleFilter = () => ({
+  type: TOGGLE_FILTER
+});
+
 export const fetchMainFeed = () => {
   return (dispatch, getState) => {
     dispatch(fetchMainFeedRequest());

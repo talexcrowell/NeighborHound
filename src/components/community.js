@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchCommunity} from '../actions/community';
 import  ContentFeedItem from './feed';
-import Filter from './filter';
 
 export class Community extends React.Component {
   componentDidMount() {
@@ -10,12 +9,10 @@ export class Community extends React.Component {
   }
   
   render() {
-
-    let posts = this.props.posts.map((item, index) => (
+    let content = this.props.posts.filter((post) => post.title.includes(this.props.search));
+    let posts = content.map((item, index) => (
       <ContentFeedItem  item={item} index={'community-'+index} page={'community'} />
     ));
-
-    // let filter =(<Filter items={this.props.posts}/>)
 
     let newsFeed;
     if(this.props.loading === true){
@@ -35,7 +32,8 @@ export class Community extends React.Component {
 function mapStateToProps(state){
   return{
     posts: state.community.posts,
-    loading: state.community.loading
+    loading: state.community.loading,
+    search: state.main.searchQuery
   }
 }
 

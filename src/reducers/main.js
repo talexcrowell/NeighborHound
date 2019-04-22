@@ -1,7 +1,9 @@
-import {FETCH_MAIN_FEED_REQUEST, FETCH_MAIN_FEED_SUCCESS, FETCH_MAIN_FEED_ERROR, REMOVE_ITEM_FROM_FEED} from '../actions/main';
+import {FETCH_MAIN_FEED_REQUEST, FETCH_MAIN_FEED_SUCCESS, FETCH_MAIN_FEED_ERROR, REMOVE_ITEM_FROM_FEED, SEARCH_FEED, TOGGLE_FILTER} from '../actions/main';
 
 const initialState = {
   feed: [],
+  filtered: false,
+  filterQuery: [],
   searchQuery: '',
   loading: false,
   error: null
@@ -26,6 +28,20 @@ export default function mainReducer(state=initialState, action){
       ...state,
       loading: false,
       error: action.error
+    }
+  }
+  else if(action.type === TOGGLE_FILTER){
+    return{
+      ...state,
+      filtered: !state.filtered,
+      error: null
+    }
+  }
+  else if(action.type === SEARCH_FEED){
+    return{
+      ...state,
+      searchQuery: action.search,
+      error: null
     }
   }
   else if(action.type === REMOVE_ITEM_FROM_FEED){

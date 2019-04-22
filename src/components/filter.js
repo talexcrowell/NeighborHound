@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 
 export function Filter(props) {
   let choices = props.items.map(item => {
-    return (<input type= 'checkbox' name={item.category} value={item.category}>{item.caegory}</input>)
+    return (<input type= 'checkbox' name={item.category} value={item.category}>{item.category}</input>)
   });
 
     return(
       <div className='filter'>
-        <section className='filter-container'>
+        <form className='filter-container'>
           <label>Filter Categories</label>
           {choices}
-        </section>
+        </form>
       </div>
     )
 }
