@@ -1,8 +1,8 @@
 import {API_BASE_URL} from '../config';
 
-export const FETCH_MOVIES_REQUEST = 'FETCH_MOVIES_REQUEST';
-export const fetchMoviesRequest = () => ({
-  type: FETCH_MOVIES_REQUEST
+export const FETCH_MEDIA_REQUEST = 'FETCH_MEDIA_REQUEST';
+export const fetchMediaRequest = () => ({
+  type: FETCH_MEDIA_REQUEST
 });
 
 export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS';
@@ -41,9 +41,33 @@ export const fetchCatalogError = (error) => ({
   error
 });
 
+export const FETCH_UPCOMING_MOVIES_SUCCESS = 'FETCH_UPCOMING_MOVIES_SUCCESS';
+export const fetchUpcomingMoviesSuccess = (movies) => ({
+  type: FETCH_UPCOMING_MOVIES_SUCCESS,
+  movies
+});
+
+export const FETCH_UPCOMING_MOVIES_ERROR = 'FETCH_UPCOMING_MOVIES_ERROR';
+export const fetchUpcomingMoviesError = (error) => ({
+  type: FETCH_UPCOMING_MOVIES_ERROR,
+  error
+});
+
+export const FETCH_AIRING_TODAY_SUCCESS = 'FETCH_AIRING_TODAY_SUCCESS';
+export const fetchAiringTodaySuccess = (shows) => ({
+  type: FETCH_AIRING_TODAY_SUCCESS,
+  shows
+});
+
+export const FETCH_AIRING_TODAY_ERROR = 'FETCH_AIRING_TODAY_ERROR';
+export const fetchAiringTodayError = (error) => ({
+  type: FETCH_AIRING_TODAY_ERROR,
+  error
+});
+
 export const fetchQuickReccommendation = () => {
   return (dispatch, getState) => {
-    dispatch(fetchMoviesRequest());
+    dispatch(fetchMediaRequest());
     fetch(`${API_BASE_URL}/api/rex/quickrec`)
     .then(res => res.json())
     .then(data => dispatch(fetchQuickRecSuccess(data)))
@@ -53,7 +77,7 @@ export const fetchQuickReccommendation = () => {
 
 export const fetchMediaCatalog = () => {
   return (dispatch, getState) => {
-    dispatch(fetchMoviesRequest());
+    dispatch(fetchMediaRequest());
     fetch(`${API_BASE_URL}/api/rex/catalog`)
     .then(res => res.json())
     .then(data => dispatch(fetchCatalogSuccess(data)))
@@ -61,10 +85,29 @@ export const fetchMediaCatalog = () => {
   }
 }
 
+export const fetchUpcomingMovies = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchMediaRequest());
+    fetch(`${API_BASE_URL}/api/rex/upcoming`)
+    .then(res => res.json())
+    .then(data => dispatch(fetchUpcomingMoviesSuccess(data)))
+    .catch(err => dispatch(fetchUpcomingMoviesError(err)))
+  }
+}
+
+export const fetchAiringTodayTV = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchMediaRequest());
+    fetch(`${API_BASE_URL}/api/rex/schedule`)
+    .then(res => res.json())
+    .then(data => dispatch(fetchAiringTodaySuccess(data)))
+    .catch(err => dispatch(fetchAiringTodayError(err)))
+  }
+}
 
 export const fetchMovies = () => {
   return (dispatch, getState) => {
-    dispatch(fetchMoviesRequest());
+    dispatch(fetchMediaRequest());
     fetch(`${API_BASE_URL}/api/rex/retrieve`)
     .then(res => res.json())
     .then(data => dispatch(fetchMoviesSuccess(data)))

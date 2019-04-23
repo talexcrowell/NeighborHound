@@ -20,7 +20,7 @@ export class HeaderBar extends React.Component {
 
     if(param.endsWith("/") === true){
       navmenu = (
-        <div className='header'>
+        <div>
         <div className='headerbar'>
           <div className='header-container'>
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
@@ -35,12 +35,6 @@ export class HeaderBar extends React.Component {
           </div>
         </div>
         <section className='main-menu-nav'>
-          <div className='main-menu-nav-functions'>
-            <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
-            <div className='filter-img'>
-              <img className='filter-icon' src='https://i.imgur.com/HQtwQg6.png'alt='filter' onClick={() => this.createfilter()}></img>
-            </div>
-          </div>
           <ul className='main-menu-nav-buttons'>
             <Link to='/' ><li className='main-menu-choice-active'>Main</li></Link>
             <Link to='/news' ><li className='main-menu-choice'>News</li></Link>
@@ -51,7 +45,7 @@ export class HeaderBar extends React.Component {
     }
     else if(param.endsWith('/news') === true){
       navmenu = (
-        <div className='header'>
+        <div>
         <div className='headerbar'>
           <div className='header-container'>
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
@@ -66,12 +60,6 @@ export class HeaderBar extends React.Component {
           </div>
         </div>
         <section className='main-menu-nav'>
-          <div className='main-menu-nav-functions'>
-            <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
-            <div className='filter-img'>
-              <img className='filter-icon' src='https://i.imgur.com/HQtwQg6.png'alt='filter' onClick={() => this.createfilter()}></img>
-            </div>
-          </div>
           <ul className='main-menu-nav-buttons'>
             <Link to='/'  ><li className='main-menu-choice'>Main</li></Link>
             <Link to='/news' ><li className='main-menu-choice-active'>News</li></Link>
@@ -82,7 +70,7 @@ export class HeaderBar extends React.Component {
     }
     else if(param.endsWith('/community') === true){
       navmenu = (
-      <div className='header'>
+      <div>
         <div className='headerbar'>
           <div className='header-container'>
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
@@ -97,12 +85,6 @@ export class HeaderBar extends React.Component {
           </div>
         </div>
         <section className='main-menu-nav'>
-          <div className='main-menu-nav-functions'>
-            <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
-            <div className='filter-img'>
-              <img className='filter-icon' src='https://i.imgur.com/HQtwQg6.png'alt='filter' onClick={() => this.createfilter()}></img>
-            </div>
-          </div>
           <ul className='main-menu-nav-buttons'>
             <Link className='click-area' to='/' ><li className='main-menu-choice'>Main</li></Link>
             <Link to='/news' ><li className='main-menu-choice'>News</li></Link>
@@ -113,7 +95,7 @@ export class HeaderBar extends React.Component {
     }
     else if(param.endsWith('/rex/main') === true){
       navmenu = (
-        <div className='header'>
+        <div>
         <div className='headerbar'>
           <div className='header-container'>
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
@@ -140,7 +122,7 @@ export class HeaderBar extends React.Component {
     }
     else if(param.endsWith('/rex/catalog') === true){
       navmenu = (
-        <div className='header'>
+        <div>
         <div className='headerbar'>
           <div className='header-container'>
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
@@ -178,7 +160,7 @@ export class HeaderBar extends React.Component {
     }
     
     return(
-      <div>
+      <div className='header'>
         {navmenu}
       </div>
       );

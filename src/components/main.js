@@ -30,9 +30,15 @@ export class Main extends React.Component {
             <p className='main-menu-text'>NeighborHound collects all upcoming news and fresh community content to keep you informed and entertained</p>
             <p className='main-menu-text'>Remember to click on the NeighborHound logo to return to the top of the feed</p>
             <p className='main-menu-text'>Let's see what NeighborHound has fetched today</p>
+            <div className='main-menu-nav-functions'>
+              <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
+              <div className='filter-img'>
+                <img className='filter-icon' src='https://i.imgur.com/HQtwQg6.png'alt='filter' onClick={() => this.createfilter()}></img>
+              </div>
+            </div>
           </section>
-          {newsFeed}
         </div>
+        {newsFeed}
       </main>  
     )
   }
@@ -41,7 +47,8 @@ export class Main extends React.Component {
 function mapStateToProps(state){
   return{
     feed: state.main.feed,
-    loading: state.main.loading
+    loading: state.main.loading,
+    search: state.main.searchQuery
   }
 }
 
