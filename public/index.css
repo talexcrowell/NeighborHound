@@ -46,6 +46,7 @@
   width: 100%;
   max-width: 1980px;
   position: sticky;
+  background: none;
   top: 0;
   z-index: 1;
  }
@@ -212,7 +213,7 @@
 /* menus */
 .main-menu{
   display: inline-block;
-  width: 80%;
+  width: 100%;
   max-width: 1000px;
   background: black;
   border-radius: 4px;
@@ -221,7 +222,7 @@
 
 .main-menu-nav{
   display: inline-block;
-  width:80%;
+  width:100%;
   max-width: 1080px;
   height: 5%;
   border-bottom: 2px gainsboro solid;
@@ -259,7 +260,7 @@
 
 .main-menu-choice{
   display: inline-block;
-  width: 33%;
+  width: 33.5%;
   padding: 5px;
   font-weight: bold;
 }
@@ -276,7 +277,65 @@
   background:gainsboro;
   color: black;
 }
+/*  */
+.rex-menu-nav{
+  display: inline-block;
+  width:100%;
+  max-width: 1080px;
+  height: 5%;
+  border-bottom: 2px gainsboro solid;
+  border-right: 2px gainsboro solid;
+  border-left: 2px gainsboro solid;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
 
+.rex-menu-nav-functions{
+  display: inline-block;
+  width:50%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.rex-search{
+  display: inline-block;
+  float: left;
+  border-radius: 4px;
+  font-size: 16px;
+  background:#484848;
+  margin-left:10px;
+  margin-right: 5px;
+}
+
+.rex-menu-nav-buttons{
+  list-style-type: none;
+  display: inline-block;
+  padding: 0px;
+  width: 100%;
+  margin-left: 5px;
+  margin:0;
+}
+
+.rex-menu-choice{
+  display: inline-block;
+  width: 25%;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.rex-menu-choice-active{
+  display: inline-block;
+  background: #484848;
+  width: 33%;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.rex-menu-choice:hover{
+  background:gainsboro;
+  color: black;
+}
+/*  */
 .filter{
   display: inline-block;
   width: 400px;
@@ -742,7 +801,7 @@
   margin: 0;
 }
 
-.media-genre{
+.media-rating{
   display: inline-block;
   text-align: left;
   background: black;

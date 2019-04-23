@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 export function RexMain (props){
   return(
     <main className='rex-main'>
-      <div className='coming-soon'>
-        <img className='loading-img' src='https://i.imgur.com/3xw03XE.png' alt='REX coming soon...' ></img>
+      <div className='main-menu'>
+        <img className='loading-img' src='https://i.imgur.com/3xw03XE.png' alt='Welcome to Rex' ></img>
         <h2>Coming Soon...</h2>
         <div className ='coming-soon-text'>
           <p className='csl'>There are SO many things to watch, to play, or to listen to its hard to discover something new. Sometimes its even harder to keep track of what you're currently trying to stay up to date with!</p>
