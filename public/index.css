@@ -64,41 +64,43 @@
   padding: 10px;
   width: 200px;
   float:left;
+  text-align: left;
   display: inline-block;
   vertical-align: middle;
 }
 
 .header-container{
   background-color: #282828;
-  max-width: 1080px;
   width: 100%;
   min-width: 300px;
   display:inline-block;
 }
 
 .header-menu{
-  vertical-align: middle;
   list-style-type: none;
   background-color: #282828;
   display: inline-block;
   margin: auto;
   float: right;
   min-width: 200px;
-  max-width: 600px;
-  padding:0px;
+  width: 35%;
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   box-sizing: border-box;
+  height:100%;
 }
 
 .header-menu-choice {
-  float: right;
+  vertical-align: middle;
   display: inline-block;
+  text-align: center;
   box-sizing: border-box;
-  max-width: 75px;
-  padding: 10px;
-  font-size: 24px;
-  margin: 5px;
+  width: 33%;
+  padding: 5px;
+  font-size: 16px;
   background-color: #282828;
-  float: left;
+  border-left: gainsboro solid 2px;
 }
 
 .header-menu-choice:hover{
@@ -318,7 +320,7 @@
 
 .rex-menu-choice{
   display: inline-block;
-  width: 25%;
+  width: 20%;
   padding: 5px;
   font-weight: bold;
 }
@@ -326,9 +328,9 @@
 .rex-menu-choice-active{
   display: inline-block;
   background: #484848;
-  width: 33%;
   font-weight: bold;
   padding: 5px;
+  width: 20%;
 }
 
 .rex-menu-choice:hover{
@@ -833,15 +835,105 @@
   width: 960px;
   display: inline-block;
 }
+.rex-main-menu{
+  display: inline-block;
+  width: 100%;
+  max-width: 1000px;
+  background: black;
+  border-radius: 4px;
+  border: 4px gainsboro solid;
+}
 
-.coming-soon-text{
-  padding: 20px;
-  display: inline-flexbox;
+.rex-main-text{
+  vertical-align: top;
+  display: inline-block;
+  width: 65%;
   background:none;
-  font-size: 24px;
+  font-size: 20px;
+  
 }
 
 .csl{
   background: none;
   text-align: left;
+}
+
+.main-media{
+  max-width: 300px;
+  min-width: 250px;
+  display: inline-block;
+  margin:10px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 4px;
+  border: gainsboro 2px solid;
+}
+
+.main-media-img-container{
+  max-width: 210px;
+  width: 100%;
+  height: 310px;
+  display: inline-block;
+  vertical-align: middle;
+  margin :5px;
+  border-radius: 4px;
+  border: white 5px solid;
+}
+
+.main-media-img{
+  max-width: 300px;
+  max-height: 300px;
+  height: 100%;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.main-media-description{
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  background: black;
+}
+
+.main-media:hover{
+  background-image: linear-gradient(black, #484848);
+}
+
+.main-media-title{
+  text-align: center;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px;
+  height: 80px;
+  background: #282828;
+}
+
+.main-media-source{
+  display: inline-block;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  background: #484848;
+  margin: 0;
+}
+
+.main-media-rating{
+  display: inline-block;
+  text-align: left;
+  background: black;
+  font-style: none;
+  
+}
+
+.main-media-summary{
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+  background: black;
+  font-style: none;
 }

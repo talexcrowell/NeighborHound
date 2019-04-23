@@ -20,6 +20,20 @@ export class HeaderBar extends React.Component {
 
     if(param.endsWith("/") === true){
       navmenu = (
+        <div className='header'>
+        <div className='headerbar'>
+          <div className='header-container'>
+            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
+            <Link to='/'>
+              <h2 className='header-title'>NeighborHound</h2>
+            </Link>
+            <ul className='header-menu'>
+              <Link className='click-area' to='/rex/main' > <li className='header-menu-choice'>Rex</li></Link>
+              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
+            </ul>
+          </div>
+        </div>
         <section className='main-menu-nav'>
           <div className='main-menu-nav-functions'>
             <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
@@ -32,10 +46,25 @@ export class HeaderBar extends React.Component {
             <Link to='/news' ><li className='main-menu-choice'>News</li></Link>
             <Link to='/community' ><li className='main-menu-choice'>Community</li></Link>
           </ul>
-        </section>);
+      </section>
+    </div>);
     }
     else if(param.endsWith('/news') === true){
       navmenu = (
+        <div className='header'>
+        <div className='headerbar'>
+          <div className='header-container'>
+            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
+            <Link to='/'>
+              <h2 className='header-title'>NeighborHound</h2>
+            </Link>
+            <ul className='header-menu'>
+              <Link className='click-area' to='/rex/main' > <li className='header-menu-choice'>Rex</li></Link>
+              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
+            </ul>
+          </div>
+        </div>
         <section className='main-menu-nav'>
           <div className='main-menu-nav-functions'>
             <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
@@ -44,14 +73,29 @@ export class HeaderBar extends React.Component {
             </div>
           </div>
           <ul className='main-menu-nav-buttons'>
-            <Link to='/' ><li className='main-menu-choice'>Main</li></Link>
+            <Link to='/'  ><li className='main-menu-choice'>Main</li></Link>
             <Link to='/news' ><li className='main-menu-choice-active'>News</li></Link>
             <Link to='/community' ><li className='main-menu-choice'>Community</li></Link>
           </ul>
-        </section>);
+      </section>
+    </div>);
     }
     else if(param.endsWith('/community') === true){
       navmenu = (
+      <div className='header'>
+        <div className='headerbar'>
+          <div className='header-container'>
+            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
+            <Link to='/'>
+              <h2 className='header-title'>NeighborHound</h2>
+            </Link>
+            <ul className='header-menu'>
+              <Link className='click-area' to='/rex/main' ><li className='header-menu-choice'>Rex</li></Link>
+              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
+            </ul>
+          </div>
+        </div>
         <section className='main-menu-nav'>
           <div className='main-menu-nav-functions'>
             <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
@@ -60,24 +104,67 @@ export class HeaderBar extends React.Component {
             </div>
           </div>
           <ul className='main-menu-nav-buttons'>
-            <Link to='/' ><li className='main-menu-choice'>Main</li></Link>
+            <Link className='click-area' to='/' ><li className='main-menu-choice'>Main</li></Link>
             <Link to='/news' ><li className='main-menu-choice'>News</li></Link>
             <Link to='/community' ><li className='main-menu-choice-active'>Community</li></Link>
           </ul>
-        </section>);
+      </section>
+    </div>);
     }
-    else if(param.endsWith('/rex') === true){
+    else if(param.endsWith('/rex/main') === true){
       navmenu = (
-        <section className='rex-menu-nav'>
+        <div className='header'>
+        <div className='headerbar'>
+          <div className='header-container'>
+            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
+            <Link to='/rex/main'>
+              <h2 className='header-title'>Rex</h2>
+            </Link>
+            <ul className='header-menu'>
+              <Link className ='click-area' to='/' ><li className='header-menu-choice'>NeighborHound</li></Link>
+              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
+            </ul>
+          </div>
+        </div>
+        <div className='rex-menu-nav'>
           <ul className='rex-menu-nav-buttons'>
+          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice-active'>Home</li></Link>
             <li className='rex-menu-choice'>Rex</li>
+          <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice'>Catalog</li></Link>
             <li className='rex-menu-choice'>Schedules</li>
-            <li className='rex-menu-choice'>Catalogue</li>
-            <li className='rex-menu-choice'>Watchlist</li>
+            <li className='rex-menu-choice'>REXLists</li>
           </ul>
-        </section>);
+        </div>
+        </div>);
     }
-
+    else if(param.endsWith('/rex/catalog') === true){
+      navmenu = (
+        <div className='header'>
+        <div className='headerbar'>
+          <div className='header-container'>
+            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
+            <Link to='/rex/main'>
+              <h2 className='header-title'>Rex</h2>
+            </Link>
+            <ul className='header-menu'>
+              <Link className ='click-area' to='/' ><li className='header-menu-choice'>NeighborHound</li></Link>
+              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
+            </ul>
+          </div>
+        </div>
+        <div className='rex-menu-nav'>
+          <ul className='rex-menu-nav-buttons'>
+          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Home</li></Link>
+            <li className='rex-menu-choice'>Rex</li>
+          <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice-active'>Catalog</li></Link>
+            <li className='rex-menu-choice'>Schedules</li>
+            <li className='rex-menu-choice'>REXLists</li>
+          </ul>
+        </div>
+        </div>);
+    }
 
     let filter;
     if (this.props.filtered === true && param.endsWith("/") === true){
@@ -91,23 +178,10 @@ export class HeaderBar extends React.Component {
     }
     
     return(
-      <div className='header'>
-        <div className='headerbar'>
-          <div className='header-container'>
-            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
-            <Link to='/'>
-              <h2 className='header-title'>NeighborHound</h2>
-            </Link>
-            <ul className='header-menu'>
-              <Link to='/rex' > <li className='header-menu-choice'>Rex</li></Link>
-              <li className='header-menu-choice'>About</li>
-              <li className='header-menu-choice'>User</li>
-            </ul>
-          </div>
-        </div>
-      {navmenu}
-    </div>
-      )
+      <div>
+        {navmenu}
+      </div>
+      );
   }
 }
   

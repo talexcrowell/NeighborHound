@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 export function ContentRexFeedItem (props) {
-  
+    
     let img= (<img className='media-img' src={props.media.img} alt={props.media.title} />);
     return(
       <li className='media' id={props.media.id+'-'+props.media.sourceitemid} key ={'media'+ props.media.sourceitemid}>
