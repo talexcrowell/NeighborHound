@@ -1,14 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchMediaCatalog} from '../actions/rex';
+import {fetchMediaCatalog, closeDetails} from '../actions/rex';
 import ContentRexFeedItem from './rexfeed';
+import Details from './details';
 
 export class Catalog extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchMediaCatalog());
   }
 
+  closeDetails(){
+    this.props.dispatch(closeDetails());
+  }
+
   render(){
+    let details;
+    if(this.props.view !== null){
+      details = <Details media={this.props.view} ></Details>
+    }
+
     let catalog;
 
     let media = this.props.catalog.map((item, index) => (
@@ -35,6 +45,7 @@ export class Catalog extends React.Component {
           </div>
           {catalog}
         </div>
+        {details}
       </main>
     ); 
   }
@@ -44,7 +55,8 @@ function mapStateToProps(state){
   return{
     catalog: state.rex.catalog,
     loading: state.news.loading,
-    quickRec: state.rex.quickRec
+    quickRec: state.rex.quickRec,
+    view: state.rex.view
   }
 }
 

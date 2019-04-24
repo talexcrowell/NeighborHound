@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import { searchFeed, toggleFilter } from '../actions/main';
-import Filter from './filter';
 
 
 export class HeaderBar extends React.Component {
@@ -114,7 +113,7 @@ export class HeaderBar extends React.Component {
           <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice-active'>Home</li></Link>
             <li className='rex-menu-choice'>Rex</li>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice'>Catalog</li></Link>
-            <li className='rex-menu-choice'>Schedules</li>
+          <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice'>Schedules</li></Link>
             <li className='rex-menu-choice'>REXLists</li>
           </ul>
         </div>
@@ -141,22 +140,38 @@ export class HeaderBar extends React.Component {
           <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Home</li></Link>
             <li className='rex-menu-choice'>Rex</li>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice-active'>Catalog</li></Link>
-            <li className='rex-menu-choice'>Schedules</li>
+          <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice'>Schedules</li></Link>
             <li className='rex-menu-choice'>REXLists</li>
           </ul>
         </div>
         </div>);
     }
-
-    let filter;
-    if (this.props.filtered === true && param.endsWith("/") === true){
-      filter = <Filter items={this.props.feed} />;
-    }
-    else if (this.props.filtered === true && param.endsWith("/news") === true){
-      filter = <Filter items={this.props.articles} />;
-    }
-    else if (this.props.filtered === true && param.endsWith("/community") === true){
-      filter = <Filter items={this.props.posts} />;
+    else if(param.endsWith('/rex/schedules') === true){
+      navmenu = (
+        <div>
+        <div className='headerbar'>
+          <div className='header-container'>
+            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
+            <Link to='/rex/main'>
+              <h2 className='header-title'>Rex</h2>
+            </Link>
+            <ul className='header-menu'>
+              <Link className ='click-area' to='/' ><li className='header-menu-choice'>NeighborHound</li></Link>
+              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
+            </ul>
+          </div>
+        </div>
+        <div className='rex-menu-nav'>
+          <ul className='rex-menu-nav-buttons'>
+          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Home</li></Link>
+            <li className='rex-menu-choice'>Rex</li>
+          <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice'>Catalog</li></Link>
+          <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice-active'>Schedules</li></Link>
+          <li className='rex-menu-choice'>REXLists</li>
+          </ul>
+        </div>
+        </div>);
     }
     
     return(

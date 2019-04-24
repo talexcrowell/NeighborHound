@@ -65,6 +65,42 @@ export const fetchAiringTodayError = (error) => ({
   error
 });
 
+export const FETCH_ON_THE_AIR_SUCCESS = 'FETCH_ON_THE_AIR_SUCCESS';
+export const fetchOnTheAirSuccess = (shows) => ({
+  type: FETCH_ON_THE_AIR_SUCCESS,
+  shows
+});
+
+export const FETCH_ON_THE_AIR_ERROR = 'FETCH_ON_THE_AIR_ERROR';
+export const fetchOnTheAirError = (error) => ({
+  type: FETCH_ON_THE_AIR_ERROR,
+  error
+});
+
+export const FETCH_CURRENTLY_PLAYING_SUCCESS = 'FETCH_CURRENTLY_PLAYING_SUCCESS';
+export const fetchCurrentlyPlayingSuccess = (movies) => ({
+  type: FETCH_CURRENTLY_PLAYING_SUCCESS,
+  movies
+});
+
+export const FETCH_CURRENTLY_PLAYING_ERROR = 'FETCH_CURRENTLY_PLAYING_ERROR';
+export const fetchCurrentlyPlayingError = (error) => ({
+  type: FETCH_CURRENTLY_PLAYING_ERROR,
+  error
+});
+
+export const VIEW_DETAILS = 'VIEW_DETAILS';
+export const viewDetails = (media) => ({
+  type: VIEW_DETAILS,
+  media
+});
+
+export const CLOSE_DETAILS = 'CLOSE_DETAILS';
+export const closeDetails = () => ({
+  type: CLOSE_DETAILS
+});
+
+// async actions for rex
 export const fetchQuickReccommendation = () => {
   return (dispatch, getState) => {
     dispatch(fetchMediaRequest());
@@ -95,13 +131,33 @@ export const fetchUpcomingMovies = () => {
   }
 }
 
+export const fetchNowPlayingMovies = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchMediaRequest());
+    fetch(`${API_BASE_URL}/api/rex/nowplaying`)
+    .then(res => res.json())
+    .then(data => dispatch(fetchCurrentlyPlayingSuccess(data)))
+    .catch(err => dispatch(fetchCurrentlyPlayingError(err)))
+  }
+}
+
 export const fetchAiringTodayTV = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchMediaRequest());
+    fetch(`${API_BASE_URL}/api/rex/airingtoday`)
+    .then(res => res.json())
+    .then(data => dispatch(fetchAiringTodaySuccess(data)))
+    .catch(err => dispatch(fetchAiringTodayError(err)))
+  }
+}
+
+export const fetchOnTheAirTV = () => {
   return (dispatch, getState) => {
     dispatch(fetchMediaRequest());
     fetch(`${API_BASE_URL}/api/rex/schedule`)
     .then(res => res.json())
-    .then(data => dispatch(fetchAiringTodaySuccess(data)))
-    .catch(err => dispatch(fetchAiringTodayError(err)))
+    .then(data => dispatch(fetchOnTheAirSuccess(data)))
+    .catch(err => dispatch(fetchOnTheAirError(err)))
   }
 }
 

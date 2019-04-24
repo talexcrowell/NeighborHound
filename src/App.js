@@ -7,6 +7,7 @@ import News from './components/news';
 import Community from './components/community';
 import RexMain from './components/rex';
 import Catalog from './components/catalog';
+import Schedules from './components/schedules';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path="/community" component ={Community} />
           <Route exact path="/rex/main" component ={RexMain} />
           <Route exact path="/rex/catalog" component ={Catalog} />
+          <Route exact path="/rex/schedules" component ={Schedules} />
         </Switch>
       </div>
     </Router>

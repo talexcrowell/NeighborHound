@@ -1,11 +1,32 @@
-import {FETCH_MEDIA_REQUEST, FETCH_MOVIES_SUCCESS, FETCH_MOVIES_ERROR, FETCH_QUICK_REC_SUCCESS, FETCH_QUICK_REC_ERROR, FETCH_CATALOG_SUCCESS, FETCH_CATALOG_ERROR, FETCH_UPCOMING_MOVIES_SUCCESS, FETCH_UPCOMING_MOVIES_ERROR, FETCH_AIRING_TODAY_SUCCESS, FETCH_AIRING_TODAY_ERROR} from '../actions/rex';
+import {
+  FETCH_MEDIA_REQUEST, 
+  FETCH_MOVIES_SUCCESS, 
+  FETCH_MOVIES_ERROR, 
+  FETCH_QUICK_REC_SUCCESS, 
+  FETCH_QUICK_REC_ERROR, 
+  FETCH_CATALOG_SUCCESS, 
+  FETCH_CATALOG_ERROR, 
+  FETCH_UPCOMING_MOVIES_SUCCESS, 
+  FETCH_UPCOMING_MOVIES_ERROR, 
+  FETCH_AIRING_TODAY_SUCCESS, 
+  FETCH_AIRING_TODAY_ERROR, 
+  VIEW_DETAILS,
+  CLOSE_DETAILS,
+  FETCH_ON_THE_AIR_SUCCESS,
+  FETCH_ON_THE_AIR_ERROR,
+  FETCH_CURRENTLY_PLAYING_SUCCESS,
+  FETCH_CURRENTLY_PLAYING_ERROR
+} from '../actions/rex';
 
 const initialState = {
   movies: [],
   catalog: [],
   shows: [],
+  nowPlaying: [],
   upcoming: [],
+  airingToday: [],
   schedule: [],
+  view: null,
   quickRec: {},
   loading: false,
   error: null
@@ -78,7 +99,7 @@ export default function rexReducer(state=initialState, action){
     return{
       ...state,
       loading: false,
-      schedule: [...action.shows]
+      airingToday: [...action.shows]
     }
   }
   else if(action.type === FETCH_AIRING_TODAY_ERROR){
@@ -86,6 +107,48 @@ export default function rexReducer(state=initialState, action){
       ...state,
       loading: false,
       error: action.error
+    }
+  }
+  else if(action.type === FETCH_ON_THE_AIR_SUCCESS){
+    return{
+      ...state,
+      loading: false,
+      schedule: [...action.shows]
+    }
+  }
+  else if(action.type === FETCH_ON_THE_AIR_ERROR){
+    return{
+      ...state,
+      loading: false,
+      error: action.error
+    }
+  }
+  else if(action.type === FETCH_CURRENTLY_PLAYING_SUCCESS){
+    return{
+      ...state,
+      loading: false,
+      nowPlaying: [...action.movies]
+    }
+  }
+  else if(action.type === FETCH_CURRENTLY_PLAYING_ERROR){
+    return{
+      ...state,
+      loading: false,
+      error: action.error
+    }
+  }
+  else if(action.type === VIEW_DETAILS){
+    return{
+      ...state,
+      loading: false,
+      view: action.media
+    }
+  }
+  else if(action.type === CLOSE_DETAILS){
+    return{
+      ...state,
+      loading: false,
+      view: null
     }
   }
   return state;

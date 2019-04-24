@@ -12,8 +12,8 @@ export class RexMain extends React.Component {
   render() {
     let mainUpcoming = this.props.upcoming;
     let mainSchedule = this.props.schedule;
-    mainUpcoming.length = 10;
-    mainSchedule.length = 10;
+    mainUpcoming.length = 5;
+    mainSchedule.length = 5;
 
     let upcomingMovies = mainUpcoming.map((movie, index) => (
       <li className='upcoming-card'>
@@ -46,13 +46,13 @@ export class RexMain extends React.Component {
             <p className='main-media-rating'>{'MovieDB: ' + this.props.quickRec.moviedbrating}</p>
           </div>
         </section>
-        <div className='tv-schedule'>
+        <div className='main-tv-schedule'>
           <h3 className='main-title'>On TV Today:</h3>
           <uL className='main-list'>
             {tvSchedule}
           </uL>
         </div>
-        <div className='upcoming-movies'>
+        <div className='main-upcoming-movies'>
           <h3 className='main-title'>Upcoming:</h3>
           <ul className='main-list'>
             {upcomingMovies}

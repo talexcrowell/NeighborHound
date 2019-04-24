@@ -1,7 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {viewDetails} from '../actions/rex';
 
 export class ContentRexFeedItem extends React.Component {
+  viewDetails(media){
+    this.props.dispatch(viewDetails(media));
+  }
+
    render(){
     let param = window.location.href;
    
@@ -20,7 +25,7 @@ export class ContentRexFeedItem extends React.Component {
           <section className='catalog-media-controls'>
             <p className='catalog-media-button' >Add To Watchlist</p>
             <p className='catalog-media-button' >Watched</p>
-            <p className='catalog-media-button' >More Info</p>
+            <p className='catalog-media-button' onClick={() => this.viewDetails(this.props.media)}>More Info</p>
           </section>
         </li>)
     }
