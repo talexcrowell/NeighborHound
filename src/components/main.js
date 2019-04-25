@@ -26,10 +26,10 @@ export class Main extends React.Component {
       <main role='main' className='main-page'>
         <div className='main-page-content'>
           <section className='main-menu'>
-            <h1 className='main-menu-title'>Welcome to NeighborHound</h1>
-            <p className='main-menu-text'>NeighborHound collects all upcoming news and fresh community content to keep you informed and entertained</p>
-            <p className='main-menu-text'>Remember to click on the NeighborHound logo to return to the top of the feed</p>
-            <p className='main-menu-text'>Let's see what NeighborHound has fetched today</p>
+            <h1 className='main-menu-title'>Welcome to Fetch</h1>
+            <p className='main-menu-text'>NeighborHound Fetch collects all upcoming news and fresh community content to keep you informed and entertained!</p>
+            <p className='main-menu-text'>Click on the NeighborHound logo to return to the top of the feed</p>
+            <p className='main-menu-text'>Let's see what NeighborHound has fetched today...</p>
             <div className='main-menu-nav-functions'>
               <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
               <div className='filter-img'>

@@ -156,7 +156,7 @@ export const fetchOnTheAirTV = () => {
     dispatch(fetchMediaRequest());
     fetch(`${API_BASE_URL}/api/rex/schedule`)
     .then(res => res.json())
-    .then(data => dispatch(fetchOnTheAirSuccess(data)))
+    .then(data => console.log(data))
     .catch(err => dispatch(fetchOnTheAirError(err)))
   }
 }

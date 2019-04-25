@@ -16,9 +16,10 @@ export class Details extends React.Component {
         <div className="details-modal-content">
           <span className="details-close" onClick={() => this.closeDetails()}>&times;</span>
           <h2>{this.props.media.title}</h2>
-          <p>{this.props.media.genres}</p>
-          <p>{this.props.media.moviedbrating}</p>
-          <p>{this.props.media.overview}</p>
+          <p className='full-schedule-season'>S{this.props.media.nextEpisode.season_number}E{this.props.media.nextEpisode.episode_number}</p>
+          <p>{this.props.media.nextEpisode.air_date}</p>
+          <p>{this.props.media.nextEpisode.overview}</p>
+          <div>View Show Info</div>
         </div>
       </div>);
   }

@@ -43,9 +43,10 @@
   cursor: pointer;
   float: left;
 }
+
+/* header */
  .header{
   width: 100%;
-  max-width: 1980px;
   position: sticky;
   background: none;
   top: 0;
@@ -55,7 +56,6 @@
 .headerbar{
   background-color: #282828;
   width: 100%;
-  max-width: 1980px;
   border-bottom: 2px gainsboro solid;
 }
 
@@ -255,14 +255,14 @@
   list-style-type: none;
   display: inline-block;
   padding: 0px;
-  width: 50%;
+  width: 100%;
   margin-left: 5px;
   margin:0;
 }
 
 .main-menu-choice{
   display: inline-block;
-  width: 33.5%;
+  width: 20%;
   padding: 5px;
   font-weight: bold;
 }
@@ -270,7 +270,7 @@
 .main-menu-choice-active{
   display: inline-block;
   background: #484848;
-  width: 33%;
+  width: 20%;
   font-weight: bold;
   padding: 5px;
 }
@@ -279,7 +279,7 @@
   background:gainsboro;
   color: black;
 }
-/*  */
+/* rex main menu  */
 .rex-menu-nav{
   display: inline-block;
   width:100%;
@@ -337,7 +337,7 @@
   background:gainsboro;
   color: black;
 }
-/*  */
+/* filter  */
 .filter{
   display: inline-block;
   width: 400px;
@@ -597,18 +597,19 @@
 }
 
 .img-container{
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   min-width: 280px;
   display: inline-block;
   vertical-align: middle;
   border-radius: 4px;
-  border: black 5px solid;
+  margin: 2.5px;
+  background: none;
+  border: black 2px solid;
 }
 
 .post-img{
   width: 100%;
-  max-height: 600px;
   object-fit: contain;
   display: inline-block;
   border-radius: 4px;
@@ -737,7 +738,7 @@
   min-height: 300px;
 }
 
-/* Rex genrel media */
+/* Rex general media */
 .media{
   max-width: 300px;
   min-width: 250px;
@@ -828,12 +829,8 @@
   background: none;
 }
 
-/* temporary CSS for REX */
-.coming-soon{
-  background: #484848;
-  width: 960px;
-  display: inline-block;
-}
+/* REX */
+
 .rex-main-menu{
   display: inline-block;
   width: 100%;
@@ -938,6 +935,7 @@
   font-style: none;
 }
 
+/* schedules */
 .main-tv-schedule{
   margin:10px;
   display: inline-block;
@@ -967,19 +965,102 @@
   border: 2px gainsboro solid;
 }
 
+.tv-schedule-description{
+  display: inline-block;
+  width: 45%;
+  font-size: 24px;
+  margin-top: 10px;
+  padding: 10px;
+  height: 100%;
+  border-radius: 4px;
+  border: 2px gainsboro solid;
+}
+
+.schedule-description{
+  display: inline-block;
+  text-align: left;
+  font-size: 24px;
+}
+
 .tv-schedule-container{
   display: inline-block;
   width:95%;
-  background: #484848;
+  background: #181818;
   margin-top:10px;
   margin-bottom:10px;
   border-radius: 4px;
   border: 2px gainsboro solid;
 }
 
+.network-img{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  background: none;
+  object-fit: contain;
+}
+
+.network-img-container{
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  padding: 5px;
+  background: #585858;
+  border-left:gainsboro 2px solid;
+}
+
+.full-schedule-network-img{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  background: none;
+  object-fit: contain;
+}
+
+.full-schedule-network-img-container{
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  padding: 5px;
+  background: gainsboro;
+  border: 1px black solid;
+}
+
+.full-schedule-genres{
+  vertical-align: middle;
+  display:inline-block;
+  width: 15%;
+  height: 100%;
+}
+.full-schedule-genre{
+  vertical-align: middle;
+  display:inline-block;
+  width:100%;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px #484848 solid;
+}
+
+.schedule-section-title{
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  width: 100%;
+  padding:10px;
+  border-bottom:gainsboro 2px solid;
+}
+
 .schedule-card{
   display: inline-block;
+  vertical-align: top;
   width:100%;
+  max-height: 80px;
   list-style-type: none;
   color: white;
   border-top: gainsboro 2px solid;
@@ -993,9 +1074,20 @@
 
 .schedule-title{
   display: inline-block;
-  font-size: 16px;
-  margin: 10px;
+  vertical-align: middle;
+  font-size: 18px;
+  padding:2.5px;
+  margin: 0;
   background: none;
+  width: 65%;
+}
+
+.full-schedule-season{
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+  padding: 5px;
+  margin: 0;
 }
 
 .full-schedule-card{
@@ -1014,15 +1106,32 @@
 
 .full-schedule-title{
   display: inline-block;
-  font-size: 16px;
-  margin: 10px;
+  vertical-align: middle;
+  font-size: 18px;
+  padding:2.5px;
+  margin: 0;
   background: none;
+  width: 50%;
+}
+
+.schedule-details{
+  display: inline-block;
+  font-size: 16px;
+  background: none;
+  width:35%;
+  height: 100%;
+  background: black;
+  border-left:white 2px solid;
 }
 
 .full-schedule-details{
   display: inline-block;
   font-size: 16px;
   background: none;
+  width:25%;
+  height: 100%;
+  background: black;
+  border-left:white 2px solid;
 }
 
 .full-schedule-episode{
@@ -1034,7 +1143,7 @@
 
 .full-schedule-buttons{
   display:inline-block;
-  widows: 10%;
+  width: 10%;
   height: 100%;
 }
 
@@ -1072,8 +1181,7 @@
 .main-title{
   margin: 0;
   padding:10px;
-  background: #282828;
-  border-bottom: 2px gainsboro solid;
+  background: #383838;
 }
 
 .upcoming-card{
@@ -1191,7 +1299,6 @@
 
 
 .details-modal-content {
-  background-color: #181818;
   margin: 15% auto; 
   padding: 20px;
   border: 2px solid gainsboro;
@@ -1208,7 +1315,7 @@
 
 .details-close:hover,
 .details-close:focus {
-  color: black;
+  color: darkred;
   text-decoration: none;
   cursor: pointer;
 }

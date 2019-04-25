@@ -9,6 +9,7 @@ import RexMain from './components/rex';
 import Catalog from './components/catalog';
 import Schedules from './components/schedules';
 import FullSchedule from './components/full-schedule';
+import Dashboard from './components/dashboard';
 
 class App extends Component {
   render() {
@@ -17,9 +18,10 @@ class App extends Component {
       <div className="App" >
         <Route path="/" component={HeaderBar} />
         <Switch>
-          <Route exact path="/" component={Main} />
-          <Route exact path="/news" component ={News} />
-          <Route exact path="/community" component ={Community} />
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/fetch" component={Main} />
+          <Route exact path="/fetch/news" component ={News} />
+          <Route exact path="/fetch/community" component ={Community} />
           <Route exact path="/rex/main" component ={RexMain} />
           <Route exact path="/rex/catalog" component ={Catalog} />
           <Route exact path="/rex/schedules" component ={Schedules} />
