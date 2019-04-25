@@ -11,7 +11,7 @@ export class RexMain extends React.Component {
 
   render() {
     let mainUpcoming = this.props.upcoming;
-    let mainSchedule = this.props.schedule;
+    let mainSchedule = this.props.airingToday;
     mainUpcoming.length = 5;
     mainSchedule.length = 5;
 
@@ -70,7 +70,7 @@ function mapStateToProps(state){
     loading: state.news.loading,
     quickRec: state.rex.quickRec,
     upcoming: state.rex.upcoming,
-    schedule: state.rex.schedule
+    airingToday: state.rex.airingToday
   }
 }
 

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import { fetchUpcomingMovies, fetchNowPlayingMovies, fetchAiringTodayTV, fetchOnTheAirTV } from '../actions/rex';
 
-export class Schedules extends React.Component {
+export class FullSchedule extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchUpcomingMovies());
     this.props.dispatch(fetchNowPlayingMovies());
@@ -16,11 +16,6 @@ export class Schedules extends React.Component {
     let nowPlaying = this.props.nowPlaying;
     let airingToday = this.props.airingToday;
     let onAir = this.props.schedule;
-
-    mainUpcoming.length = 5;
-    nowPlaying.length = 5;
-    airingToday.length = 5;
-    onAir.length = 5;
 
     let upcomingMovies = mainUpcoming.map((movie, index) => (
       <li className='upcoming-card'>
@@ -49,37 +44,21 @@ export class Schedules extends React.Component {
     return(
       <main role='main' className='rex-main-page'>
       <div className='main-menu'>
-        <h1>Schedules</h1>
+      <h2>Television</h2>
         <section className='tv-schedule-container'>
-        <Link className='click-area' to='/rex/schedules/tv'><h2>Television</h2></Link>
-          <div className='tv-schedule'>
+          <div className='full-tv-schedule'>
             <h3 className='main-title'>Today:</h3>
             <uL className='main-list'>
               {today}
             </uL>
           </div>
-          <div className='tv-schedule'>
+          <div className='full-tv-schedule'>
             <h3 className='main-title'>Currently Airing:</h3>
             <uL className='main-list'>
               {schedule}
             </uL>
           </div>
         </section>
-        <section className='movie-schedule-container'>
-          <h2>Movies</h2>
-          <div className='upcoming-movies'>
-            <h3 className='main-title'>Upcoming:</h3>
-            <ul className='main-list'>
-              {upcomingMovies}
-            </ul>
-          </div>
-          <div className='upcoming-movies'>
-            <h3 className='main-title'>Currently Playing:</h3>
-            <ul className='main-list'>
-              {nowPlayingMovies}
-            </ul>
-          </div>
-      </section>
       </div>
     </main>
     )
@@ -98,4 +77,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(Schedules);
+export default connect(mapStateToProps)(FullSchedule);

@@ -146,7 +146,7 @@ export class HeaderBar extends React.Component {
         </div>
         </div>);
     }
-    else if(param.endsWith('/rex/schedules') === true){
+    else if(param.includes('/rex/schedules') === true){
       navmenu = (
         <div>
         <div className='headerbar'>
