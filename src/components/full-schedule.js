@@ -30,8 +30,15 @@ export class FullSchedule extends React.Component {
     ));
 
     let today = airingToday.map((show, index) => (
-      <li className='schedule-card'>
-        <p className='schedule-title'>{show.title.length < 40 ? show.title : show.title.slice(0,40)+'...'}</p>
+      <li className='full-schedule-card'>
+        <p className='full-schedule-title'>{show.title.length < 40 ? show.title : show.title.slice(0,40)+'...'}</p>
+        <div className='full-schedule-details'>
+          <p className='full-schedule-season'>S{show.nextEpisode.season_number}E{show.nextEpisode.episode_number}</p>
+        </div>
+        <div className='full-schedule-buttons'>
+          <div className='add-to-watchlist'>Add</div>
+          <div className='more-info'>More</div>
+        </div>
       </li>
     ));
 

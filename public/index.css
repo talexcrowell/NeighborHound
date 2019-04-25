@@ -998,6 +998,46 @@
   background: none;
 }
 
+.full-schedule-card{
+  display: inline-block;
+  width:100%;
+  list-style-type: none;
+  color: white;
+  border-top: gainsboro 2px solid;
+  border-bottom: gainsboro 2px solid;
+}
+
+.full-schedule-card:hover{
+  background: white;
+  font: black;
+}
+
+.full-schedule-title{
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  background: none;
+}
+
+.full-schedule-details{
+  display: inline-block;
+  font-size: 16px;
+  background: none;
+}
+
+.full-schedule-episode{
+  display: inline-block;
+  font-size: 16px;
+  background: none;
+  width:50%;
+}
+
+.full-schedule-buttons{
+  display:inline-block;
+  widows: 10%;
+  height: 100%;
+}
+
 .main-upcoming-movies{
   margin:10px;
   display: inline-block;
