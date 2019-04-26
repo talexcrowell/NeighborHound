@@ -946,6 +946,16 @@
   border: 2px white solid;
 }
 
+.tv-logo{
+  display: inline-block;
+  width: 60%;
+}
+
+.logo-container{
+  display: inline-block;
+  width: 40%;
+}
+
 .tv-schedule{
   margin:10px;
   display: inline-block;
@@ -978,11 +988,13 @@
 
 .schedule-description{
   display: inline-block;
+  margin: 0;
+  padding: 5px;
   text-align: left;
   font-size: 24px;
 }
 
-.tv-schedule-container{
+.schedule-container{
   display: inline-block;
   width:95%;
   background: #181818;
@@ -1068,7 +1080,7 @@
 }
 
 .schedule-card:hover{
-  background: white;
+  background-image: linear-gradient(black, #484848);
   font: black;
 }
 
@@ -1100,7 +1112,7 @@
 }
 
 .full-schedule-card:hover{
-  background: white;
+  background-image: linear-gradient(black, #484848);
   font: black;
 }
 
@@ -1145,6 +1157,21 @@
   display:inline-block;
   width: 10%;
   height: 100%;
+  background-color: #282828;
+}
+.full-schedule-button{
+  padding: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display:inline-block;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+}
+
+.full-schedule-button:hover{
+  background: #585858;
+  cursor: pointer
 }
 
 .main-upcoming-movies{

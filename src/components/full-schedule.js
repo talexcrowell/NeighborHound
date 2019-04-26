@@ -1,15 +1,29 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { fetchUpcomingMovies, fetchNowPlayingMovies, fetchAiringTodayTV, fetchOnTheAirTV } from '../actions/rex';
+import { fetchUpcomingMovies, fetchNowPlayingMovies, fetchAiringTodayTV, fetchOnTheAirTV, closeDetails, viewDetails} from '../actions/rex';
+import Details from './details';
 
 export class FullSchedule extends React.Component {
   
   componentDidMount() {
     this.props.dispatch(fetchAiringTodayTV());
   }
+  closeDetails(){
+    this.props.dispatch(closeDetails());
+  }
+
+  viewDetails(media){
+    this.props.dispatch(viewDetails(media));
+  }
 
   render() {
+    let details;
+
+    if(this.props.view !== null){
+      details = <Details media={this.props.view} ></Details>
+    }
+
     let mainUpcoming = this.props.upcoming;
     let nowPlaying = this.props.nowPlaying;
     let airingToday = this.props.airingToday;
@@ -28,8 +42,8 @@ export class FullSchedule extends React.Component {
           </div>
           </div>  
         <div className='full-schedule-buttons'>
-          <div className='add-to-watchlist'>Add</div>
-          <div className='more-info'>More</div>
+          <div className='full-schedule-button'>Add</div>
+          <div className='full-schedule-button' onClick={() => this.viewDetails(show)}>More</div>
         </div>
       </li>
     ));
@@ -47,15 +61,19 @@ export class FullSchedule extends React.Component {
       <main role='main' className='rex-main-page'>
       <div className='main-menu'>
       <h2>Television</h2>
+      <div className='logo-container'>
+        <img className='tv-logo' src='https://i.imgur.com/vNOeitC.png' alt='Rex TV'></img>
+      </div>
         <section className='tv-schedule-container'>
           <div className='full-tv-schedule'>
-            <h3 className='main-title'>Today:</h3>
+            <h3 className='main-title'>Airing Today:</h3>
             <uL className='main-list'>
               {today}
             </uL>
           </div>
         </section>
       </div>
+      {details}
     </main>
     )
   }
@@ -69,7 +87,8 @@ function mapStateToProps(state){
     upcoming: state.rex.upcoming,
     schedule: state.rex.schedule,
     airingToday: state.rex.airingToday,
-    nowPlaying: state.rex.nowPlaying
+    nowPlaying: state.rex.nowPlaying,
+    view: state.rex.view
   }
 }
 

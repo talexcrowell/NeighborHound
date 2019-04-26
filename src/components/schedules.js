@@ -44,7 +44,7 @@ export class Schedules extends React.Component {
         <div className='schedule-details'>
           <p className='full-schedule-season'>S{show.nextEpisode.season_number}E{show.nextEpisode.episode_number}</p>
           <div className='network-img-container'>
-            <img className='network-img' src={`https://image.tmdb.org/t/p/w200${show.networks[0].logo_path}`}></img>
+            <img className='network-img' src={`https://image.tmdb.org/t/p/w200${show.networks[0].logo_path}`} alt={show.networks[0].name}></img>
           </div>
         </div>
       </li>
@@ -54,11 +54,14 @@ export class Schedules extends React.Component {
       <main role='main' className='rex-main-page'>
       <div className='main-menu'>
         <h1>Schedules</h1>
-        <section className='tv-schedule-container'>
-        <Link className='click-area' to='/rex/schedules/tv'><h2 className='schedule-section-title'>Television</h2></Link>
+        <section className='schedule-container'>
+          <Link className='click-area' to='/rex/schedules/tv'>
+          <h2 className='schedule-section-title'>Television</h2>
           <div className='tv-schedule-description'>
+            <img className='tv-logo' src='https://i.imgur.com/vNOeitC.png' alt='Rex TV'></img>
             <p className='schedule-description'>Come check out what shows are airing today and are in season</p>
           </div>
+          </Link>
           <div className='tv-schedule'>
             <h3 className='main-title'>Airing Today:</h3>
             <uL className='main-list'>
@@ -66,12 +69,16 @@ export class Schedules extends React.Component {
             </uL>
           </div>
         </section>
-        <section className='movie-schedule-container'>
-          <h2>Movies</h2>
-          <div className='upcoming-movies'>
+        <section className='schedule-container'>
+          <h2 className='schedule-section-title'>Movies</h2>
+          <div className='tv-schedule-description'>
+            <img className='tv-logo' src='https://i.imgur.com/F6LGKZU.png' alt='Rex Movies'></img>
+            <p className='schedule-description'>See what movies are playing now or coming soon!</p>
+          </div>
+          <div className='tv-schedule'>
             <h3 className='main-title'>Currently Playing:</h3>
             <ul className='main-list'>
-              {nowPlayingMovies}
+            {nowPlayingMovies}
             </ul>
           </div>
       </section>
