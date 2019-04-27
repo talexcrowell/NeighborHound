@@ -54,12 +54,20 @@ export class Details extends React.Component {
           <div className='main-media-img-container'>
           <img className='main-media-img' src={this.props.media.img.includes('null') === false ? this.props.media.img : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.title}></img>
           </div>
-          <h2>{this.props.media.title}</h2>
+          <h1 className='details-title'>{this.props.media.title}</h1>
           {genres}
-          <p className='full-schedule-season'>S{this.props.media.nextEpisode.season_number}E{this.props.media.nextEpisode.episode_number}</p>
-          <p>{this.props.media.nextEpisode.air_date}</p>
-          <p>{this.props.media.nextEpisode.overview ? this.props.media.nextEpisode.overview : "No Summary Available"}</p>
-          <div>View Show Info</div>
+          <div className='details-info-container'>
+            <h3 className='details-info-title'>Next Episode</h3>
+            <p className='details-info'>S{this.props.media.nextEpisode.season_number}E{this.props.media.nextEpisode.episode_number}</p>
+            <p className='details-info'>{this.props.media.nextEpisode.name}</p>
+            <p className='details-info'>{this.props.media.nextEpisode.air_date}</p>
+            <label className='details-overview-label'>Next Episode Overview</label>
+            <p className='details-overview'>{this.props.media.nextEpisode.overview ? this.props.media.nextEpisode.overview : "No Summary Available"}</p>
+          </div>
+          <div className='details-buttons'>
+            <div className='details-button'>Add to Watchlist</div>            
+            <div className='details-button'>View Catalog Info</div>
+          </div>
         </div>
       </div>);
   }
