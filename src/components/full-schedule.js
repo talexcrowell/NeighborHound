@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {fetchAiringTodayTV, fetchOnTheAirTV, closeDetails, viewDetails, fetchTVPage} from '../actions/rex';
 import Details from './details';
+import ContentRexFeedItem from './rexfeed';
 
 export class FullSchedule extends React.Component {
   componentDidMount() {
@@ -49,24 +50,7 @@ export class FullSchedule extends React.Component {
     
     else {
      today = airingToday.map((show, index) => (
-      <li className='full-schedule-card' key={'airing-'+index}>
-        <img className='full-schedule-img' src={show.img.includes('null') === false ? show.img : 'https://i.imgur.com/vNOeitC.png'} alt={show.title}></img>
-        <p className='full-schedule-title'>{show.title.length < 40 ? show.title : show.title.slice(0,40)+'...'}</p>
-        {show.genres.length < 1 ? <div className='full-schedule-genres'></div> :
-          show.genres.length < 2 ? <div className='full-schedule-genres'><div className='full-schedule-genre'>{show.genres[0].name}</div></div> : 
-          show.genres.length < 3 ? <div className='full-schedule-genres'><div className='full-schedule-genre'>{show.genres[0].name}</div><div className='full-schedule-genre'>{show.genres[1].name}</div></div> : 
-          <div className='full-schedule-genres'><div className='full-schedule-genre'>{show.genres[0].name}</div><div className='full-schedule-genre'>{show.genres[1].name}</div><div className='full-schedule-genre'>{show.genres[2].name}</div></div>}
-        <div className='full-schedule-details'>
-          <p className='full-schedule-season'>S{show.nextEpisode ? show.nextEpisode.season_number : '-'}E{show.nextEpisode ? show.nextEpisode.episode_number : '-'}</p>
-          <div className='full-schedule-network-img-container'>
-          <img className='full-schedule-network-img' src={show.networks.length !== 0 ? `https://image.tmdb.org/t/p/w200${show.networks[0].logo_path}` : 'https://i.imgur.com/vNOeitC.png'} alt={show.networks.length !== 0 ? show.networks[0].name : 'No Logo Found'}></img>
-          </div>
-          </div>  
-        <div className='full-schedule-buttons'>
-          <div className='full-schedule-button'>Add</div>
-          <div className='full-schedule-button' onClick={() => this.viewDetails(show)}>More</div>
-        </div>
-      </li>
+        <ContentRexFeedItem media={show} index={index}/>
       ));
     }
   

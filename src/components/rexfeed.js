@@ -9,6 +9,44 @@ export class ContentRexFeedItem extends React.Component {
 
    render(){
     let param = window.location.href;
+
+    let genres;
+    if(this.props.media.genres.length < 1 ){
+      genres = (<div className='full-schedule-genres'>
+      <div className='full-schedule-genre'>
+      </div>
+      </div>);
+    } 
+    else if(this.props.media.genres.length < 2){
+      genres = (<div className='full-schedule-genres'>
+          <div className='full-schedule-genre'>
+          {this.props.media.genres[0].name}
+          </div>
+        </div>);
+    }
+    else if(this.props.media.genres.length < 3 ) {
+      genres = (<div className='full-schedule-genres'>
+          <div className='full-schedule-genre'>
+            {this.props.media.genres[0].name}
+          </div>
+          <div className='full-schedule-genre'>
+            {this.props.media.genres[1].name}
+          </div>
+        </div>);
+    }
+    else if(this.props.media.genres.length === 3 ){
+      genres = (<div className='full-schedule-genres'>
+        <div className='full-schedule-genre'>
+          {this.props.media.genres[0].name}
+        </div>
+        <div className='full-schedule-genre'>
+          {this.props.media.genres[1].name}
+        </div>
+        <div className='full-schedule-genre'>
+          {this.props.media.genres[2].name}
+        </div>
+      </div>);
+    }  
    
     if(param.endsWith('/catalog')){
       return(
@@ -28,6 +66,44 @@ export class ContentRexFeedItem extends React.Component {
             <p className='catalog-media-button' onClick={() => this.viewDetails(this.props.media)}>More Info</p>
           </section>
         </li>)
+    }
+    else if(param.endsWith('/today')){
+      return(
+      <li className='full-schedule-card' key={'airing-'+this.props.index}>
+        <div className='full-schedule-general-info'>
+        <img className='full-schedule-img' src={this.props.media.img.includes('null') === false ? this.props.media.img : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.title}></img>
+        <p className='full-schedule-title'>{this.props.media.title.length < 40 ? this.props.media.title : this.props.media.title.slice(0,40)+'...'}</p>
+        {genres}
+        </div>
+        <div className='full-schedule-details'>
+          <p className='full-schedule-season'>S{this.props.media.nextEpisode ? this.props.media.nextEpisode.season_number : '-'}E{this.props.media.nextEpisode ? this.props.media.nextEpisode.episode_number : '-'}</p>
+          <div className='full-schedule-network-img-container'>
+          <img className='full-schedule-network-img' src={this.props.media.networks.length !== 0 ? `https://image.tmdb.org/t/p/w200${this.props.media    .networks[0].logo_path}` : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.networks.length !== 0 ? this.props.media.networks[0].name : 'No Logo Found'}></img>
+          </div>
+          </div>  
+        <div className='full-schedule-buttons'>
+          <div className='full-schedule-button'>Add</div>
+          <div className='full-schedule-button' onClick={() => this.viewDetails(this.props.media)}>More</div>
+        </div>
+      </li>)
+    }
+    else if(param.endsWith('/ontheair')){
+      return(
+      <li className='full-schedule-card' key={'airing-'+this.props.index}>
+        <img className='full-schedule-img' src={this.props.media.img.includes('null') === false ? this.props.media.img : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.title}></img>
+        <p className='full-schedule-title'>{this.props.media.title.length < 40 ? this.props.media.title : this.props.media.title.slice(0,40)+'...'}</p>
+        {genres}
+        <div className='full-schedule-details'>
+          <p className='full-schedule-season'>S{this.props.media.nextEpisode ? this.props.media.nextEpisode.season_number : '-'}E{this.props.media.nextEpisode ? this.props.media.nextEpisode.episode_number : '-'}</p>
+          <div className='full-schedule-network-img-container'>
+          <img className='full-schedule-network-img' src={this.props.media.networks.length !== 0 ? `https://image.tmdb.org/t/p/w200${this.props.media    .networks[0].logo_path}` : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.networks.length !== 0 ? this.props.media.networks[0].name : 'No Logo Found'}></img>
+          </div>
+          </div>  
+        <div className='full-schedule-buttons'>
+          <div className='full-schedule-button'>Add</div>
+          <div className='full-schedule-button' onClick={() => this.viewDetails(this.props.media)}>More</div>
+        </div>
+      </li>)
     }
     else{
       let img= (<img className='media-img' src={this.props.media.img} alt={this.props.media.title} />);
