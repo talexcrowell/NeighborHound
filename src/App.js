@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path="/rex/main" component ={RexMain} />
           <Route exact path="/rex/catalog" component ={Catalog} />
           <Route exact path="/rex/schedules" component ={Schedules} />
-          <Route exact path="/rex/schedules/tv" component={FullSchedule} />
+          <Route exact path="/rex/schedules/tv/:category" component={FullSchedule} />
           <Route exact path="/rex/schedules/movies" component={FullSchedule} />
         </Switch>
       </div>

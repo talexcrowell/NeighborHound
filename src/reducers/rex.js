@@ -15,7 +15,9 @@ import {
   FETCH_ON_THE_AIR_SUCCESS,
   FETCH_ON_THE_AIR_ERROR,
   FETCH_CURRENTLY_PLAYING_SUCCESS,
-  FETCH_CURRENTLY_PLAYING_ERROR
+  FETCH_CURRENTLY_PLAYING_ERROR,
+  FETCH_TV_PAGE_SUCCESS,
+  FETCH_TV_PAGE_ERROR
 } from '../actions/rex';
 
 const initialState = {
@@ -29,7 +31,8 @@ const initialState = {
   view: null,
   quickRec: {},
   loading: false,
-  error: null
+  error: null,
+  pages: {}
 };
 
 export default function rexReducer(state=initialState, action){
@@ -99,7 +102,11 @@ export default function rexReducer(state=initialState, action){
     return{
       ...state,
       loading: false,
-      airingToday: [...action.shows]
+      airingToday: [...action.data.data],
+      pages:{
+        page: action.data.page,
+        total: action.data.totalPages
+      }
     }
   }
   else if(action.type === FETCH_AIRING_TODAY_ERROR){
@@ -131,6 +138,32 @@ export default function rexReducer(state=initialState, action){
     }
   }
   else if(action.type === FETCH_CURRENTLY_PLAYING_ERROR){
+    return{
+      ...state,
+      loading: false,
+      error: action.error
+    }
+  }
+  else if(action.type === FETCH_TV_PAGE_SUCCESS && action.response.schedule === 'today'){
+    console.log(action.response)
+    return{ 
+      ...state,
+      loading: false,
+      airingToday: [...action.response.data],
+      pages:{
+        page: action.response.page,
+        total: action.response.totalPages
+      }
+    }
+  }
+  else if(action.type === FETCH_TV_PAGE_SUCCESS && action.response.schedule === 'on-the-air'){
+    return{ 
+      ...state,
+      loading: false,
+      schedule: [...action.response]
+    }
+  }
+  else if(action.type === FETCH_TV_PAGE_ERROR){
     return{
       ...state,
       loading: false,
