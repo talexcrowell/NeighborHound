@@ -36,12 +36,13 @@ export class Catalog extends React.Component {
         <div className='main-menu'>
           <div className ='rex-main-text'>
             <h2>Catalog</h2>
-            <p className='csl'>Explore our massive media database</p>            <div className='main-menu-nav-functions'>
-            <input className='main-search' type='text' placeholder='Search Catalog For Title...' onChange={event => this.search(event)}></input>
-            <div className='filter-img'>
-              <img className='filter-icon' src='https://i.imgur.com/HQtwQg6.png'alt='filter' onClick={() => this.createfilter()}></img>
+            <p className='csl'>Explore our massive media database</p>            
+            <div className='main-menu-nav-functions'>
+              <input className='main-search' type='text' placeholder='Search Catalog For Title...' onChange={event => this.search(event)}></input>
+              <div className='filter-img'>
+                <img className='filter-icon' src='https://i.imgur.com/HQtwQg6.png'alt='filter' onClick={() => this.createfilter()}></img>
+              </div>
             </div>
-          </div>
           </div>
           {catalog}
         </div>

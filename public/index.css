@@ -870,21 +870,23 @@
 }
 
 .main-media-img-container{
-  max-width: 200px;
+  max-width: 300px;
   width: 80%;
+  height: 100%;
   display: inline-block;
   vertical-align: middle;
-  margin :5px;
+  margin:5px;
   border-radius: 4px;
   border: white 5px solid;
 }
 
 .main-media-img{
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 300px;
+  vertical-align: middle;
+  object-fit: contain;
+  width: 100%;
   height: 100%;
   display: inline-block;
-  border-radius: 4px;
 }
 
 .main-media-description{
@@ -948,12 +950,12 @@
 
 .tv-logo{
   display: inline-block;
-  width: 60%;
+  width: 25%;
 }
 
 .logo-container{
   display: inline-block;
-  width: 40%;
+  width: 100%;
 }
 
 .tv-schedule{
@@ -979,12 +981,13 @@
   display: inline-block;
   width: 45%;
   font-size: 24px;
-  margin-top: 10px;
+  margin: 10px;
   padding: 10px;
   height: 100%;
   border-radius: 4px;
   border: 2px gainsboro solid;
 }
+
 
 .schedule-description{
   display: inline-block;
@@ -1008,7 +1011,7 @@
   display: inline-block;
   text-align: center;
   width: 100%;
-  height: 40px;
+  height: 50px;
   background: none;
   object-fit: contain;
 }
@@ -1019,7 +1022,6 @@
   text-align: center;
   width: 50%;
   height: 100%;
-  padding: 5px;
   background: #585858;
   border-left:gainsboro 2px solid;
 }
@@ -1028,7 +1030,7 @@
   display: inline-block;
   text-align: center;
   width: 100%;
-  height: 40px;
+  height: 50px;
   background: none;
   object-fit: contain;
 }
@@ -1047,16 +1049,38 @@
 .full-schedule-genres{
   vertical-align: middle;
   display:inline-block;
-  width: 15%;
+  width: 20%;
   height: 100%;
 }
+
+.full-schedule-details{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  background: none;
+  width:25%;
+  height: 100%;
+  background: black;
+  border-left:white 2px solid;
+}
+
 .full-schedule-genre{
   vertical-align: middle;
+  text-align: center;
   display:inline-block;
   width:100%;
+  max-width: 148px;
   font-size: 14px;
   border-radius: 4px;
   border: 1px #484848 solid;
+}
+
+.full-schedule-general-info{
+  display: inline-block;
+  width: 65%;
+  padding: 0;
+  margin: 0;
+  text-align: left;
 }
 
 .schedule-section-title{
@@ -1065,7 +1089,6 @@
   margin: 0;
   width: 100%;
   padding:10px;
-  border-bottom:gainsboro 2px solid;
 }
 
 .schedule-card{
@@ -1094,9 +1117,39 @@
   width: 65%;
 }
 
+.full-schedule-categories{
+  display: block;
+  width: 100%;
+  border-top: 4px gainsboro solid;
+  border-bottom: 10px gainsboro solid;
+}
+
+.full-schedule-category{
+  display: inline-block;
+  font-size: 20px;
+  width: 50%;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.full-schedule-category:hover{
+  background:gainsboro;
+  color: black;
+}
+
+.full-schedule-category-active{
+  display: inline-block;
+  font-size: 20px;
+  width: 50%;
+  padding: 20px;
+  font-weight: bold;
+  background: #383838;
+}
+
 .full-schedule-season{
   display: inline-block;
   width: 50%;
+  height: 100%;
   vertical-align: middle;
   padding: 5px;
   margin: 0;
@@ -1105,6 +1158,7 @@
 .full-schedule-card{
   display: inline-block;
   width:100%;
+  height: 100%;
   list-style-type: none;
   color: white;
   border-top: gainsboro 2px solid;
@@ -1116,14 +1170,24 @@
   font: black;
 }
 
+.full-schedule-img{
+  display: inline-block;
+  width: 8%;
+  vertical-align: middle;
+  margin:0;
+  height: 100%;
+  border-right: gainsboro 2px solid;
+}
+
 .full-schedule-title{
   display: inline-block;
+  text-align: left;
   vertical-align: middle;
   font-size: 18px;
-  padding:2.5px;
+  padding: 10px;
   margin: 0;
   background: none;
-  width: 50%;
+  width: 70%;
 }
 
 .schedule-details{
@@ -1136,42 +1200,45 @@
   border-left:white 2px solid;
 }
 
-.full-schedule-details{
-  display: inline-block;
-  font-size: 16px;
-  background: none;
-  width:25%;
-  height: 100%;
-  background: black;
-  border-left:white 2px solid;
-}
-
 .full-schedule-episode{
   display: inline-block;
   font-size: 16px;
   background: none;
   width:50%;
+  height: 100%;
 }
 
 .full-schedule-buttons{
   display:inline-block;
+  vertical-align: middle;
   width: 10%;
   height: 100%;
   background-color: #282828;
 }
 .full-schedule-button{
-  padding: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
   display:inline-block;
+  vertical-align: middle;
+  padding: 5px;
   width: 50%;
   height: 100%;
+  min-height: 70px;
   margin: 0;
+  border-left: 2px #484848 solid;
 }
 
 .full-schedule-button:hover{
   background: #585858;
   cursor: pointer
+}
+
+.page-controls{
+  display: inline-block;
+  width: 100%;
+  background: #484848;
+}
+
+.page-status{
+  background: #484848;
 }
 
 .main-upcoming-movies{
@@ -1310,9 +1377,9 @@
 }
 
 
+/*  details modal */
 .details-modal {
-  transition: width 2s;
-  display: block;
+  display: inline-block;
   position: fixed; 
   z-index: 1;
   left: 0;
@@ -1324,15 +1391,75 @@
   background-color: rgba(0,0,0,0.4); 
 }
 
-
-.details-modal-content {
-  margin: 15% auto; 
-  padding: 20px;
-  border: 2px solid gainsboro;
-  width: 80%; 
+.details-title{
+  display: inline-block;
+  width: 100%;
 }
 
-/* The Close Button */
+.details-modal-content {
+  max-width: 720px;
+  margin: 5% auto; 
+  padding: 20px;
+  border: 4px solid gainsboro;
+  width: 60%; 
+}
+
+.details-info-container{
+  display: inline-block;
+  width: 90%;
+  border: 2px gainsboro solid;
+  border-radius: 4px;
+}
+
+.details-info{
+  display: inline-block;
+  width: 50%;
+  padding: 10px;
+  margin: 0px;
+  margin-bottom: 5px;
+  border: 2px #484848 solid;
+}
+
+.details-info-title{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  border: 2px #484848 solid;
+}
+
+.details-info-label{
+  display: inline-block;
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+}
+
+.details-overview{
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+}
+
+.details-buttons{
+  display: inline-block;
+  width: 100%;
+}
+
+.details-button{
+  display: inline-block;
+  width: 33%;
+  margin: 10px;
+  padding: 10px;
+  border: 2px gainsboro solid;
+  font-weight: bold;
+}
+
+.details-button:hover{
+  background: gainsboro;
+  color: black;
+}
+
 .details-close {
   color: #aaa;
   float: right;
@@ -1345,4 +1472,19 @@
   color: darkred;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+.full-schedule-details-genres{
+  display: inline-block;
+  width: 90%;
+}
+
+.full-schedule-details-genre{
+  display: inline-block;
+  width: 25%;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px #484848 solid;
 }

@@ -54,9 +54,9 @@ export const fetchUpcomingMoviesError = (error) => ({
 });
 
 export const FETCH_AIRING_TODAY_SUCCESS = 'FETCH_AIRING_TODAY_SUCCESS';
-export const fetchAiringTodaySuccess = (shows) => ({
+export const fetchAiringTodaySuccess = (response) => ({
   type: FETCH_AIRING_TODAY_SUCCESS,
-  shows
+  response
 });
 
 export const FETCH_AIRING_TODAY_ERROR = 'FETCH_AIRING_TODAY_ERROR';
@@ -66,9 +66,9 @@ export const fetchAiringTodayError = (error) => ({
 });
 
 export const FETCH_ON_THE_AIR_SUCCESS = 'FETCH_ON_THE_AIR_SUCCESS';
-export const fetchOnTheAirSuccess = (shows) => ({
+export const fetchOnTheAirSuccess = (response) => ({
   type: FETCH_ON_THE_AIR_SUCCESS,
-  shows
+  response
 });
 
 export const FETCH_ON_THE_AIR_ERROR = 'FETCH_ON_THE_AIR_ERROR';
@@ -98,6 +98,18 @@ export const viewDetails = (media) => ({
 export const CLOSE_DETAILS = 'CLOSE_DETAILS';
 export const closeDetails = () => ({
   type: CLOSE_DETAILS
+});
+
+export const FETCH_TV_PAGE_SUCCESS = 'FETCH_TV_PAGE_SUCCESS';
+export const fetchTVPageSuccess = (response) => ({
+  type: FETCH_TV_PAGE_SUCCESS,
+  response
+});
+
+export const FETCH_TV_PAGE_ERROR = 'FETCH_TV_PAGE_ERROR';
+export const fetchTVPageError = (error) => ({
+  type: FETCH_TV_PAGE_ERROR,
+  error
 });
 
 // async actions for rex
@@ -156,8 +168,30 @@ export const fetchOnTheAirTV = () => {
     dispatch(fetchMediaRequest());
     fetch(`${API_BASE_URL}/api/rex/schedule`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => dispatch(fetchOnTheAirSuccess(data)))
     .catch(err => dispatch(fetchOnTheAirError(err)))
+  }
+}
+
+export const fetchTVPage = (request) => {
+  return (dispatch, getState) => {
+    dispatch(fetchMediaRequest());
+    fetch(`${API_BASE_URL}/api/rex/changepage`,{
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(request)
+    })
+    .then(res => {
+      if(!res.ok){
+        return res.json().then(err => Promise.reject(err));
+      }
+      return res.json();
+    })
+    // .then(data => console.log(data))
+    .then(data => dispatch(fetchTVPageSuccess(data)))
+    .catch(err => dispatch(fetchTVPageError(err)))
   }
 }
 
