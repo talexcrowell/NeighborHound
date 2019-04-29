@@ -1,12 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchQuickReccommendation, fetchUpcomingMovies, fetchAiringTodayTV } from '../actions/rex';
 
 export class RexMain extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchQuickReccommendation());
-    this.props.dispatch(fetchUpcomingMovies());
-    this.props.dispatch(fetchAiringTodayTV());
   }
 
   render() {
@@ -15,17 +11,6 @@ export class RexMain extends React.Component {
     mainUpcoming.length = 5;
     mainSchedule.length = 5;
 
-    let upcomingMovies = mainUpcoming.map((movie, index) => (
-      <li className='upcoming-card'>
-        <p className='upcoming-title'>{movie.title.length < 40 ? movie.title : movie.title.slice(0,40)+'...'}</p>
-      </li>
-    ));
-
-    let tvSchedule = mainSchedule.map((show, index) => (
-      <li className='schedule-card'>
-        <p className='schedule-title'>{show.title.length < 40 ? show.title : show.title.slice(0,40)+'...'}</p>
-      </li>
-    ));
 
     return(
       <main role='main' className='rex-main-page'>
@@ -46,18 +31,6 @@ export class RexMain extends React.Component {
             <p className='main-media-rating'>{'MovieDB: ' + this.props.quickRec.moviedbrating}</p>
           </div>
         </section>
-        <div className='main-tv-schedule'>
-          <h3 className='main-title'>On TV Today:</h3>
-          <uL className='main-list'>
-            {tvSchedule}
-          </uL>
-        </div>
-        <div className='main-upcoming-movies'>
-          <h3 className='main-title'>Upcoming:</h3>
-          <ul className='main-list'>
-            {upcomingMovies}
-          </ul>
-        </div>
       </div>
     </main>
     )

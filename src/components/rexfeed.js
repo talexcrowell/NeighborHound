@@ -13,8 +13,6 @@ export class ContentRexFeedItem extends React.Component {
     let genres;
     if(this.props.media.genres.length < 1 ){
       genres = (<div className='full-schedule-genres'>
-      <div className='full-schedule-genre'>
-      </div>
       </div>);
     } 
     else if(this.props.media.genres.length < 2){
@@ -78,7 +76,7 @@ export class ContentRexFeedItem extends React.Component {
         <div className='full-schedule-details'>
           <p className='full-schedule-season'>S{this.props.media.nextEpisode ? this.props.media.nextEpisode.season_number : '-'}E{this.props.media.nextEpisode ? this.props.media.nextEpisode.episode_number : '-'}</p>
           <div className='full-schedule-network-img-container'>
-          <img className='full-schedule-network-img' src={this.props.media.networks.length !== 0 ? `https://image.tmdb.org/t/p/w200${this.props.media    .networks[0].logo_path}` : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.networks.length !== 0 ? this.props.media.networks[0].name : 'No Logo Found'}></img>
+          <img className='full-schedule-network-img' src={this.props.media.networks.length !== 0 ? `https://image.tmdb.org/t/p/w200${this.props.media.networks[0].logo_path}` : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.networks.length !== 0 ? this.props.media.networks[0].name : 'No Logo Found'}></img>
           </div>
           </div>  
         <div className='full-schedule-buttons'>
@@ -89,14 +87,16 @@ export class ContentRexFeedItem extends React.Component {
     }
     else if(param.endsWith('/ontheair')){
       return(
-      <li className='full-schedule-card' key={'airing-'+this.props.index}>
+        <li className='full-schedule-card' key={'airing-'+this.props.index}>
+        <div className='full-schedule-general-info'>
         <img className='full-schedule-img' src={this.props.media.img.includes('null') === false ? this.props.media.img : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.title}></img>
         <p className='full-schedule-title'>{this.props.media.title.length < 40 ? this.props.media.title : this.props.media.title.slice(0,40)+'...'}</p>
         {genres}
+        </div>
         <div className='full-schedule-details'>
           <p className='full-schedule-season'>S{this.props.media.nextEpisode ? this.props.media.nextEpisode.season_number : '-'}E{this.props.media.nextEpisode ? this.props.media.nextEpisode.episode_number : '-'}</p>
           <div className='full-schedule-network-img-container'>
-          <img className='full-schedule-network-img' src={this.props.media.networks.length !== 0 ? `https://image.tmdb.org/t/p/w200${this.props.media    .networks[0].logo_path}` : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.networks.length !== 0 ? this.props.media.networks[0].name : 'No Logo Found'}></img>
+          <img className='full-schedule-network-img' src={this.props.media.networks.length !== 0 ? `https://image.tmdb.org/t/p/w200${this.props.media.networks[0].logo_path}` : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.networks.length !== 0 ? this.props.media.networks[0].name : 'No Logo Found'}></img>
           </div>
           </div>  
         <div className='full-schedule-buttons'>

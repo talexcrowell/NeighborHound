@@ -1049,9 +1049,8 @@
 .full-schedule-genres{
   vertical-align: middle;
   display:inline-block;
-  width: 15%;
+  width: 20%;
   height: 100%;
-  width: 148px;
 }
 
 .full-schedule-details{
@@ -1188,7 +1187,7 @@
   padding: 10px;
   margin: 0;
   background: none;
-  width: 69%;
+  width: 70%;
 }
 
 .schedule-details{
@@ -1398,12 +1397,11 @@
 }
 
 .details-modal-content {
-  width:100%;
   max-width: 720px;
-  margin: 10% auto; 
+  margin: 5% auto; 
   padding: 20px;
   border: 4px solid gainsboro;
-  width: 40%; 
+  width: 60%; 
 }
 
 .details-info-container{

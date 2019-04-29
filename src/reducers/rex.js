@@ -102,10 +102,10 @@ export default function rexReducer(state=initialState, action){
     return{
       ...state,
       loading: false,
-      airingToday: [...action.data.data],
+      airingToday: [...action.response.data],
       pages:{
-        page: action.data.page,
-        total: action.data.totalPages
+        page: action.response.page,
+        total: action.response.totalPages
       }
     }
   }
@@ -120,7 +120,11 @@ export default function rexReducer(state=initialState, action){
     return{
       ...state,
       loading: false,
-      schedule: [...action.shows]
+      schedule: [...action.response.data],
+      pages:{
+        page: action.response.page,
+        total: action.response.totalPages
+      }
     }
   }
   else if(action.type === FETCH_ON_THE_AIR_ERROR){
@@ -145,7 +149,6 @@ export default function rexReducer(state=initialState, action){
     }
   }
   else if(action.type === FETCH_TV_PAGE_SUCCESS && action.response.schedule === 'today'){
-    console.log(action.response)
     return{ 
       ...state,
       loading: false,
@@ -156,11 +159,15 @@ export default function rexReducer(state=initialState, action){
       }
     }
   }
-  else if(action.type === FETCH_TV_PAGE_SUCCESS && action.response.schedule === 'on-the-air'){
+  else if(action.type === FETCH_TV_PAGE_SUCCESS && action.response.schedule === 'ontheair'){
     return{ 
       ...state,
       loading: false,
-      schedule: [...action.response]
+      schedule: [...action.response.data],
+      pages:{
+        page: action.response.page,
+        total: action.response.totalPages
+      }
     }
   }
   else if(action.type === FETCH_TV_PAGE_ERROR){

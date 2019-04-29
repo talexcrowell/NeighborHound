@@ -54,9 +54,9 @@ export const fetchUpcomingMoviesError = (error) => ({
 });
 
 export const FETCH_AIRING_TODAY_SUCCESS = 'FETCH_AIRING_TODAY_SUCCESS';
-export const fetchAiringTodaySuccess = (data) => ({
+export const fetchAiringTodaySuccess = (response) => ({
   type: FETCH_AIRING_TODAY_SUCCESS,
-  data
+  response
 });
 
 export const FETCH_AIRING_TODAY_ERROR = 'FETCH_AIRING_TODAY_ERROR';
@@ -66,9 +66,9 @@ export const fetchAiringTodayError = (error) => ({
 });
 
 export const FETCH_ON_THE_AIR_SUCCESS = 'FETCH_ON_THE_AIR_SUCCESS';
-export const fetchOnTheAirSuccess = (shows) => ({
+export const fetchOnTheAirSuccess = (response) => ({
   type: FETCH_ON_THE_AIR_SUCCESS,
-  shows
+  response
 });
 
 export const FETCH_ON_THE_AIR_ERROR = 'FETCH_ON_THE_AIR_ERROR';
@@ -168,7 +168,7 @@ export const fetchOnTheAirTV = () => {
     dispatch(fetchMediaRequest());
     fetch(`${API_BASE_URL}/api/rex/schedule`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => dispatch(fetchOnTheAirSuccess(data)))
     .catch(err => dispatch(fetchOnTheAirError(err)))
   }
 }

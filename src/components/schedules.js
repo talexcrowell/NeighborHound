@@ -1,18 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import Details from './details';
-import { fetchNowPlayingMovies, fetchAiringTodayTV, closeDetails, viewDetails } from '../actions/rex';
 
 export class Schedules extends React.Component {
-
-  closeDetails(){
-    this.props.dispatch(closeDetails());
-  }
-
-  viewDetails(media){
-    this.props.dispatch(viewDetails(media));
-  }
 
   render() {
     return(
