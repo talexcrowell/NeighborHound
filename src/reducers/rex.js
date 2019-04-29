@@ -39,7 +39,8 @@ export default function rexReducer(state=initialState, action){
   if(action.type === FETCH_MEDIA_REQUEST){
     return{
       ...state,
-      loading: true
+      loading: true,
+      error: null
     }
   }
   else if(action.type === FETCH_MOVIES_SUCCESS){

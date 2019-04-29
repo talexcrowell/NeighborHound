@@ -6,10 +6,6 @@ export class RexMain extends React.Component {
   }
 
   render() {
-    let mainUpcoming = this.props.upcoming;
-    let mainSchedule = this.props.airingToday;
-    mainUpcoming.length = 5;
-    mainSchedule.length = 5;
 
 
     return(

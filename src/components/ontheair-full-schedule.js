@@ -53,6 +53,13 @@ export class OnTheAirFullSchedule extends React.Component {
     if(this.props.loading === true){
       list = <img className='loading-img' src='https://i.imgur.com/4WYBRRN.png' alt='Gathering Data...' />
     }
+    else if(this.props.error !== null){
+      list = (
+      <div>
+        <img className='loading-img' src='https://i.imgur.com/17UECkl.png' alt='Error :(' />
+        <button onClick={() => window.location.reload()}>Reload</button>
+      </div>);
+    }
     else{
       list = <ScheduleList media={schedule} nextPage={() => this.changeNextPage()} prevPage={() => this.changePrevPage()}/>
     }
@@ -87,7 +94,8 @@ function mapStateToProps(state){
     airingToday: state.rex.airingToday,
     nowPlaying: state.rex.nowPlaying,
     view: state.rex.view,
-    pages: state.rex.pages
+    pages: state.rex.pages,
+    error: state.rex.error
   }
 }
 
