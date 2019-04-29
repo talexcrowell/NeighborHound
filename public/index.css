@@ -1299,35 +1299,40 @@
   display: inline-block;
   margin-top: 5px;
   width: 100%;
-  height: 100%;
   background-color: black;
   border-radius: 4px;
   border: gainsboro 2px solid;
+  padding: 5px;
 }
 
 .catalog-media-img-container{
-  max-width: 210px;
-  width: 10%;
+  width: 6%;
+  margin: 0;
+  padding: 0;
   display: inline-block;
-  vertical-align: middle;
-  margin :5px;
   border-radius: 4px;
-  border: white 5px solid;
+  border: #484848 2px solid;
 }
 
 .catalog-media-img{
-  max-width: 100px;
-  max-height: 125px;
+  width: 100%;
   height: 100%;
   display: inline-block;
   border-radius: 4px;
 }
 
 .catalog-media-description{
-  width: 70%;
+  width: 85%;
   display: inline-block;
-  vertical-align: middle;
   background: black;
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-media-title-genres{
+  display: inline-block;
+  width: 75%;
+  height: 100%;
 }
 
 .catalog-media-title{
@@ -1337,43 +1342,53 @@
   font-size: 20px;
   font-weight: bold;
   padding: 15px;
-  height: 60%;
+  width: 100%;
+  height: 80%;
   background: #282828;
 }
 
-.catalog-media-source{
+.catalog-media-genre-container{
+display: inline-block;
+width: 100%;
+height: 20%;
+padding: 5px;
+}
+
+.catalog-media-genre{
   display: inline-block;
-  text-align: center;
-  vertical-align: bottom;
   padding: 5px;
+  width: 30%;
+}
+
+.catalog-media-type{
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+}
+
+.catalog-media-type-img{
+  display: inline-block;
   width: 100%;
   height: 100%;
-  font-size: 18px;
-  background: #484848;
-  margin: 0;
 }
 
-.catalog-media-rating{
+.catalog-media-region{
   display: inline-block;
-  text-align: left;
-  background: black;
-  font-style: none;
-  
-}
-
-.catalog-media-summary{
-  display: inline-block;
-  text-align: left;
-  padding: 10px;
-  background: black;
-  font-style: none;
+  width: 15%;
+  height: 100%;
 }
 
 .catalog-media-controls{
-  vertical-align: bottom;
   display: inline-block;
-  width:10%;
+  width:8%;
   height: 100%;
+  margin: 0;
+}
+.catalog-media-buttons{
+  display: inline-block;
+  width:50%;
+  height: 100%;
+  margin: 0;
 }
 
 

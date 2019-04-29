@@ -6,7 +6,6 @@ export class ContentRexFeedItem extends React.Component {
   viewDetails(media){
     this.props.dispatch(viewDetails(media));
   }
-
    render(){
     let param = window.location.href;
 
@@ -48,20 +47,27 @@ export class ContentRexFeedItem extends React.Component {
    
     if(param.endsWith('/catalog')){
       return(
-        <li className='catalog-media' id={this.props.media.id+'-'+this.props.media.sourceitemid} key ={'media'+ this.props.media.sourceitemid}>
-        <div className='catalog-media-type'></div>
+        <li className='catalog-media' id={this.props.media.id} key ={'media'+ this.props.media.sourceitemid}>
           <div className='catalog-media-img-container'>
             <img className='catalog-media-img' src={this.props.media.img} alt={this.props.media.title} />
           </div>
           <section className='catalog-media-description'>
+            <div className='catalog-media-title-genres'>
             <p className='catalog-media-title'>{this.props.media.title}</p>
-            <p className='catalog-media-genre'>Genre1, Genre2, Genre3</p>
-            <p className='catalog-media-rating'>{'movieDB: '+this.props.media.moviedbrating}</p>
+            <section className='catalog-media-genre-container'>
+              <div className='catalog-media-genre'>Genre</div>
+              <div className='catalog-media-genre'>Genre</div>
+              <div className='catalog-media-genre'>Genre</div>
+            </section>
+            </div>
+            <div className='catalog-media-type'>
+              <img className='catalog-media-type-img' src='https://i.imgur.com/vNOeitC.png' alt='placeholder'></img>
+            </div>
+            <div className='catalog-media-region'>Region</div>
           </section>
           <section className='catalog-media-controls'>
-            <p className='catalog-media-button' >Add To Watchlist</p>
-            <p className='catalog-media-button' >Watched</p>
-            <p className='catalog-media-button' onClick={() => this.viewDetails(this.props.media)}>More Info</p>
+            <div className='catalog-media-button' >Add To Watchlist</div>
+            <div className='catalog-media-button'>More Info</div>
           </section>
         </li>)
     }
