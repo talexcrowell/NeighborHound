@@ -1,14 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {closeDetails} from '../actions/rex'
+import {Link} from 'react-router-dom';
+import {closeDetails, fetchTVShowDetails} from '../actions/rex'
 
 export class Details extends React.Component {
-  componentDidMount(){
-    // this.props.dispatch(getMediaDetails())
-  }
-
   closeDetails(){
     this.props.dispatch(closeDetails());
+  }
+
+  viewFullDetails(id, type){
+    let response ={
+      id,
+      type
+    };
+    this.props.dispatch(fetchTVShowDetails(response));
   }
   render(){
     let genres;
@@ -65,7 +70,7 @@ export class Details extends React.Component {
           </div>
           <div className='details-buttons'>
             <div className='details-button'>Add to Watchlist</div>            
-            <div className='details-button'>View Catalog Info</div>
+            <Link to={`/rex/catalog/${this.props.media.type}/${this.props.media.movieDbId}`}><div className='details-button' onClick={() => this.viewFullDetails(this.props.media.movieDbId, 'tv')}>View Catalog Info</div></Link>
           </div>
         </div>
       </div>);
