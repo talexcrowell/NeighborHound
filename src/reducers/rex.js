@@ -17,7 +17,9 @@ import {
   FETCH_CURRENTLY_PLAYING_SUCCESS,
   FETCH_CURRENTLY_PLAYING_ERROR,
   FETCH_TV_PAGE_SUCCESS,
-  FETCH_TV_PAGE_ERROR
+  FETCH_TV_PAGE_ERROR,
+  FETCH_TV_DETAILS_SUCCESS,
+  FETCH_TV_DETAILS_ERROR
 } from '../actions/rex';
 
 const initialState = {
@@ -79,6 +81,22 @@ export default function rexReducer(state=initialState, action){
     }
   }
   else if(action.type === FETCH_CATALOG_ERROR){
+    return{
+      ...state,
+      loading: false,
+      error: action.error
+    }
+  }
+  else if(action.type === FETCH_TV_DETAILS_SUCCESS){
+    console.log(action.response)
+    return{
+      ...state,
+      view: action.response,
+      loading: false,
+    }
+  }
+  else if(action.type === FETCH_TV_DETAILS_ERROR){
+    console.log(action)
     return{
       ...state,
       loading: false,

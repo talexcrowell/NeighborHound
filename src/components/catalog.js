@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchMediaCatalog, closeDetails} from '../actions/rex';
 import ContentRexFeedItem from './rexfeed';
-import Details from './details';
 
 export class Catalog extends React.Component {
   componentDidMount() {
@@ -14,11 +13,6 @@ export class Catalog extends React.Component {
   }
 
   render(){
-    let details;
-    if(this.props.view !== null){
-      details = <Details media={this.props.view} ></Details>
-    }
-
     let catalog;
 
     let media = this.props.catalog.map((item, index) => (
@@ -46,7 +40,6 @@ export class Catalog extends React.Component {
           </div>
           {catalog}
         </div>
-        {details}
       </main>
     ); 
   }

@@ -112,6 +112,18 @@ export const fetchTVPageError = (error) => ({
   error
 });
 
+export const FETCH_TV_DETAILS_SUCCESS = 'FETCH_TV_DETAILS_SUCCESS';
+export const fetchTVDetailsSuccess = (response) => ({
+  type: FETCH_TV_DETAILS_SUCCESS,
+  response
+});
+
+export const FETCH_TV_DETAILS_ERROR = 'FETCH_TV_DETAILS_ERROR';
+export const fetchTVDetailsError = (error) => ({
+  type: FETCH_TV_DETAILS_ERROR,
+  error
+});
+
 // async actions for rex
 export const fetchQuickReccommendation = () => {
   return (dispatch, getState) => {
@@ -130,6 +142,28 @@ export const fetchMediaCatalog = () => {
     .then(res => res.json())
     .then(data => dispatch(fetchCatalogSuccess(data)))
     .catch(err => dispatch(fetchCatalogError(err)))
+  }
+}
+
+export const fetchTVShowDetails = (request) => {
+  return (dispatch, getState) => {
+    dispatch(fetchMediaRequest());
+    fetch(`${API_BASE_URL}/api/rex/tv/details`,{
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(request)
+    })
+    .then(res => {
+      if(!res.ok){
+        return res.json().then(err => Promise.reject(err));
+      }
+      return res.json();
+    })
+    .then(data => dispatch(fetchTVDetailsSuccess(data)))
+    .catch(err => dispatch(fetchTVDetailsError(err)))
+    
   }
 }
 

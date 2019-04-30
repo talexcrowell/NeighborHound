@@ -1,12 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {viewDetails} from '../actions/rex';
+import {viewDetails, fetchTVShowDetails} from '../actions/rex';
 
 export class ContentRexFeedItem extends React.Component {
   viewDetails(media){
     this.props.dispatch(viewDetails(media));
   }
+
+  viewFullDetails(id, type){
+    let response ={
+      id,
+      type
+    };
+    this.props.dispatch(fetchTVShowDetails(response));
+  }
+
    render(){
     let param = window.location.href;
 
@@ -68,7 +77,7 @@ export class ContentRexFeedItem extends React.Component {
           </section>
           <section className='catalog-media-controls'>
             <div className='catalog-media-button' >Add</div>
-          <Link to={`/rex/catalog/tv/${this.props.media.id}`}><div className='catalog-media-button'>More Info</div></Link>
+          <Link to={`/rex/catalog/tv/${this.props.media.id}`}><div className='catalog-media-button' onClick={() => this.viewFullDetails(this.props.media.moviedbid, 'tv')}>More Info</div></Link>
           </section>
         </li>)
     }
