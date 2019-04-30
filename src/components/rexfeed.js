@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {viewDetails} from '../actions/rex';
 
 export class ContentRexFeedItem extends React.Component {
@@ -66,8 +67,8 @@ export class ContentRexFeedItem extends React.Component {
             <div className='catalog-media-region'>Region</div>
           </section>
           <section className='catalog-media-controls'>
-            <div className='catalog-media-button' >Add To Watchlist</div>
-            <div className='catalog-media-button'>More Info</div>
+            <div className='catalog-media-button' >Add</div>
+          <Link to={`/rex/catalog/tv/${this.props.media.id}`}><div className='catalog-media-button'>More Info</div></Link>
           </section>
         </li>)
     }
