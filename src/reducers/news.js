@@ -1,7 +1,7 @@
 import {FETCH_NEWS_REQUEST, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR, REMOVE_ARTICLE_FROM_FEED} from '../actions/news';
 
 const initialState = {
-  articles: [],
+  articles: {},
   loading: false,
   error: null
 };
@@ -16,7 +16,7 @@ export default function newsReducer(state=initialState, action){
   else if(action.type === FETCH_NEWS_SUCCESS){
     return{
       ...state,
-      articles: [...action.news],
+      articles: action.news,
       loading: false
     }
   }

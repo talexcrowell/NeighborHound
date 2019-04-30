@@ -9,7 +9,14 @@ export class News extends React.Component {
   }
 
   render() {
-    let articles = this.props.articles.map((item, index) => (
+    let news;
+    if(this.props.loading === true){
+      return
+    } else{
+      news = this.props.articles['general'];
+    }
+    
+    let articles = news.map((item, index) => (
       <ContentFeedItem item={item} index={'news-'+index} page={'news'}/>
     ));
 
@@ -26,6 +33,14 @@ export class News extends React.Component {
           <h1 className='main-menu-title'>News</h1>
           <p className='main-menu-text'>Checkout today's top headlines!</p>
           <p className='main-menu-text'>Remember to click on the NeighborHound logo to return to the top of the feed</p>
+          <section className='news-categories'>
+            <div className='news-category-active'>General</div>
+            <div className='news-category'>Technology</div>
+            <div className='news-category'>Entertainment</div>
+            <div className='news-category'>Science</div>
+            <div className='news-category'>Business</div>
+            <div className='news-category'>Health</div>
+          </section>
         </section>
         {newsFeed}
       </main>  
