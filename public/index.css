@@ -1466,13 +1466,18 @@ padding: 10px;
     height: 340px;
   }
 
+  .full-media-details-no-video{
+    display: inline-block;
+    width: 340px;
+    height: 340px;
+  }
+
   .full-media-details-genres{
     vertical-align: middle;
     display:inline-block;
     width: 100%;
     height: 100%;
     padding: 10px;
-    min-height:100px;
   }
 
   .full-media-details-genre{

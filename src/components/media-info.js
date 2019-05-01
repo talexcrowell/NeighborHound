@@ -10,7 +10,7 @@ export class MediaInfo extends React.Component{
   render(){
 
     let genres;
-    if(this.props.loading === false){
+    if(this.props.view !== null){
       if(this.props.view.genres.length < 1 ){
         genres = <div className='full-media-details-genres'></div>
       } 
@@ -48,7 +48,15 @@ export class MediaInfo extends React.Component{
       } 
     }
 
-    if(this.props.loading === true){
+    let preview;
+    if(this.props.view !== null && this.props.view.videos){
+      preview = <iframe title='full-media-details-video' className='full-media-details-video' src={`https://www.youtube.com/embed/${this.props.view.videos.key}`}></iframe>
+    }
+    else if(this.props.view !== null && !this.props.view.videos){
+      preview = <img className='full-media-details-no-video' src='https://i.imgur.com/vNOeitC.png' alt='No Preview Available'></img>
+    }
+
+    if(this.props.loading === true || this.props.view === null ){
       return(
         <img className='loading-img' src='https://i.imgur.com/4WYBRRN.png' alt='Gathering Data...' />
       );
@@ -84,10 +92,9 @@ export class MediaInfo extends React.Component{
             </section>
             <section className='full-media-details-more'>
               <label className='full-media-detail-label'>Preview</label>
-              <iframe title='full-media-details-video' className='full-media-details-video' src={`https://www.youtube.com/embed/${this.props.view.videos.key}`}>
-              </iframe>
+              {preview}
               <label className='full-media-detail-label'>Overview</label>
-              <div className='full-media-details-overview'>{this.props.view.overview}</div>
+              <div className='full-media-details-overview'>{this.props.view.overview ? this.props.view.overview : 'No Overview Available'}</div>
               <section className='full-media-details-season-guide'>
                 <h3>SEASON GUIDE PLACEHOLDER</h3>
               </section>

@@ -223,7 +223,6 @@ export const fetchTVPage = (request) => {
       }
       return res.json();
     })
-    // .then(data => console.log(data))
     .then(data => dispatch(fetchTVPageSuccess(data)))
     .catch(err => dispatch(fetchTVPageError(err)))
   }

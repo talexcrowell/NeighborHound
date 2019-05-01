@@ -53,7 +53,44 @@ export class ContentRexFeedItem extends React.Component {
           {this.props.media.genres[2].name}
         </div>
       </div>);
+    }
+    
+    let catalogGenres;
+    if(this.props.media.genres.length < 1 ){
+      catalogGenres = (<div className='catalog-media-genre-container'>
+      </div>);
+    } 
+    else if(this.props.media.genres.length < 2){
+      catalogGenres = (<div className='catalog-media-genre-container'>
+          <div className='catalog-media-genre'>
+          {this.props.media.genres[0].name}
+          </div>
+        </div>);
+    }
+    else if(this.props.media.genres.length < 3 ) {
+      catalogGenres = (<div className='catalog-media-genre-container'>
+          <div className='catalog-media-genre'>
+            {this.props.media.genres[0].name}
+          </div>
+          <div className='catalog-media-genre'>
+            {this.props.media.genres[1].name}
+          </div>
+        </div>);
+    }
+    else if(this.props.media.genres.length === 3 ){
+      catalogGenres = (<div className='catalog-media-genre-container'>
+        <div className='catalog-media-genre'>
+          {this.props.media.genres[0].name}
+        </div>
+        <div className='catalog-media-genre'>
+          {this.props.media.genres[1].name}
+        </div>
+        <div className='catalog-media-genre'>
+          {this.props.media.genres[2].name}
+        </div>
+      </div>);
     }  
+  
    
     if(param.endsWith('/catalog')){
       return(
@@ -64,11 +101,7 @@ export class ContentRexFeedItem extends React.Component {
           <section className='catalog-media-description'>
             <div className='catalog-media-title-genres'>
             <p className='catalog-media-title'>{this.props.media.title}</p>
-            <section className='catalog-media-genre-container'>
-              <div className='catalog-media-genre'>Genre</div>
-              <div className='catalog-media-genre'>Genre</div>
-              <div className='catalog-media-genre'>Genre</div>
-            </section>
+            {catalogGenres}
             </div>
             <div className='catalog-media-type'>
               <img className='catalog-media-type-img' src='https://i.imgur.com/vNOeitC.png' alt='placeholder'></img>

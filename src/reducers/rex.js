@@ -88,7 +88,6 @@ export default function rexReducer(state=initialState, action){
     }
   }
   else if(action.type === FETCH_TV_DETAILS_SUCCESS){
-    console.log(action.response)
     return{
       ...state,
       view: action.response,
@@ -96,7 +95,6 @@ export default function rexReducer(state=initialState, action){
     }
   }
   else if(action.type === FETCH_TV_DETAILS_ERROR){
-    console.log(action)
     return{
       ...state,
       loading: false,
