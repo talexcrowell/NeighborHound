@@ -119,7 +119,7 @@ export class HeaderBar extends React.Component {
         </div>
         </div>);
     }
-    else if(param.endsWith('/rex/catalog') === true){
+    else if(param.includes('/rex/catalog') === true){
       navmenu = (
         <div>
         <div className='headerbar'>

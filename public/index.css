@@ -1299,35 +1299,44 @@
   display: inline-block;
   margin-top: 5px;
   width: 100%;
-  height: 100%;
   background-color: black;
   border-radius: 4px;
   border: gainsboro 2px solid;
+  padding: 10px;
 }
 
 .catalog-media-img-container{
-  max-width: 210px;
-  width: 10%;
+  width: 8%;
+  margin: 0;
+  padding: 0;
   display: inline-block;
-  vertical-align: middle;
-  margin :5px;
   border-radius: 4px;
-  border: white 5px solid;
+  border: #484848 2px solid;
 }
 
 .catalog-media-img{
-  max-width: 100px;
-  max-height: 125px;
+  width: 100%;
   height: 100%;
   display: inline-block;
   border-radius: 4px;
 }
 
 .catalog-media-description{
-  width: 70%;
+  vertical-align: top;
+  width: 82%;
   display: inline-block;
-  vertical-align: middle;
   background: black;
+  border: 2px #484848 solid;
+  margin: 0;
+  margin-left: 5px;
+  padding: 0;
+}
+
+.catalog-media-title-genres{
+  display: inline-block;
+  width: 75%;
+  height: 100%;
+  border-right: 2px #484848 solid;
 }
 
 .catalog-media-title{
@@ -1337,45 +1346,193 @@
   font-size: 20px;
   font-weight: bold;
   padding: 15px;
-  height: 60%;
+  width: 100%;
+  height: 80%;
   background: #282828;
 }
 
-.catalog-media-source{
-  display: inline-block;
-  text-align: center;
-  vertical-align: bottom;
-  padding: 5px;
-  width: 100%;
-  height: 100%;
-  font-size: 18px;
-  background: #484848;
-  margin: 0;
+.catalog-media-genre-container{
+display: inline-block;
+width: 100%;
+height: 30%;
+padding: 10px;
 }
 
-.catalog-media-rating{
+.catalog-media-genre{
   display: inline-block;
-  text-align: left;
-  background: black;
-  font-style: none;
+  padding: 5px;
+  margin: 5px;
+  font-size: 14px;
+  width: 30%;
+  border: 1px #282828 solid;
+  border-radius: 4px;
+}
+
+.catalog-media-genre-filler{
+  display: inline-block;
+  padding: 12px;
+  margin: 5px;
+  width: 30%;
+}
+
+.catalog-media-type{
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+}
+
+.catalog-media-type-img{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
   
 }
 
-.catalog-media-summary{
+.catalog-media-region{
   display: inline-block;
-  text-align: left;
-  padding: 10px;
-  background: black;
-  font-style: none;
+  width: 15%;
+  height: 50%;
+  vertical-align: center;
 }
 
 .catalog-media-controls{
-  vertical-align: bottom;
+  vertical-align: top;
   display: inline-block;
-  width:10%;
+  width:8%;
   height: 100%;
+  margin-left: 5px;
+}
+.catalog-media-button{
+  display: inline-block;
+  width:100%;
+  height: 50%;
+  padding: 10px;
+  font-weight: bold;
+  border: 2px #484848 solid;
+  margin: 2.5px;
 }
 
+.catalog-media-button:hover{
+  background: darkgray;
+  color: black;
+}
+
+/* media full information */
+  .full-media-details-title-bar{
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 4px #484848 solid;
+  }
+
+  .full-media-details-title{
+    display: inline-block;
+    width: 80%;
+    font-size: 26px;
+    margin: 0;
+  }
+
+  .full-media-user-controls{
+    display: inline-block;
+    width: 20%;
+  }
+
+  .full-media-user-control{
+    display: inline-block;
+    width: 33%;
+    height: 100%;
+    border: 2px #484848 solid;
+    padding: 5px;
+  }
+
+  .full-media-details-general{
+    vertical-align: top;
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    padding: 5px;
+  }
+
+  .full-media-img-container{
+    max-width: 200px;
+    width: 90%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 4px;
+  }
+
+  .full-media-img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .full-media-details-more{
+    display: inline-block;
+    width: 75%;
+    border-left: 2px #484848 solid;
+  }
+
+  .full-media-details-video{
+    display: inline-block;
+    width: 560px;
+    height: 340px;
+  }
+
+  .full-media-details-no-video{
+    display: inline-block;
+    width: 340px;
+    height: 340px;
+  }
+
+  .full-media-details-genres{
+    vertical-align: middle;
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .full-media-details-genre{
+    vertical-align: middle;
+    text-align: center;
+    display:inline-block;
+    width:80%;
+    margin: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px #484848 solid;
+  }
+
+  .full-media-details-overview{
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .full-media-details-general-details{
+    display: inline-block;
+    width: 90%;
+    border: 1px gainsboro solid;
+  }
+
+  .full-media-detail-label{
+    display: inline-block;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border-top: 1px gainsboro solid;
+    border-bottom: 1px gainsboro solid;
+  }
+
+  .full-media-detail{
+    text-align: left;
+    padding: 2.5px;
+    border: 1px gainsboro solid;
+  }
 
 /*  details modal */
 .details-modal {
