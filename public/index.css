@@ -1391,7 +1391,8 @@ padding: 10px;
 .catalog-media-region{
   display: inline-block;
   width: 15%;
-  height: 100%;
+  height: 50%;
+  vertical-align: center;
 }
 
 .catalog-media-controls{
@@ -1406,8 +1407,14 @@ padding: 10px;
   width:100%;
   height: 50%;
   padding: 10px;
+  font-weight: bold;
   border: 2px #484848 solid;
   margin: 2.5px;
+}
+
+.catalog-media-button:hover{
+  background: darkgray;
+  color: black;
 }
 
 /* media full information */

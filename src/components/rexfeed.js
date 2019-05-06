@@ -95,6 +95,7 @@ export class ContentRexFeedItem extends React.Component {
   
    
     if(param.endsWith('/catalog')){
+      let country = this.props.media.country.toLowerCase();
       return(
         <li className='catalog-media' id={this.props.media.id} key ={'catalog'+ this.props.media.id.toString()}>
           <div className='catalog-media-img-container'>
@@ -108,7 +109,7 @@ export class ContentRexFeedItem extends React.Component {
             <div className='catalog-media-type'>
               <img className='catalog-media-type-img' src='https://i.imgur.com/vNOeitC.png' alt='placeholder'></img>
             </div>
-            <div className='catalog-media-region'>Region</div>
+            <div className='catalog-media-region'><i className={'em em-flag-'+ country} /></div>
           </section>
           <section className='catalog-media-controls'>
             <div className='catalog-media-button' >Add</div>
