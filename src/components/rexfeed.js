@@ -58,6 +58,8 @@ export class ContentRexFeedItem extends React.Component {
     let catalogGenres;
     if(this.props.media.genres.length < 1 ){
       catalogGenres = (<div className='catalog-media-genre-container'>
+      <div className='catalog-media-genre-filler'>
+      </div>
       </div>);
     } 
     else if(this.props.media.genres.length < 2){
@@ -94,9 +96,9 @@ export class ContentRexFeedItem extends React.Component {
    
     if(param.endsWith('/catalog')){
       return(
-        <li className='catalog-media' id={this.props.media.id} key ={'media'+ this.props.media.sourceitemid}>
+        <li className='catalog-media' id={this.props.media.id} key ={'catalog'+ this.props.media.id.toString()}>
           <div className='catalog-media-img-container'>
-            <img className='catalog-media-img' src={this.props.media.img} alt={this.props.media.title} />
+            <img className='catalog-media-img' src={this.props.media.img.includes('null') === false ? this.props.media.img : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.title} />
           </div>
           <section className='catalog-media-description'>
             <div className='catalog-media-title-genres'>
@@ -116,7 +118,7 @@ export class ContentRexFeedItem extends React.Component {
     }
     else if(param.endsWith('/today')){
       return(
-      <li className='full-schedule-card' key={'airing-'+this.props.index}>
+      <li className='full-schedule-card' key={'airingtoday-'+this.props.index}>
         <div className='full-schedule-general-info'>
         <img className='full-schedule-img' src={this.props.media.img.includes('null') === false ? this.props.media.img : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.title}></img>
         <p className='full-schedule-title'>{this.props.media.title.length < 40 ? this.props.media.title : this.props.media.title.slice(0,40)+'...'}</p>
@@ -136,7 +138,7 @@ export class ContentRexFeedItem extends React.Component {
     }
     else if(param.endsWith('/ontheair')){
       return(
-        <li className='full-schedule-card' key={'airing-'+this.props.index}>
+        <li className='full-schedule-card' key={'ontheair-'+this.props.media.id}>
         <div className='full-schedule-general-info'>
         <img className='full-schedule-img' src={this.props.media.img.includes('null') === false ? this.props.media.img : 'https://i.imgur.com/vNOeitC.png'} alt={this.props.media.title}></img>
         <p className='full-schedule-title'>{this.props.media.title.length < 40 ? this.props.media.title : this.props.media.title.slice(0,40)+'...'}</p>

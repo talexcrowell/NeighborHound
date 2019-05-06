@@ -1354,7 +1354,7 @@
 .catalog-media-genre-container{
 display: inline-block;
 width: 100%;
-height: 20%;
+height: 30%;
 padding: 10px;
 }
 
@@ -1366,6 +1366,13 @@ padding: 10px;
   width: 30%;
   border: 1px #282828 solid;
   border-radius: 4px;
+}
+
+.catalog-media-genre-filler{
+  display: inline-block;
+  padding: 12px;
+  margin: 5px;
+  width: 30%;
 }
 
 .catalog-media-type{
