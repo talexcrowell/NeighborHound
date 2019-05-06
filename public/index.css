@@ -387,6 +387,25 @@
   background: red;
 }
 
+/* news feed of fetch */
+.news-categories{
+  display: inline-block;
+  width: 100%;
+  border-top: 4px gainsboro solid;
+}
+
+.news-category{
+  display: inline-block;
+  width:16.666%;
+}
+
+.news-category-active{
+  display: inline-block;
+  width:16.666%;
+  background: #484848;
+}
+
+
 /* articles for news */
 .article{
   max-width: 980px;
@@ -551,7 +570,6 @@
   height: 100%;
   background-color: #585858;
   border-right: 1px solid white;
-  border-radius: 4px;
   padding: 0;
 }
 
@@ -565,7 +583,6 @@
   height: 100%;
   background-color: darkred;
   border-left: 1px solid white;
-  border-radius: 4px;
   padding: 0;
 }
 

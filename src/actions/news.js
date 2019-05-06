@@ -32,7 +32,7 @@ export const removeArticleFromFeed = (id) => ({
 export const fetchNews = () => {
   return (dispatch, getState) => {
     dispatch(fetchNewsRequest());
-    fetch(`${API_BASE_URL}/api/news/general`,{
+    fetch(`${API_BASE_URL}/api/news/main`,{
       method: 'GET',
       headers: {
         Accept: 'application/json'
