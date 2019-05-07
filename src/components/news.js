@@ -9,14 +9,8 @@ export class News extends React.Component {
   }
 
   render() {
-    let news;
-    if(this.props.loading === true){
-      return
-    } else{
-      news = this.props.articles['general'];
-    }
     
-    let articles = news.map((item, index) => (
+    let articles = this.props.articles.map((item, index) => (
       <ContentFeedItem item={item} index={'news-'+index} page={'news'}/>
     ));
 
