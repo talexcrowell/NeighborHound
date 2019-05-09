@@ -22,7 +22,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/fetch" component={Main} />
-          <Route exact path="/fetch/news" component ={News} />
+          <Route exact path="/fetch/news/:category" component ={News} />
           <Route exact path="/fetch/community" component ={Community} />
           <Route exact path="/rex/main" component ={RexMain} />
           <Route exact path="/rex/catalog" component ={Catalog} />

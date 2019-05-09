@@ -34,7 +34,7 @@ export class HeaderBar extends React.Component {
         <section className='main-menu-nav'>
           <ul className='main-menu-nav-buttons'>
             <Link to='/fetch' ><li className='main-menu-choice-active'>Main</li></Link>
-            <Link to='/fetch/news' ><li className='main-menu-choice'>News</li></Link>
+            <Link to='/fetch/news/all' ><li className='main-menu-choice'>News</li></Link>
             <Link to='/fetch/community' ><li className='main-menu-choice'>Community</li></Link>
             <li className='main-menu-choice'>Custom Feed</li>
             <li className='main-menu-choice'>FetchLists</li>
@@ -59,7 +59,7 @@ export class HeaderBar extends React.Component {
         <section className='main-menu-nav'>
           <ul className='main-menu-nav-buttons'>
             <Link to='/fetch'  ><li className='main-menu-choice'>Main</li></Link>
-            <Link to='/fetch/news' ><li className='main-menu-choice-active'>News</li></Link>
+            <Link to='/fetch/news/all' ><li className='main-menu-choice-active'>News</li></Link>
             <Link to='/fetch/community' ><li className='main-menu-choice'>Community</li></Link>
             <li className='main-menu-choice'>Custom Feed</li>
             <li className='main-menu-choice'>FetchLists</li>
@@ -84,7 +84,7 @@ export class HeaderBar extends React.Component {
         <section className='main-menu-nav'>
           <ul className='main-menu-nav-buttons'>
             <Link className='click-area' to='/fetch' ><li className='main-menu-choice'>Main</li></Link>
-            <Link to='/fetch/news' ><li className='main-menu-choice'>News</li></Link>
+            <Link to='/fetch/news/all' ><li className='main-menu-choice'>News</li></Link>
             <Link to='/fetch/community' ><li className='main-menu-choice-active'>Community</li></Link>
             <li className='main-menu-choice'>Custom Feed</li>
             <li className='main-menu-choice'>FetchLists</li>
