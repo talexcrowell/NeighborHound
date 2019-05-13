@@ -27,7 +27,7 @@ export class HeaderBar extends React.Component {
             <ul className='header-menu'>
               <Link className='click-area' to='/rex/main' > <li className='header-menu-choice'>Rex</li></Link>
               <li className='header-menu-choice'>About</li>
-              <Link className='click-area' to='/'><li className='header-menu-choice'>User</li></Link>
+              <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
         </div>
@@ -52,7 +52,7 @@ export class HeaderBar extends React.Component {
             <ul className='header-menu'>
               <Link className='click-area' to='/rex/main' > <li className='header-menu-choice'>Rex</li></Link>
               <li className='header-menu-choice'>About</li>
-              <Link className='click-area' to='/'><li className='header-menu-choice'>User</li></Link>
+              <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
         </div>
@@ -77,7 +77,7 @@ export class HeaderBar extends React.Component {
             <ul className='header-menu'>
               <Link className='click-area' to='/rex/main' ><li className='header-menu-choice'>Rex</li></Link>
               <li className='header-menu-choice'>About</li>
-              <Link className='click-area' to='/'><li className='header-menu-choice'>User</li></Link>
+              <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
         </div>
@@ -104,7 +104,7 @@ export class HeaderBar extends React.Component {
             <ul className='header-menu'>
               <Link className ='click-area' to='/fetch' ><li className='header-menu-choice'>Fetch</li></Link>
               <li className='header-menu-choice'>About</li>
-              <Link className='click-area' to='/'><li className='header-menu-choice'>User</li></Link>
+              <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
         </div>

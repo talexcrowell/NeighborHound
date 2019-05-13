@@ -10,8 +10,7 @@ export class Main extends React.Component {
 
 
   render() {
-    let content = this.props.feed.filter((post) => post.title.includes(this.props.search));
-    let feed = content.map((item, index) => (
+    let feed = this.props.feed.map((item, index) => (
         <ContentFeedItem item={item} index={'main-'+index} page={'main'}/>
       ));
 
@@ -26,16 +25,9 @@ export class Main extends React.Component {
       <main role='main' className='main-page'>
         <div className='main-page-content'>
           <section className='main-menu'>
-            <h1 className='main-menu-title'>Welcome to Fetch</h1>
-            <p className='main-menu-text'>NeighborHound Fetch collects all upcoming news and fresh community content to keep you informed and entertained!</p>
+            <h1 className='main-menu-title'>Fetch</h1>
             <p className='main-menu-text'>Click on the NeighborHound logo to return to the top of the feed</p>
             <p className='main-menu-text'>Let's see what NeighborHound has fetched today...</p>
-            <div className='main-menu-nav-functions'>
-              <input className='main-search' type='text' placeholder='Search Feed for Title...' onChange={event => this.search(event)}></input>
-              <div className='filter-img'>
-                <img className='filter-icon' src='https://i.imgur.com/HQtwQg6.png'alt='filter' onClick={() => this.createfilter()}></img>
-              </div>
-            </div>
           </section>
         </div>
         {newsFeed}

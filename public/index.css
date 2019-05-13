@@ -406,6 +406,17 @@
   background: red;
 }
 
+.dashboard-entry{
+  display: inline-block;
+  width: 45%;
+  margin: 5px;
+  padding: 10px;
+}
+
+.dashboard-title{
+  background: none;
+}
+
 /* articles for news */
 .article{
   max-width: 980px;

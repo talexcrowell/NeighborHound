@@ -9,8 +9,7 @@ export class Community extends React.Component {
   }
   
   render() {
-    let content = this.props.posts.filter((post) => post.title.includes(this.props.search));
-    let posts = content.map((item, index) => (
+    let posts = this.props.posts.map((item, index) => (
       <ContentFeedItem  item={item} index={'community-'+index} page={'community'} />
     ));
 
