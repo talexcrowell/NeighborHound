@@ -42,7 +42,7 @@ export class HeaderBar extends React.Component {
       </section>
     </div>);
     }
-    else if(param.endsWith('/fetch/news') === true){
+    else if(param.includes('/fetch/news') === true){
       navmenu = (
         <div>
         <div className='headerbar'>
@@ -67,7 +67,7 @@ export class HeaderBar extends React.Component {
       </section>
     </div>);
     }
-    else if(param.endsWith('/fetch/community') === true){
+    else if(param.includes('/fetch/community') === true){
       navmenu = (
       <div>
         <div className='headerbar'>

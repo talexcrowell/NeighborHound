@@ -23,16 +23,43 @@ export const fetchNewsError = (error) => ({
   error
 });
 
+export const FETCH_ALL_NEWS_FEED_SUCCESS = 'FETCH_ALL_NEWS_FEED_SUCCESS';
+export const fetchAllNewsFeedSuccess = (news) => ({
+  type: FETCH_ALL_NEWS_FEED_SUCCESS,
+  news,
+});
+
+export const FETCH_ALL_NEWS_FEED_ERROR = 'FETCH_ALL_NEWS_FEED_ERROR';
+export const fetchAllNewsFeedError = (error) => ({
+  type: FETCH_ALL_NEWS_FEED_ERROR,
+  error
+});
+
 export const REMOVE_ARTICLE_FROM_FEED= 'REMOVE_ARTICLE_FROM_FEED';
 export const removeArticleFromFeed = (id) => ({
   type: REMOVE_ARTICLE_FROM_FEED,
   id
 });
 
+export const fetchAllNewsFeed = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchNewsRequest());
+    fetch(`${API_BASE_URL}/api/news/all`,{
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => dispatch(fetchAllNewsFeedSuccess(data)))
+    .catch(err => dispatch(fetchAllNewsFeedError(err)))
+  }
+}
+
 export const fetchNews = () => {
   return (dispatch, getState) => {
     dispatch(fetchNewsRequest());
-    fetch(`${API_BASE_URL}/api/news/general`,{
+    fetch(`${API_BASE_URL}/api/news/articles`,{
       method: 'GET',
       headers: {
         Accept: 'application/json'
@@ -43,41 +70,3 @@ export const fetchNews = () => {
     .catch(err => dispatch(fetchNewsError(err)))
   }
 }
-
-// export const FETCH_ANIMENEWS_SUCCESS = 'FETCH_ANIMENEWS_SUCCESS';
-// export const fetchAnimeNewsSuccess = (news) => ({
-//   type: FETCH_ANIMENEWS_SUCCESS,
-//   news
-// });
-
-// export const FETCH_CYBERSECURITYNEWS_SUCCESS = 'FETCH_CYBERSECURITYNEWS_SUCCESS';
-// export const fetchCyberSecurityNewsSuccess = (news) => ({
-//   type: FETCH_CYBERSECURITYNEWS_SUCCESS,
-//   news
-// });
-
-// export const fetchAnimeNews = () => {
-//   return (dispatch, getState) => {
-//     dispatch(fetchNewsRequest());
-//     fetch('https://kitsu.io/api/edge/trending/anime',{
-//       method: 'GET',
-//       headers: {
-//         Accept: 'application/json',
-//         'Content-type': 'application/vnd.api+json'
-//       }
-//     })
-//     .then(res => res.json())
-//     .then(data => dispatch(fetchAnimeNewsSuccess(data)))
-//     .catch(err => dispatch(fetchNewsError(err)))
-//   }
-// }
-	
-// export const fetchCyberSecurityNews = () => {
-//   return (dispatch, getState) => {
-//     dispatch(fetchNewsRequest());
-//     fetch('http://cybersecurity.apievangelist.com/apis/news')
-//     .then(res => res.json())
-//     .then(data => dispatch(fetchCyberSecurityNewsSuccess(data)))
-//     .catch(err => dispatch(fetchNewsError(err)))
-//   }
-// }

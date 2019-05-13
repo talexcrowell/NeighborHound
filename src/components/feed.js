@@ -84,11 +84,12 @@ export class ContentFeedItem extends React.Component {
 
     else if(this.props.item.section === 'news'){
       return(
-        <li className='article' key ={this.props.index}>
+        <li className='article' key ={'news-'+this.props.index}>
             <div className='article-img-container'>
+              <p className={'article-category '+this.props.item.category.toLowerCase()}>{this.props.item.category}</p>
               <img className='article-img' src={this.props.item.img ? this.props.item.img : 'https://i.imgur.com/ty6YjaL.png'} alt={this.props.item.title} />
               <p className='article-source'>{this.props.item.source.name}</p>
-              <p className= 'article-category'>{this.props.item.category}</p>
+              
             </div>
               <section className='article-description'>
                 <section className='article-details'>

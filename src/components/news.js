@@ -1,30 +1,28 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchNews } from '../actions/news';
+import {Link} from 'react-router-dom';
+import { fetchNews, fetchAllNewsFeed } from '../actions/news';
 import  ContentFeedItem  from './feed';
 
 export class News extends React.Component {
   componentDidMount() {
+    this.props.dispatch(fetchAllNewsFeed());
     this.props.dispatch(fetchNews());
   }
 
   render() {
     let news;
-    let paramCategory = this.props.match.params.category;
-    if( paramCategory === 'all'){
-      console.log('all!');
-      news = this.props.articles;
+    let paramCategory = this.props.match.params.category.toLowerCase();
+    
+    if(paramCategory !== 'all'){
+      news = this.props.articles.filter(article => article.category.toLowerCase() === paramCategory);
     }
     else{
-      paramCategory = this.props.match.url.replace('/fetch/news/', '');
-      console.log(paramCategory);
-      news = this.props.articles.filter(article => article.category === paramCategory)
-      console.log(news);
+      news = this.props.all;
     }
-    console.log(paramCategory);
-    // let feed= this.props.articles.filter(article => article.id=)
+    
     let articles = news.map((item, index) => (
-      <ContentFeedItem item={item} index={'news-'+index} page={'news'}/>
+      <ContentFeedItem item={item} index={index} page={'news'}/>
     ));
 
     let newsFeed;
@@ -34,15 +32,73 @@ export class News extends React.Component {
       newsFeed = (<ul className='newsfeed'>{articles}</ul>);
     }
 
-    let categoriesBar = (
-      <section className='news-categories'>
-        <div className='news-category-active'>All</div>
-        <div className='news-category'>General</div>
-        <div className='news-category'>Technology</div>
-        <div className='news-category'>Science</div>
-        <div className='news-category'>Business</div>
-        <div className='news-category'>Health</div>
-      </section>);
+    let categoriesBar; 
+    if(paramCategory === 'all'){
+      categoriesBar= (
+        <section className='news-categories'>
+          <Link to='/fetch/news/all'><div className='news-category-active'>All</div></Link>
+          <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
+          <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
+          <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
+          <Link to='/fetch/news/business'><div className='news-category'>Business</div></Link>
+          <Link to='/fetch/news/health'><div className='news-category'>Health</div></Link>
+        </section>);
+    }
+    else if(paramCategory === 'general'){
+      categoriesBar= (
+        <section className='news-categories'>
+          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news/general'><div className='news-category-active'>General</div></Link>
+          <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
+          <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
+          <Link to='/fetch/news/business'><div className='news-category'>Business</div></Link>
+          <Link to='/fetch/news/health'><div className='news-category'>Health</div></Link>
+        </section>);
+    }
+    else if(paramCategory === 'technology'){
+      categoriesBar= (
+        <section className='news-categories'>
+          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
+          <Link to='/fetch/news/technology'><div className='news-category technology'>Technology</div></Link>
+          <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
+          <Link to='/fetch/news/business'><div className='news-category'>Business</div></Link>
+          <Link to='/fetch/news/health'><div className='news-category'>Health</div></Link>
+        </section>);
+    }
+    else if(paramCategory === 'science'){
+      categoriesBar= (
+        <section className='news-categories'>
+          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
+          <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
+          <Link to='/fetch/news/science'><div className='news-category science'>Science</div></Link>
+          <Link to='/fetch/news/business'><div className='news-category'>Business</div></Link>
+          <Link to='/fetch/news/health'><div className='news-category'>Health</div></Link>
+        </section>);
+    }
+    else if(paramCategory === 'business'){
+      categoriesBar= (
+        <section className='news-categories'>
+          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
+          <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
+          <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
+          <Link to='/fetch/news/business'><div className='news-category business'>Business</div></Link>
+          <Link to='/fetch/news/health'><div className='news-category'>Health</div></Link>
+        </section>);
+    }
+    else if(paramCategory === 'health'){
+      categoriesBar= (
+        <section className='news-categories'>
+          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
+          <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
+          <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
+          <Link to='/fetch/news/business'><div className='news-category'>Business</div></Link>
+          <Link to='/fetch/news/health'><div className='news-category health'>Health</div></Link>
+        </section>);
+    }
 
     return(
       <main role='main' className='news-page'>
@@ -60,6 +116,7 @@ export class News extends React.Component {
 
 function mapStateToProps(state){
   return{
+    all: state.news.all,
     articles: state.news.articles,
     loading: state.news.loading
   }
