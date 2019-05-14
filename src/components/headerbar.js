@@ -102,8 +102,7 @@ export class HeaderBar extends React.Component {
         </div>
         <div className='rex-menu-nav'>
           <ul className='rex-menu-nav-buttons'>
-          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice-active'>Home</li></Link>
-            <li className='rex-menu-choice'>Rex</li>
+          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice-active'>Main</li></Link>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice'>Catalog</li></Link>
           <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice'>Schedules</li></Link>
             <li className='rex-menu-choice'>REXLists</li>
@@ -129,8 +128,7 @@ export class HeaderBar extends React.Component {
         </div>
         <div className='rex-menu-nav'>
           <ul className='rex-menu-nav-buttons'>
-          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Home</li></Link>
-            <li className='rex-menu-choice'>Rex</li>
+          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Main</li></Link>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice-active'>Catalog</li></Link>
           <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice'>Schedules</li></Link>
             <li className='rex-menu-choice'>REXLists</li>
@@ -156,8 +154,7 @@ export class HeaderBar extends React.Component {
         </div>
         <div className='rex-menu-nav'>
           <ul className='rex-menu-nav-buttons'>
-          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Home</li></Link>
-            <li className='rex-menu-choice'>Rex</li>
+          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Main</li></Link>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice'>Catalog</li></Link>
           <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice-active'>Schedules</li></Link>
           <li className='rex-menu-choice'>REXLists</li>
