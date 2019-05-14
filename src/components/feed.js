@@ -32,12 +32,22 @@ export class ContentFeedItem extends React.Component {
   
       if(this.props.item.type === 'video/mp4' || this.props.item.type === 'video/webm'){
         media = ( <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
-          <div className='img-container'>
+          <div className='mp4-container'>
             <video autoPlay loop muted controls className='post-mp4'>
               <source src={this.props.item.img} type={this.props.item.type} />
             </video>
           </div>
         </a>);
+      }
+      else if(this.props.item.type === 'video/vimeo' && this.props.item.img !== ''){
+        let regex = new RegExp(/https:*.*.\?/g);
+        let edit = regex.exec(this.props.item.img);
+        console.log(edit[0].replace('?', ''));
+        media = (<a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
+        <div className='vimeo-container'>
+        <iframe className='post-vimeo' src={edit}></iframe>
+      </div>
+          </a>);
       } 
       else if(this.props.item.type === 'article'){
         media = (<a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>

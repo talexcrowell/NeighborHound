@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Main from './components/main';
 import HeaderBar from './components/headerbar';
+import FooterBar from './components/footerbar';
 import News from './components/news';
 import Community from './components/community';
 import CommunitySearch from './components/community-search';
@@ -36,6 +37,7 @@ class App extends Component {
           <Route exact path="/rex/schedules/tv/today" component={TodayFullSchedule} />
           <Route exact path="/rex/schedules/tv/ontheair" component={OnTheAirFullSchedule} />
         </Switch>
+        <Route path="/" component={FooterBar} />
       </div>
     </Router>
 

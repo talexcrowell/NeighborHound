@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { fetchCommunity} from '../actions/community';
-import  ContentFeedItem from './feed';
 
 export class CommunitySearch extends React.Component {
   componentDidMount() {
