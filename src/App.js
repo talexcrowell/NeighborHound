@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
 import Main from './components/main';
 import HeaderBar from './components/headerbar';
@@ -12,6 +12,7 @@ import TodayFullSchedule from './components/today-full-schedule';
 import OnTheAirFullSchedule from './components/ontheair-full-schedule';
 import Dashboard from './components/dashboard';
 import MediaInfo from './components/media-info';
+import About from './components/about';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
         <Route path="/" component={HeaderBar} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
+          <Route exact path="/about" component={About} />
           <Route exact path="/fetch" component={Main} />
           <Route exact path="/fetch/news/:category" component ={News} />
           <Route exact path="/fetch/community" component ={Community} />

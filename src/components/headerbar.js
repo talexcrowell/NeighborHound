@@ -1,17 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { searchFeed, toggleFilter } from '../actions/main';
 
 
 export class HeaderBar extends React.Component {
-  search(event){
-    this.props.dispatch(searchFeed(event.target.value));
-  }
-
-  createfilter(){
-    this.props.dispatch(toggleFilter());
-  }
 
   render() {
     let param = window.location.href;

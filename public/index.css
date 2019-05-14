@@ -99,6 +99,7 @@
   max-width: 1080px;
   min-width: 300px;
   width: 100%;
+  height: 100vh;
   margin-left:  0 auto;
   margin-right: 0 auto;
 }
@@ -411,10 +412,43 @@
   width: 45%;
   margin: 5px;
   padding: 10px;
+  color: white;
+  border-radius: 4px;
+  border: 1px #282828 solid;
+}
+
+.dashboard-entry:hover{
+  background: #484848;
+}
+
+.dashboard-img-container{
+  max-width: 400px;
+  width: 100%;
+  min-width: 280px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 4px;
+  margin: 2.5px;
+  background: none;
 }
 
 .dashboard-title{
   background: none;
+}
+
+.dashboard-entry-title{
+  background: none;
+}
+
+.dashboard-page-content{
+  display: inline-block;
+  background:  none;
+  max-width: 1000px;
+  width: 100%;
+  height: 100vh;
+  background-color: #282828;
+  padding: 20px;
+  text-align: center;
 }
 
 /* articles for news */
