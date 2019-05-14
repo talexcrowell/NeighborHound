@@ -29,6 +29,12 @@ export class Dashboard extends React.Component {
               <p className='csl'>With an endless ocean of media to choose from, come ask for a recommendation from Rex!</p>
             </div>
           </Link>
+          <Link className='click-area' to='/settings'>
+            <div className='dashboard-entry'>
+              <h2 className='dashboard-entry-title'>Account Settings</h2>
+              <p className='csl'>Maintain your account's preferences and settings</p>
+            </div>
+          </Link>
           <Link className='click-area' to='/about'>
             <div className='dashboard-entry'>
               <h2 className='dashboard-entry-title'>About</h2>

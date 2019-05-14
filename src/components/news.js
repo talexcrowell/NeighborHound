@@ -12,14 +12,16 @@ export class News extends React.Component {
 
   render() {
     let news;
-    let paramCategory = this.props.match.params.category.toLowerCase();
-    
-    if(paramCategory !== 'all'){
+    let paramCategory;
+
+    if(this.props.match.url.endsWith('/news') === true){
+      news = this.props.all;
+    }  
+    else {
+      paramCategory = this.props.match.params.category.toLowerCase();
       news = this.props.articles.filter(article => article.category.toLowerCase() === paramCategory);
     }
-    else{
-      news = this.props.all;
-    }
+    
     
     let articles = news.map((item, index) => (
       <ContentFeedItem item={item} index={index} page={'news'}/>
@@ -32,11 +34,12 @@ export class News extends React.Component {
       newsFeed = (<ul className='newsfeed'>{articles}</ul>);
     }
 
-    let categoriesBar; 
-    if(paramCategory === 'all'){
+    let categoriesBar;
+     
+    if(!paramCategory){
       categoriesBar= (
         <section className='news-categories'>
-          <Link to='/fetch/news/all'><div className='news-category-active'>All</div></Link>
+          <Link to='/fetch/news'><div className='news-category-active'>All</div></Link>
           <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
           <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
           <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
@@ -47,7 +50,7 @@ export class News extends React.Component {
     else if(paramCategory === 'general'){
       categoriesBar= (
         <section className='news-categories'>
-          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news'><div className='news-category'>All</div></Link>
           <Link to='/fetch/news/general'><div className='news-category-active'>General</div></Link>
           <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
           <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
@@ -58,7 +61,7 @@ export class News extends React.Component {
     else if(paramCategory === 'technology'){
       categoriesBar= (
         <section className='news-categories'>
-          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news'><div className='news-category'>All</div></Link>
           <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
           <Link to='/fetch/news/technology'><div className='news-category technology'>Technology</div></Link>
           <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
@@ -69,7 +72,7 @@ export class News extends React.Component {
     else if(paramCategory === 'science'){
       categoriesBar= (
         <section className='news-categories'>
-          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news'><div className='news-category'>All</div></Link>
           <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
           <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
           <Link to='/fetch/news/science'><div className='news-category science'>Science</div></Link>
@@ -80,7 +83,7 @@ export class News extends React.Component {
     else if(paramCategory === 'business'){
       categoriesBar= (
         <section className='news-categories'>
-          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news'><div className='news-category'>All</div></Link>
           <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
           <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
           <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>
@@ -91,7 +94,7 @@ export class News extends React.Component {
     else if(paramCategory === 'health'){
       categoriesBar= (
         <section className='news-categories'>
-          <Link to='/fetch/news/all'><div className='news-category'>All</div></Link>
+          <Link to='/fetch/news'><div className='news-category'>All</div></Link>
           <Link to='/fetch/news/general'><div className='news-category'>General</div></Link>
           <Link to='/fetch/news/technology'><div className='news-category'>Technology</div></Link>
           <Link to='/fetch/news/science'><div className='news-category'>Science</div></Link>

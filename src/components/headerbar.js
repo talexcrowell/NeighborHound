@@ -17,8 +17,8 @@ export class HeaderBar extends React.Component {
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
             <h2 className='header-title' onClick={() => window.scrollTo(0,0)}>NeighborHound</h2>
             <ul className='header-menu'>
-              <Link className='click-area' to='/rex/main' > <li className='header-menu-choice'>Rex</li></Link>
-              <li className='header-menu-choice'>About</li>
+              <Link className='click-area' to='/rex' > <li className='header-menu-choice'>Rex</li></Link>
+              <li className='header-menu-choice'>User</li>
               <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
@@ -26,7 +26,7 @@ export class HeaderBar extends React.Component {
         <section className='main-menu-nav'>
           <ul className='main-menu-nav-buttons'>
             <Link to='/fetch' ><li className='main-menu-choice-active'>Main</li></Link>
-            <Link to='/fetch/news/all' ><li className='main-menu-choice'>News</li></Link>
+            <Link to='/fetch/news' ><li className='main-menu-choice'>News</li></Link>
             <Link to='/fetch/community' ><li className='main-menu-choice'>Community</li></Link>
             <li className='main-menu-choice'>Custom Feed</li>
             <li className='main-menu-choice'>FetchLists</li>
@@ -42,8 +42,8 @@ export class HeaderBar extends React.Component {
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
               <h2 className='header-title'>NeighborHound</h2>
             <ul className='header-menu'>
-              <Link className='click-area' to='/rex/main' > <li className='header-menu-choice'>Rex</li></Link>
-              <li className='header-menu-choice'>About</li>
+              <Link className='click-area' to='/rex' > <li className='header-menu-choice'>Rex</li></Link>
+              <li className='header-menu-choice'>User</li>
               <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
@@ -51,7 +51,7 @@ export class HeaderBar extends React.Component {
         <section className='main-menu-nav'>
           <ul className='main-menu-nav-buttons'>
             <Link to='/fetch'  ><li className='main-menu-choice'>Main</li></Link>
-            <Link to='/fetch/news/all' ><li className='main-menu-choice-active'>News</li></Link>
+            <Link to='/fetch/news' ><li className='main-menu-choice-active'>News</li></Link>
             <Link to='/fetch/community' ><li className='main-menu-choice'>Community</li></Link>
             <li className='main-menu-choice'>Custom Feed</li>
             <li className='main-menu-choice'>FetchLists</li>
@@ -67,8 +67,8 @@ export class HeaderBar extends React.Component {
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
               <h2 className='header-title'>NeighborHound</h2>
             <ul className='header-menu'>
-              <Link className='click-area' to='/rex/main' ><li className='header-menu-choice'>Rex</li></Link>
-              <li className='header-menu-choice'>About</li>
+              <Link className='click-area' to='/rex' ><li className='header-menu-choice'>Rex</li></Link>
+              <li className='header-menu-choice'>User</li>
               <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
@@ -76,7 +76,7 @@ export class HeaderBar extends React.Component {
         <section className='main-menu-nav'>
           <ul className='main-menu-nav-buttons'>
             <Link className='click-area' to='/fetch' ><li className='main-menu-choice'>Main</li></Link>
-            <Link to='/fetch/news/all' ><li className='main-menu-choice'>News</li></Link>
+            <Link to='/fetch/news' ><li className='main-menu-choice'>News</li></Link>
             <Link to='/fetch/community' ><li className='main-menu-choice-active'>Community</li></Link>
             <li className='main-menu-choice'>Custom Feed</li>
             <li className='main-menu-choice'>FetchLists</li>
@@ -84,25 +84,25 @@ export class HeaderBar extends React.Component {
       </section>
     </div>);
     }
-    else if(param.endsWith('/rex/main') === true){
+    else if(param.endsWith('/rex') === true){
       navmenu = (
         <div>
         <div className='headerbar'>
           <div className='header-container'>
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
-            <Link to='/rex/main'>
+            <Link to='/rex'>
               <h2 className='header-title'>NeighborHound</h2>
             </Link>
             <ul className='header-menu'>
               <Link className ='click-area' to='/fetch' ><li className='header-menu-choice'>Fetch</li></Link>
-              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
               <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
             </ul>
           </div>
         </div>
         <div className='rex-menu-nav'>
           <ul className='rex-menu-nav-buttons'>
-          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice-active'>Main</li></Link>
+          <Link className ='click-area' to='/rex' ><li className='rex-menu-choice-active'>Main</li></Link>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice'>Catalog</li></Link>
           <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice'>Schedules</li></Link>
             <li className='rex-menu-choice'>REXLists</li>
@@ -116,19 +116,19 @@ export class HeaderBar extends React.Component {
         <div className='headerbar'>
           <div className='header-container'>
             <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
-            <Link to='/rex/main'>
+            <Link to='/rex'>
               <h2 className='header-title'>NeighborHound</h2>
             </Link>
             <ul className='header-menu'>
               <Link className ='click-area' to='/fetch' ><li className='header-menu-choice'>Fetch</li></Link>
-              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
               <Link className='click-area' to='/'><li className='header-menu-choice'>User</li></Link>
             </ul>
           </div>
         </div>
         <div className='rex-menu-nav'>
           <ul className='rex-menu-nav-buttons'>
-          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Main</li></Link>
+          <Link className ='click-area' to='/rex' ><li className='rex-menu-choice'>Main</li></Link>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice-active'>Catalog</li></Link>
           <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice'>Schedules</li></Link>
             <li className='rex-menu-choice'>REXLists</li>
@@ -147,14 +147,14 @@ export class HeaderBar extends React.Component {
             </Link>
             <ul className='header-menu'>
               <Link className ='click-area' to='/fetch' ><li className='header-menu-choice'>Fetch</li></Link>
-              <li className='header-menu-choice'>About</li>
+              <li className='header-menu-choice'>User</li>
               <Link className='click-area' to='/'><li className='header-menu-choice'>User</li></Link>
             </ul>
           </div>
         </div>
         <div className='rex-menu-nav'>
           <ul className='rex-menu-nav-buttons'>
-          <Link className ='click-area' to='/rex/main' ><li className='rex-menu-choice'>Main</li></Link>
+          <Link className ='click-area' to='/rex' ><li className='rex-menu-choice'>Main</li></Link>
           <Link className ='click-area' to='/rex/catalog' ><li className='rex-menu-choice'>Catalog</li></Link>
           <Link className ='click-area' to='/rex/schedules' ><li className='rex-menu-choice-active'>Schedules</li></Link>
           <li className='rex-menu-choice'>REXLists</li>
