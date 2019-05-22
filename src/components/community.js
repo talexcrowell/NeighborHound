@@ -27,11 +27,11 @@ export class Community extends React.Component {
           <h1 className='main-menu-title'>Community</h1>
           <p className='main-menu-text'>Checkout hot and trending posts from communities all over the internet!</p>
           <p className='main-menu-text'>Remember to click on the NeighborHound logo to return to the top of the feed</p>
-            <Link to='/fetch/community/search'><div className='community-search-link'>Looking for something more specific?</div></Link>
+          <Link to='/fetch/community/search'><div className='search-link'>Looking for something more specific?</div></Link>
         </section>
         {newsFeed}
       </main>  
-    )
+    );
   }
 }
 

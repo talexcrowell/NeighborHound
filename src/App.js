@@ -5,6 +5,7 @@ import Main from './components/main';
 import HeaderBar from './components/headerbar';
 import FooterBar from './components/footerbar';
 import News from './components/news';
+import NewsSearch from './components/news-search';
 import Community from './components/community';
 import CommunitySearch from './components/community-search';
 import RexMain from './components/rex';
@@ -27,6 +28,7 @@ class App extends Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/fetch" component={Main} />
           <Route exact path="/fetch/news" component ={News} />
+          <Route exact path="/fetch/news/search" component ={NewsSearch} />
           <Route exact path="/fetch/news/:category" component ={News} />
           <Route exact path="/fetch/community" component ={Community} />
           <Route exact path="/fetch/community/search" component ={CommunitySearch} />

@@ -41,6 +41,19 @@ export const removeArticleFromFeed = (id) => ({
   id
 });
 
+
+export const FETCH_NEWS_SEARCH_SUCCESS = 'FETCH_NEWS_SEARCH_SUCCESS';
+export const fetchNewsSearchSuccess = (news) => ({
+  type: FETCH_NEWS_SEARCH_SUCCESS,
+  news,
+});
+
+export const FETCH_NEWS_SEARCH_ERROR = 'FETCH_NEWS_SEARCH_ERROR';
+export const fetchNewsSearchError = (error) => ({
+  type: FETCH_NEWS_SEARCH_ERROR,
+  error
+});
+
 export const fetchAllNewsFeed = () => {
   return (dispatch, getState) => {
     dispatch(fetchNewsRequest());
@@ -68,5 +81,23 @@ export const fetchNews = () => {
     .then(res => res.json())
     .then(data => dispatch(fetchNewsSuccess(data)))
     .catch(err => dispatch(fetchNewsError(err)))
+  }
+}
+
+export const searchNews = (query) => {
+  console.log(query);
+  return (dispatch, getState) => {
+    dispatch(fetchNewsRequest());
+    fetch(`${API_BASE_URL}/api/news/search`,{
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(query)
+    })
+    .then(res => res.json())
+    .then(data => dispatch(fetchNewsSearchSuccess(data)))
+    .catch(err => dispatch(fetchNewsSearchError(err)))
   }
 }

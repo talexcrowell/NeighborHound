@@ -1,9 +1,18 @@
-import {FETCH_COMMUNITY_REQUEST, FETCH_COMMUNITY_SUCCESS, FETCH_COMMUNITY_ERROR, REMOVE_POST_FROM_FEED} from '../actions/community';
+import {
+  FETCH_COMMUNITY_REQUEST, 
+  FETCH_COMMUNITY_SUCCESS, 
+  FETCH_COMMUNITY_ERROR,
+  FETCH_COMMUNITY_SEARCH_SUCCESS,
+  FETCH_COMMUNITY_SEARCH_ERROR, 
+  REMOVE_POST_FROM_FEED,
+} from '../actions/community';
 
 const initialState = {
   posts: [],
+  search: [],
   loading: false,
-  error: null
+  error: null,
+  view: {}
 };
 
 export default function communityReducer(state=initialState, action){
@@ -21,6 +30,20 @@ export default function communityReducer(state=initialState, action){
     }
   }
   else if(action.type === FETCH_COMMUNITY_ERROR){
+    return{
+      ...state,
+      loading: false,
+      error: action.error
+    }
+  }
+  else if(action.type === FETCH_COMMUNITY_SEARCH_SUCCESS){
+    return{
+      ...state,
+      search: [...action.posts],
+      loading: false
+    }
+  }
+  else if(action.type === FETCH_COMMUNITY_SEARCH_ERROR){
     return{
       ...state,
       loading: false,

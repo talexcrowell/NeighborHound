@@ -17,6 +17,20 @@ export const fetchCommunityError = (error) => ({
   error
 });
 
+
+export const FETCH_COMMUNITY_SEARCH_SUCCESS = 'FETCH_COMMUNITY_SEARCH_SUCCESS';
+export const fetchCommunitySearchSuccess = (posts) => ({
+  type: FETCH_COMMUNITY_SEARCH_SUCCESS,
+  posts
+});
+
+export const FETCH_COMMUNITY_SEARCH_ERROR = 'FETCH_COMMUNITY_SEARCH_ERROR';
+export const fetchCommunitySearchError = (error) => ({
+  type: FETCH_COMMUNITY_SEARCH_ERROR,
+  error
+});
+
+
 export const REMOVE_POST_FROM_FEED= 'REMOVE_POST_FROM_FEED';
 export const removePostFromFeed = (id) => ({
   type: REMOVE_POST_FROM_FEED,
@@ -31,5 +45,23 @@ export const fetchCommunity = () => {
     .then(res => res.json())
     .then(data => dispatch(fetchCommunitySuccess(data)))
     .catch(err => dispatch(fetchCommunityError(err)))
+  }
+}
+
+export const searchCommunity = (query) => {
+  console.log(query);
+  return (dispatch, getState) => {
+    dispatch(fetchCommunityRequest());
+    fetch(`${API_BASE_URL}/api/news/search`,{
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(query)
+    })
+    .then(res => res.json())
+    .then(data => dispatch(fetchCommunitySearchSuccess(data)))
+    .catch(err => dispatch(fetchCommunitySearchError(err)))
   }
 }

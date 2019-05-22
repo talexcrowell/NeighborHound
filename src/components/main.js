@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchMainFeed} from '../actions/main';
+
 import ContentFeedItem from './feed';
 
 export class Main extends React.Component {
@@ -10,6 +11,7 @@ export class Main extends React.Component {
 
 
   render() {
+
     let feed = this.props.feed.map((item, index) => (
         <ContentFeedItem item={item} index={'main-'+index} page={'main'}/>
       ));
@@ -39,6 +41,7 @@ export class Main extends React.Component {
 function mapStateToProps(state){
   return{
     feed: state.main.feed,
+    posts: state.community.posts,
     loading: state.main.loading,
     search: state.main.searchQuery
   }

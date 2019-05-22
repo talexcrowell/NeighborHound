@@ -1,8 +1,18 @@
-import {FETCH_NEWS_REQUEST, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR, FETCH_ALL_NEWS_FEED_SUCCESS, FETCH_ALL_NEWS_FEED_ERROR, REMOVE_ARTICLE_FROM_FEED} from '../actions/news';
+import {
+  FETCH_NEWS_REQUEST, 
+  FETCH_NEWS_SUCCESS, 
+  FETCH_NEWS_ERROR,
+  FETCH_NEWS_SEARCH_SUCCESS,
+  FETCH_NEWS_SEARCH_ERROR, 
+  FETCH_ALL_NEWS_FEED_SUCCESS, 
+  FETCH_ALL_NEWS_FEED_ERROR, 
+  REMOVE_ARTICLE_FROM_FEED
+} from '../actions/news';
 
 const initialState = {
   all:[],
   articles: [],
+  search: [],
   loading: false,
   error: null
 };
@@ -42,6 +52,21 @@ export default function newsReducer(state=initialState, action){
       error: action.error
     }
   }
+  else if(action.type === FETCH_NEWS_SEARCH_SUCCESS){
+    return{
+      ...state,
+      search: [...action.news],
+      loading: false
+    }
+  }
+  else if(action.type === FETCH_NEWS_SEARCH_ERROR){
+    return{
+      ...state,
+      loading: false,
+      error: action.error
+    }
+  }
+
   else if(action.type === REMOVE_ARTICLE_FROM_FEED){
     return{
       ...state,

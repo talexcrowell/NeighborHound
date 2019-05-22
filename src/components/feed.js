@@ -42,13 +42,19 @@ export class ContentFeedItem extends React.Component {
       else if(this.props.item.type === 'video/vimeo' && this.props.item.img !== ''){
         let regex = new RegExp(/https:*.*.\?/g);
         let edit = regex.exec(this.props.item.img);
-        console.log(edit[0].replace('?', ''));
         media = (<a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
-        <div className='vimeo-container'>
-        <iframe className='post-vimeo' src={edit}></iframe>
+        <div className='video-container'>
+        <iframe className='post-video' src={edit} title={this.props.item.title}></iframe>
       </div>
           </a>);
-      } 
+      }
+      else if(this.props.item.type === 'video/embed'){
+        media = (<a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
+          <div className='video-container'>
+          <iframe className='post-video' src={this.props.item.img} title={this.props.item.title}></iframe>
+          </div>
+          </a>);
+      }  
       else if(this.props.item.type === 'article'){
         media = (<a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
             <div className='post-article-container'>
@@ -67,12 +73,17 @@ export class ContentFeedItem extends React.Component {
   
       return(
         <li className='post' key ={this.props.index}>
+          <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
+          <section className='post-description'>
+            <h3 className='post-title'>{this.props.item.title}</h3>
+          </section>
+          </a>
           <section className='post-details'>
-            <div className='post-source'>{this.props.item.source}</div>
-            <div className='post-category'>{this.props.item.category}</div>
+            <div className='post-source'><a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.sourceUrl}>{this.props.item.source}</a></div>
+            <div className='post-category'><a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.sourceUrl}>{this.props.item.category ? this.props.item.category : ''}</a></div>
             <div className='post-menu'>
               {userButtons}
-              <CopyToClipboard text={this.props.item.img}>
+              <CopyToClipboard text={this.props.item.shareUrl}>
                 <div className='post-menu-choice-share'>
                   <img className='post-menu-image' src='https://i.imgur.com/f8f7prS.png' alt='Neighborhound' />
                 </div>
@@ -82,11 +93,6 @@ export class ContentFeedItem extends React.Component {
               </div>
             </div>
           </section>
-          <a className='click-area' target="_blank" rel="noopener noreferrer" href={this.props.item.url}>
-          <section className='post-description'>
-            <h3 className='post-title'>{this.props.item.title}</h3>
-          </section>
-          </a>
           {media}
         </li>
       );

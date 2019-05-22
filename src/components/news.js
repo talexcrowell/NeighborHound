@@ -109,6 +109,7 @@ export class News extends React.Component {
           <h1 className='main-menu-title'>News</h1>
           <p className='main-menu-text'>Checkout today's top headlines!</p>
           <p className='main-menu-text'>Remember to click on the NeighborHound logo to return to the top of the feed</p>
+          <Link to='/fetch/news/search'><div className='search-link'>Looking for something more specific?</div></Link>
           {categoriesBar}
         </section>
         {newsFeed}
