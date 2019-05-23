@@ -1,26 +1,20 @@
 import React from 'react';
 import{Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {fetchMainFeed} from '../actions/main';
 
 export class Dashboard extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchMainFeed());
-  }
-
-  
   render() {
     let accountSettings;
 
-    if(this.props.loading === true){
+    if(this.props.loggedIn === true){
       accountSettings =  <Link className='click-area' to='/settings'>
       <div className='dashboard-entry'>
         <h2 className='dashboard-entry-title'>Account Settings</h2>
         <p className='csl'>Maintain your account's preferences and settings</p>
       </div>
       </Link>;
-    } else if(this.props.loading === false){
-      accountSettings =  <Link className='click-area' to='/settings'>
+    } else if(this.props.loggedIn === false){
+      accountSettings =  <Link className='click-area' to='/login'>
       <div className='dashboard-entry'>
         <h2 className='dashboard-entry-title'>Login</h2>
         <p className='csl'>Let Neighborhound Make It Easier for You</p>
@@ -61,9 +55,7 @@ export class Dashboard extends React.Component {
 
 function mapStateToProps(state){
   return{
-    feed: state.main.feed,
-    loading: state.main.loading,
-    search: state.main.searchQuery
+    loggedIn: state.auth.currentUser !== null
   }
 }
 

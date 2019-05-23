@@ -2,9 +2,6 @@ import {REGISTER_USER_REQUEST, REGISTER_USER_ERROR} from '../actions/user';
 
 
 const initialState = {
-  teams:[],
-  currentTeam:[],
-  teamCollective: null,
   loading: false,
   error: null
 };

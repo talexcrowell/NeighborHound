@@ -47,7 +47,7 @@ export class NewsSearch extends React.Component {
             <form className='search-form' onSubmit={ e => {this.handleSubmit(e)}}>
               <input className='search-query' id='query' type='text' required></input>
               <button className='search-link' type='submit'>Search</button>
-              <button className='search-link' type='submit' onClick={e => this.handleClear(e)}>Clear</button>
+              <button className='search-link' type='submit'>Clear</button>
             </form>
         </section>
         {newsFeed}

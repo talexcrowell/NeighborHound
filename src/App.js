@@ -17,6 +17,8 @@ import OnTheAirFullSchedule from './components/ontheair-full-schedule';
 import Dashboard from './components/dashboard';
 import MediaInfo from './components/media-info';
 import About from './components/about';
+import Login from './components/login';
+import Register from './components/register';
 
 class App extends Component {
   render() {
@@ -26,6 +28,8 @@ class App extends Component {
         <Route path="/" component={HeaderBar} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
           <Route exact path="/about" component={About} />
           <Route exact path="/fetch" component={Main} />
           <Route exact path="/fetch/news" component ={News} />
