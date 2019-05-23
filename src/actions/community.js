@@ -37,6 +37,12 @@ export const removePostFromFeed = (id) => ({
   id
 });
 
+export const CLEAR_SEARCH= 'CLEAR_SEARCH';
+export const clearSearch = () => ({
+  type: CLEAR_SEARCH,
+  
+});
+
 
 export const fetchCommunity = () => {
   return (dispatch, getState) => {
@@ -49,10 +55,27 @@ export const fetchCommunity = () => {
 }
 
 export const searchCommunity = (query) => {
+  return (dispatch, getState) => {
+    dispatch(fetchCommunityRequest());
+    fetch(`${API_BASE_URL}/api/community/search`,{
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(query)
+    })
+    .then(res => res.json())
+    .then(data => dispatch(fetchCommunitySearchSuccess(data)))
+    .catch(err => dispatch(fetchCommunitySearchError(err)))
+  }
+}
+
+export const generateCustom = (query) => {
   console.log(query);
   return (dispatch, getState) => {
     dispatch(fetchCommunityRequest());
-    fetch(`${API_BASE_URL}/api/news/search`,{
+    fetch(`${API_BASE_URL}/api/community/custom`,{
       method: 'POST',
       headers: {
         Accept: 'application/json',

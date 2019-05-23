@@ -8,8 +8,25 @@ export class Dashboard extends React.Component {
     this.props.dispatch(fetchMainFeed());
   }
 
-
+  
   render() {
+    let accountSettings;
+
+    if(this.props.loading === true){
+      accountSettings =  <Link className='click-area' to='/settings'>
+      <div className='dashboard-entry'>
+        <h2 className='dashboard-entry-title'>Account Settings</h2>
+        <p className='csl'>Maintain your account's preferences and settings</p>
+      </div>
+      </Link>;
+    } else if(this.props.loading === false){
+      accountSettings =  <Link className='click-area' to='/settings'>
+      <div className='dashboard-entry'>
+        <h2 className='dashboard-entry-title'>Login</h2>
+        <p className='csl'>Let Neighborhound Make It Easier for You</p>
+      </div>
+      </Link>;
+    }
 
     return(
       <main role='main' className='main-page'>
@@ -29,12 +46,7 @@ export class Dashboard extends React.Component {
               <p className='csl'>With an endless ocean of media to choose from, come ask for a recommendation from Rex!</p>
             </div>
           </Link>
-          <Link className='click-area' to='/settings'>
-            <div className='dashboard-entry'>
-              <h2 className='dashboard-entry-title'>Account Settings</h2>
-              <p className='csl'>Maintain your account's preferences and settings</p>
-            </div>
-          </Link>
+          {accountSettings}
           <Link className='click-area' to='/about'>
             <div className='dashboard-entry'>
               <h2 className='dashboard-entry-title'>About</h2>

@@ -2,20 +2,23 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import  ContentFeedItem  from './feed';
-import {searchCommunity} from '../actions/community'
+import {searchCommunity, clearSearch} from '../actions/community'
 
 export class CommunitySearch extends React.Component {
+  componentWillUnmount(){
+    this.props.dispatch(clearSearch());
+  }
 
   handleSubmit(event){
     event.preventDefault()
     let searchQuery = {
-      query: event.target.query.value,
+      query: event.target.query.value.replace(' ', '+'),
+      source: event.target.sources.value,
       nsfw: event.target.nsfw.checked
     }
-    console.log(searchQuery);
-    // return this.props.dispatch(searchCommunity(searchQuery));
+    return this.props.dispatch(searchCommunity(searchQuery));
   }
-  
+
   render() {
     let articles;
     
@@ -42,7 +45,7 @@ export class CommunitySearch extends React.Component {
             <h1>What are you looking for?</h1>
             <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
               <input className='search-query' id='query'></input>
-              <select className='search-sources'>
+              <select className='search-sources' id='sources'>
                 <option className='search-source' value='reddit'>reddit</option>
                 <option className='search-source' value='youtube'>youtube</option> 
                 <option className='search-source' value='imgur'>imgur</option>             
@@ -54,8 +57,8 @@ export class CommunitySearch extends React.Component {
               <label>NSFW?</label>
               <button className='search-link'>Search</button>
             </form>
-            {newsFeed}
         </section>
+        {newsFeed}
       </main>  
     )
   }
@@ -63,9 +66,8 @@ export class CommunitySearch extends React.Component {
 
 function mapStateToProps(state){
   return{
-    posts: state.community.posts,
+    search: state.community.search,
     loading: state.community.loading,
-    search: state.main.searchQuery
   }
 }
 

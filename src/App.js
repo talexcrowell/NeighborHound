@@ -8,6 +8,7 @@ import News from './components/news';
 import NewsSearch from './components/news-search';
 import Community from './components/community';
 import CommunitySearch from './components/community-search';
+import CustomFeed from'./components/custom-feed';
 import RexMain from './components/rex';
 import Catalog from './components/catalog';
 import Schedules from './components/schedules';
@@ -32,6 +33,7 @@ class App extends Component {
           <Route exact path="/fetch/news/:category" component ={News} />
           <Route exact path="/fetch/community" component ={Community} />
           <Route exact path="/fetch/community/search" component ={CommunitySearch} />
+          <Route exact path="/fetch/customfeed" component={CustomFeed} />
           <Route exact path="/rex" component ={RexMain} />
           <Route exact path="/rex/catalog" component ={Catalog} />
           <Route exact path="/rex/catalog/tv/:id" component ={MediaInfo} />

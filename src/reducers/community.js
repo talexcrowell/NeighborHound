@@ -5,6 +5,7 @@ import {
   FETCH_COMMUNITY_SEARCH_SUCCESS,
   FETCH_COMMUNITY_SEARCH_ERROR, 
   REMOVE_POST_FROM_FEED,
+  CLEAR_SEARCH
 } from '../actions/community';
 
 const initialState = {
@@ -54,6 +55,13 @@ export default function communityReducer(state=initialState, action){
     return{
       ...state,
       posts: state.posts.filter(post => post.id !== action.id),
+      error: null
+    }
+  }
+  else if(action.type === CLEAR_SEARCH){
+    return{
+      ...state,
+      search: [],
       error: null
     }
   }
