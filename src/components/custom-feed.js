@@ -18,6 +18,8 @@ export class CustomFeed extends React.Component {
   }
 
   render() {
+    let subreddits;
+
 
     let articles;
     
@@ -39,8 +41,20 @@ export class CustomFeed extends React.Component {
     return(
       <main role='main' className='community-page'>
         <section className='main-menu'>
-            <h1>Add subreddits</h1>
             <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
+            <h1>Add News</h1>
+              <input className='search-query' id='query' placeholder='Add topic'></input>
+              <select className='search-sources' id='sources'>
+                <option className='search-source' value='general'>General</option>
+                <option className='search-source' value='technology'>Technology</option> 
+                <option className='search-source' value='science'>Science</option>             
+                <option className='search-source' value='business'>Business</option>              
+                <option className='search-source' value='health'>Health</option>               
+              </select>
+              <button className='search-link'>Add</button>
+            </form>
+            <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
+            <h1>Add Community</h1>
               <input className='search-query' id='query' placeholder='Enter subreddit here...'></input>
               <button className='search-link'>Add</button>
             </form>

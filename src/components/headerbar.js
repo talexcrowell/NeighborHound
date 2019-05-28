@@ -84,6 +84,31 @@ export class HeaderBar extends React.Component {
       </section>
     </div>);
     }
+    else if(param.includes('/fetch/customfeed') === true){
+      navmenu = (
+      <div>
+        <div className='headerbar'>
+          <div className='header-container'>
+            <img className='logo' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' onClick={() => window.scrollTo(0,0)}/>
+              <h2 className='header-title'>NeighborHound</h2>
+            <ul className='header-menu'>
+              <Link className='click-area' to='/rex' ><li className='header-menu-choice'>Rex</li></Link>
+              <li className='header-menu-choice'>User</li>
+              <Link className='click-area' to='/'><li className='header-menu-choice'>Home</li></Link>
+            </ul>
+          </div>
+        </div>
+        <section className='main-menu-nav'>
+          <ul className='main-menu-nav-buttons'>
+            <Link className='click-area' to='/fetch' ><li className='main-menu-choice' onClick={()=> window.scrollTo(0,0)}>Main</li></Link>
+            <Link to='/fetch/news' ><li className='main-menu-choice' onClick={()=> window.scrollTo(0,0)}>News</li></Link>
+            <Link to='/fetch/community' ><li className='main-menu-choice' onClick={()=> window.scrollTo(0,0)}>Community</li></Link>
+            <Link to='/fetch/customfeed' ><li className='main-menu-choice-active'>Custom Feed</li></Link>
+            <li className='main-menu-choice'>FetchLists</li>
+          </ul>
+      </section>
+    </div>);
+    }
     else if(param.endsWith('/rex') === true){
       navmenu = (
         <div>
