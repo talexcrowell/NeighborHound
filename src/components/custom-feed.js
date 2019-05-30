@@ -41,27 +41,36 @@ export class CustomFeed extends React.Component {
     return(
       <main role='main' className='community-page'>
         <section className='main-menu'>
-            <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
-            <h1>Add News</h1>
-              <input className='search-query' id='query' placeholder='Add topic'></input>
-              <select className='search-sources' id='sources'>
-                <option className='search-source' value='general'>General</option>
-                <option className='search-source' value='technology'>Technology</option> 
-                <option className='search-source' value='science'>Science</option>             
-                <option className='search-source' value='business'>Business</option>              
-                <option className='search-source' value='health'>Health</option>               
-              </select>
-              <button className='search-link'>Add</button>
-            </form>
-            <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
-            <h1>Add Community</h1>
-              <input className='search-query' id='query' placeholder='Enter subreddit here...'></input>
-              <button className='search-link'>Add</button>
-            </form>
+        <img className='dashboard-img-container' src='https://i.imgur.com/3xw03XE.png' alt='Neighborhound' />
+        <h1>Coming Soon to Fetch</h1>
+        <p>Registered users will be able to create and save custom built feeds for their homepage</p> 
         </section>
-        {newsFeed}
-      </main>  
+        </main>
     )
+    // return(
+    //   <main role='main' className='community-page'>
+    //     <section className='main-menu'>
+    //         <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
+    //         <h1>Add News</h1>
+    //           <input className='search-query' id='query' placeholder='Add topic'></input>
+    //           <select className='search-sources' id='sources'>
+    //             <option className='search-source' value='general'>General</option>
+    //             <option className='search-source' value='technology'>Technology</option> 
+    //             <option className='search-source' value='science'>Science</option>             
+    //             <option className='search-source' value='business'>Business</option>              
+    //             <option className='search-source' value='health'>Health</option>               
+    //           </select>
+    //           <button className='search-link'>Add</button>
+    //         </form>
+    //         <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
+    //         <h1>Add Community</h1>
+    //           <input className='search-query' id='query' placeholder='Enter subreddit here...'></input>
+    //           <button className='search-link'>Add</button>
+    //         </form>
+    //     </section>
+    //     {newsFeed}
+    //   </main>  
+    // )
   }
 }
 

@@ -23,7 +23,7 @@ export class CommunitySearch extends React.Component {
     let articles;
     
     if(this.props.search.length === 0){
-      articles = <img className='loading-img' src='https://i.imgur.com/4WYBRRN.png' alt='Gathering Data...' />;
+      articles = <img className='loading-img' src='https://i.imgur.com/3xw03XE.png' alt='Gathering Data...' />;
     }
     else{
       articles = this.props.search.map((item, index) => (
@@ -43,6 +43,7 @@ export class CommunitySearch extends React.Component {
         <section className='main-menu'>
         <Link to='/fetch/community'><div className='search-link'>Back to Community</div></Link>
             <h1>What are you looking for?</h1>
+            <p>**Search results aren't filtered for NSFW posts, please serach at your discretion!**</p>
             <form className='search-form' onSubmit={ e => this.handleSubmit(e)}>
               <input className='search-query' id='query'></input>
               <select className='search-sources' id='sources'>
@@ -53,8 +54,6 @@ export class CommunitySearch extends React.Component {
                 <option className='search-source' value='vimeo'>vimeo</option>
                 <option className='search-source' value='deviantart'>deviantart</option>               
               </select>
-              <input className='nsfw-filter' id='nsfw' type='checkbox' defaultChecked></input>
-              <label>NSFW?</label>
               <button className='search-link'>Search</button>
             </form>
         </section>

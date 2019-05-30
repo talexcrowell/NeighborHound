@@ -14,16 +14,11 @@ export class NewsSearch extends React.Component {
     return this.props.dispatch(searchNews(searchQuery));
   }
 
-  handleClear(event){
-    event.preventDefault()
-    console.log(event.target.query);
-  }
-
   render() {
     let articles;
     
     if(this.props.search.length === 0){
-      articles = <img className='loading-img' src='https://i.imgur.com/4WYBRRN.png' alt='Gathering Data...' />;
+      articles = <img className='loading-img' src='https://i.imgur.com/3xw03XE.png' alt='Gathering Data...' />;
     }
     else{
       articles = this.props.search.map((item, index) => (
@@ -47,7 +42,6 @@ export class NewsSearch extends React.Component {
             <form className='search-form' onSubmit={ e => {this.handleSubmit(e)}}>
               <input className='search-query' id='query' type='text' required></input>
               <button className='search-link' type='submit'>Search</button>
-              <button className='search-link' type='submit'>Clear</button>
             </form>
         </section>
         {newsFeed}
